@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es" class="dark-mode">
+<head>
+<title>¿Qué es DVC (Data Version Control)  y cómo puede ayudar en tus proyectos de datos?</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preload" as="style" href="../assets/built/screen.css%3Fv=b67a8888e4.css" />
+<link rel="preload" as="script" href="../assets/built/casper.js%3Fv=b67a8888e4" />
+<link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=b67a8888e4.css" />
+<link rel="icon" href="../content/images/size/w256h256/format/png/2023/07/icon-1.svg" type="image/png">
+<link rel="canonical" href="index.html">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<link rel="amphtml" href="amp/index.html">
+<meta property="og:site_name" content="SREDevOps.org">
+<meta property="og:type" content="article">
+<meta property="og:title" content="¿Qué es DVC (Data Version Control)  y cómo puede ayudar en tus proyectos de datos?">
+<meta property="og:description" content="DVC es una herramienta gratuita y de código abierto para el control de versiones de datos. Te ayuda a administrar, rastrear y compartir conjuntos de datos a lo largo de su ciclo de vida. DVC se puede utilizar para almacenar conjuntos de datos en cualquier formato, incluidos archivos CSV, JSON,">
+<meta property="og:url" content="https://sredevops.org/que-es-dvc-data-version-control-y-como-puede-ayudar-en-tus-proyectos-de-datos/">
+<meta property="og:image" content="https://sredevops.org/content/images/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.png">
+<meta property="article:published_time" content="2023-07-17T16:54:04.000Z">
+<meta property="article:modified_time" content="2023-07-17T16:54:04.000Z">
+<meta property="article:tag" content="MLOps">
+<meta property="article:tag" content="Apps">
+<meta property="article:publisher" content="https://www.facebook.com/sredevops">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¿Qué es DVC (Data Version Control)  y cómo puede ayudar en tus proyectos de datos?">
+<meta name="twitter:description" content="DVC es una herramienta gratuita y de código abierto para el control de versiones de datos. Te ayuda a administrar, rastrear y compartir conjuntos de datos a lo largo de su ciclo de vida. DVC se puede utilizar para almacenar conjuntos de datos en cualquier formato, incluidos archivos CSV, JSON,">
+<meta name="twitter:url" content="https://sredevops.org/que-es-dvc-data-version-control-y-como-puede-ayudar-en-tus-proyectos-de-datos/">
+<meta name="twitter:image" content="https://sredevops.org/content/images/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.png">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Nicolás Georger">
+<meta name="twitter:label2" content="Filed under">
+<meta name="twitter:data2" content="MLOps, Apps">
+<meta name="twitter:site" content="@sredevopsorg">
+<meta property="og:image:width" content="1715">
+<meta property="og:image:height" content="322">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SREDevOps.org",
+        "url": "https://sredevops.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/06/ghost.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nicolás Georger",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/06/don-alejandro.jpg",
+            "width": 376,
+            "height": 376
+        },
+        "url": "https://sredevops.org/author/nicolas-georger/",
+        "sameAs": [
+            "https://sredevops.org"
+        ]
+    },
+    "headline": "¿Qué es DVC (Data Version Control)  y cómo puede ayudar en tus proyectos de datos?",
+    "url": "https://sredevops.org/que-es-dvc-data-version-control-y-como-puede-ayudar-en-tus-proyectos-de-datos/",
+    "datePublished": "2023-07-17T16:54:04.000Z",
+    "dateModified": "2023-07-17T16:54:04.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://sredevops.org/content/images/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.png",
+        "width": 1715,
+        "height": 322
+    },
+    "keywords": "MLOps, Apps",
+    "description": "DVC es una herramienta gratuita y de código abierto para el control de versiones de datos. Te ayuda a administrar, rastrear y compartir conjuntos de datos a lo largo de su ciclo de vida. DVC se puede utilizar para almacenar conjuntos de datos en cualquier formato, incluidos archivos CSV, JSON, HDF5 y formatos de almacenamiento de imágenes. También puedes usar DVC para rastrear cambios en tus conjuntos de datos, lo que facilita la comparación de versiones y la identificación de cambios.\n\n\nPodría ",
+    "mainEntityOfPage": "https://sredevops.org/que-es-dvc-data-version-control-y-como-puede-ayudar-en-tus-proyectos-de-datos/"
+}
+    </script>
+<meta name="generator" content="Ghost 5.59">
+<link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="../rss/index.html">
+<script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/ghost/announcement-bar@~1.1/umd/announcement-bar.min.js" data-announcement-bar="https://sredevops.org/" data-api-url="https://sredevops.org/members/api/announcement/" crossorigin="anonymous"></script>
+<link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+<script defer src="../public/cards.min.js%3Fv=b67a8888e4"></script>
+<link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=b67a8888e4.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XHP2RTN2VG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XHP2RTN2VG');
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1221252298514939');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1221252298514939&ev=PageView&noscript=1"
+/></noscript>
+
+<meta name="facebook-domain-verification" content="rpzaz85ait61jdamyc3l3h270la0ex" /><style>:root {--ghost-accent-color: #ffffff;}</style>
+</head>
+<body class="post-template tag-mlops tag-hash-es tag-apps is-head-left-logo has-sans-body">
+<div class="viewport">
+<header id="gh-head" class="gh-head outer is-header-hidden">
+<div class="gh-head-inner inner">
+<div class="gh-head-brand">
+<a class="gh-head-logo" href="../index.html">
+<img src="../content/images/2023/06/ghost.svg" alt="SREDevOps.org">
+</a>
+<button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+<button class="gh-burger"></button>
+</div>
+<nav class="gh-head-menu">
+<ul class="nav">
+<li class="nav-inicio"><a href="../index.html">Inicio</a></li>
+<li class="nav-nosotros"><a href="../que-es-sredevops/index.html">Nosotros</a></li>
+<li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+<li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+<li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+</ul>
+</nav>
+<div class="gh-head-actions">
+<button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+</div>
+</div>
+</header>
+<div class="site-content">
+<main id="site-main" class="site-main">
+<article class="article post tag-mlops tag-hash-es tag-apps featured image-small">
+<header class="article-header gh-canvas">
+<div class="article-tag post-card-tags">
+<span class="post-card-primary-tag">
+<a href="../tag/mlops/index.html">MLOps</a>
+</span>
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h1 class="article-title">¿Qué es DVC (Data Version Control) y cómo puede ayudar en tus proyectos de datos?</h1>
+<div class="article-byline">
+<section class="article-byline-content">
+<ul class="author-list">
+<li class="author-list-item">
+<a href="../author/nicolas-georger/index.html" class="author-avatar">
+<img class="author-profile-image" src="../content/images/size/w100/2023/06/don-alejandro.jpg" alt="Nicolás Georger" />
+</a>
+</li>
+</ul>
+<div class="article-byline-meta">
+<h4 class="author-name"><a href="../author/nicolas-georger/index.html">Nicolás Georger</a></h4>
+<div class="byline-meta-content">
+<time class="byline-meta-date" datetime="2023-07-17">17 de jul. de 2023</time>
+<span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
+</div>
+</div>
+</section>
+</div>
+<figure class="article-image">
+<img srcset="../content/images/size/w300/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.png 300w,
+                           ../content/images/size/w600/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.pngg 600w,
+                          ../content/images/size/w1000/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.pngng 1000w,
+                         ../content/images/size/w2000/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.pngpng 2000w" sizes="(min-width: 1400px) 1400px, 92vw" src="../content/images/size/w2000/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.png" alt="¿Qué es DVC (Data Version Control)  y cómo puede ayudar en tus proyectos de datos?" />
+</figure>
+</header>
+<section class="gh-content gh-canvas">
+<p>DVC es una herramienta gratuita y de código abierto para el control de versiones de datos. Te ayuda a administrar, rastrear y compartir conjuntos de datos a lo largo de su ciclo de vida. DVC se puede utilizar para almacenar conjuntos de datos en cualquier formato, incluidos archivos CSV, JSON, HDF5 y formatos de almacenamiento de imágenes. También puedes usar DVC para rastrear cambios en tus conjuntos de datos, lo que facilita la comparación de versiones y la identificación de cambios.</p>
+<p><em>Podría decirse que DVC es un equivalente a Git, focalizado en data science. </em></p>
+<p>DVC se puede usar en una variedad de escenarios y áreas, incluyendo MLOps, data pipelines, investigación, desarrollo, ingeniería, bases de datos, etc. Es una herramienta poderosa que puede ayudarte a administrar y compartir tus datos de manera más eficiente.</p>
+<figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://dvc.org/?ref=sredevops.org#use-cases"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Data Version Control · DVC</div><div class="kg-bookmark-description">Open-source version control system for Data Science and Machine Learning projects. Git-like experience to organize your data, models, and experiments.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://dvc.org/apple-touch-icon-512x512.png?v=dfbc4a93a926127fc4495e9d640409f8" alt><span class="kg-bookmark-publisher">Data Version Control · DVC</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://dvc.org/social-share.png" alt></div></a><figcaption><p dir="ltr"><span>Sitio web</span></p></figcaption></figure>
+<h3 id="beneficios-de-usar-dvc"><strong>Beneficios de usar DVC</strong></h3>
+<p>Hay muchos beneficios de usar DVC, incluidos:</p>
+<ul><li><strong>Gestión de datos centralizada:</strong> DVC te permite almacenar todos tus conjuntos de datos en un solo lugar. Esto facilita la búsqueda de los datos que necesitas y la colaboración con otros.</li><li><strong>Seguimiento de cambios:</strong> DVC rastrea los cambios en tus conjuntos de datos. Esto facilita la comparación de versiones y la identificación de cambios.</li><li><strong>Compartición de datos:</strong> DVC te permite compartir tus conjuntos de datos con otros de manera segura y eficiente.</li><li><strong>Automatización:</strong> DVC se puede utilizar para automatizar tareas relacionadas con datos, como la generación de informes y la validación de datos.</li></ul>
+<h3 id="c%C3%B3mo-comenzar-con-dvc"><strong>Cómo comenzar con DVC</strong></h3>
+<p>Para comenzar con DVC, primero deberás instalarlo. DVC está disponible para Windows, macOS y Linux. Una vez que hayas instalado DVC, puedes comenzar a almacenar tus conjuntos de datos. Para almacenar un conjunto de datos, usa el comando <code>dvc init</code>. Este comando creará un directorio para tu conjunto de datos y agregará un archivo de configuración <code>.dvc</code>. El archivo de configuración <code>.dvc</code> contiene información sobre tu conjunto de datos, como su nombre, formato y tamaño.</p>
+<figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://github.com/iterative/dvc?ref=sredevops.org"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - iterative/dvc: 🦉 Data Version Control | Git for Data &amp; Models | ML Experiments Management</div><div class="kg-bookmark-description">🦉 Data Version Control | Git for Data &amp; Models | ML Experiments Management - GitHub - iterative/dvc: 🦉 Data Version Control | Git for Data &amp; Models | ML Experiments Management</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.com/fluidicon.png" alt><span class="kg-bookmark-author">iterative</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://repository-images.githubusercontent.com/83878269/a5c64400-8fdd-11ea-9851-ec57bc168db5" alt></div></a><figcaption><p dir="ltr"><span>Repo en Github</span></p></figcaption></figure>
+<p>Una vez que hayas almacenado tus conjuntos de datos, puedes comenzar a rastrearlos. Para rastrear un conjunto de datos, usa el comando <code>dvc add</code>. Este comando creará un registro de cambios para tu conjunto de datos. El registro de cambios contiene información sobre los cambios que has realizado en tu conjunto de datos, como la fecha, la hora y el autor del cambio.</p>
+<p>Puedes usar DVC para compartir tus conjuntos de datos con otros. Para compartir un conjunto de datos, usa el comando <code>dvc push</code>. Este comando cargará tu conjunto de datos en un repositorio DVC. Un repositorio DVC es un almacén para conjuntos de datos DVC. Puedes usar un repositorio DVC para almacenar tus conjuntos de datos de forma segura y eficiente.</p>
+<figure class="kg-card kg-embed-card"><iframe width="200" height="113" src="https://www.youtube.com/embed/UbL7VUpv1Bs?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Version Control for Data Science Explained in 5 Minutes (No Code!)"></iframe></figure>
+<h3 id="conclusi%C3%B3n"><strong>Conclusión</strong></h3>
+<p>DVC es una herramienta poderosa que puede ayudarte a administrar y compartir tus datos de manera más eficiente. Si estás trabajando con datos, DVC es una herramienta que debes considerar usar.</p>
+</section>
+</article>
+</main>
+<aside class="read-more-wrap outer">
+<div class="read-more inner">
+<article class="post-card post featured">
+<a class="post-card-image-link" href="../br/o-que-e-engenharia-de-plataforma-o-que-e-isso-para-mim-o-que-aconteceu-com-o-devops/index.html">
+<img class="post-card-image" srcset="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                    https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                    https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1000 1000w,
+                    https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600" alt="O que é Engenharia de Plataforma? O que é isso para mim? O que aconteceu com o DevOps?" loading="lazy" />
+</a>
+<div class="post-card-content">
+<a class="post-card-content-link" href="../br/o-que-e-engenharia-de-plataforma-o-que-e-isso-para-mim-o-que-aconteceu-com-o-devops/index.html">
+<header class="post-card-header">
+<div class="post-card-tags">
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h2 class="post-card-title">
+O que é Engenharia de Plataforma? O que é isso para mim? O que aconteceu com o DevOps?
+</h2>
+</header>
+<div class="post-card-excerpt">Você tem ouvido e lido sobre Engenharia de Plataforma em toda a web ultimamente... mas nós realmente entendemos o que é Engenharia de Plataforma? Todos parecem convencidos e empolgados, mas você consegue ver como é diferente do DevOps? Tentaremos fazer um resumo geral com base no material que a Platform</div>
+</a>
+<footer class="post-card-meta">
+<time class="post-card-meta-date" datetime="2023-08-18">18 de ago. de 2023</time>
+<span class="post-card-meta-length">3 min read</span>
+</footer>
+</div>
+</article>
+<article class="post-card post featured">
+<a class="post-card-image-link" href="../br/corrupcao-burocracia-estaca-existe-uma-solucao-blockchain/index.html">
+<img class="post-card-image" srcset="../content/images/size/w300/2023/08/image-2-1.png 300w,
+                   ../content/images/size/w600/2023/08/image-2-1.pngg 600w,
+                  ../content/images/size/w1000/2023/08/image-2-1.pngng 1000w,
+                 ../content/images/size/w2000/2023/08/image-2-1.pngpng 2000w" sizes="(max-width: 1000px) 400px, 800px" src="../content/images/size/w600/2023/08/image-2-1.png" alt="Corrupção? Burocracia? Estaca? Existe uma solução: Blockchain." loading="lazy" />
+</a>
+<div class="post-card-content">
+<a class="post-card-content-link" href="../br/corrupcao-burocracia-estaca-existe-uma-solucao-blockchain/index.html">
+<header class="post-card-header">
+<div class="post-card-tags">
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h2 class="post-card-title">
+Corrupção? Burocracia? Estaca? Existe uma solução: Blockchain.
+</h2>
+</header>
+<div class="post-card-excerpt">Blockchain é uma tecnologia que está revolucionando o mundo, e o governo não é exceção. Essa tecnologia tem potencial para resolver conflitos sociais e políticos , como corrupção, burocracia e falta de participação cidadã .
+Tabela de conteúdos:
+* Como blockchain pode ser usado no governo?
+* Por que é conveniente para empresas, governos</div>
+</a>
+<footer class="post-card-meta">
+<time class="post-card-meta-date" datetime="2023-08-18">18 de ago. de 2023</time>
+<span class="post-card-meta-length">3 min read</span>
+</footer>
+</div>
+</article>
+<article class="post-card post featured">
+<a class="post-card-image-link" href="../corrupcion-burocracia-participacion-hay-una-solucion-blockchain/index.html">
+<img class="post-card-image" srcset="../content/images/size/w300/2023/08/image-2-1.png 300w,
+                   ../content/images/size/w600/2023/08/image-2-1.pngg 600w,
+                  ../content/images/size/w1000/2023/08/image-2-1.pngng 1000w,
+                 ../content/images/size/w2000/2023/08/image-2-1.pngpng 2000w" sizes="(max-width: 1000px) 400px, 800px" src="../content/images/size/w600/2023/08/image-2-1.png" alt="Corrupción? Burocracia? Participación? Hay una solución: Blockchain." loading="lazy" />
+</a>
+<div class="post-card-content">
+<a class="post-card-content-link" href="../corrupcion-burocracia-participacion-hay-una-solucion-blockchain/index.html">
+<header class="post-card-header">
+<div class="post-card-tags">
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h2 class="post-card-title">
+Corrupción? Burocracia? Participación? Hay una solución: Blockchain.
+</h2>
+</header>
+<div class="post-card-excerpt">Blockchain es una tecnología que está revolucionando el mundo, y el gobierno no es la excepción. Esta tecnología tiene el potencial de resolver los conflictos sociales y políticos, como la corrupción, la burocracia y la falta de participación ciudadana.
+Tabla de contenidos:
+* Cómo blockchain se puede usar en el gobierno?</div>
+</a>
+<footer class="post-card-meta">
+<time class="post-card-meta-date" datetime="2023-08-10">10 de ago. de 2023</time>
+<span class="post-card-meta-length">4 min read</span>
+</footer>
+</div>
+</article>
+</div>
+</aside>
+</div>
+<footer class="site-footer outer">
+<div class="inner">
+<section class="copyright"><a href="../index.html">SREDevOps.org</a> &copy; 2023</section>
+<nav class="site-footer-nav">
+<ul class="nav">
+<li class="nav-nosotros"><a href="../que-es-sredevops/index.html">Nosotros</a></li>
+<li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+<li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+<li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+<li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+<li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+</nav>
+<div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+</div>
+</footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=b67a8888e4"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"7fadde4f49fbd772","version":"2023.8.0","r":1,"b":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

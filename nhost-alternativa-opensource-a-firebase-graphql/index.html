@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es" class="dark-mode">
+<head>
+<title>Nhost: Plataforma opensource alternativa a Firebase</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preload" as="style" href="../assets/built/screen.css%3Fv=b67a8888e4.css" />
+<link rel="preload" as="script" href="../assets/built/casper.js%3Fv=b67a8888e4" />
+<link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=b67a8888e4.css" />
+<meta name="description" content="¿Te gustaría tener una plataforma para desarrollar aplicaciones web sin complicaciones? ¡Nhost es tu respuesta! Con Nhost, olvídate de preocuparte por la infraestructura y céntrate en la creación de tu aplicación.">
+<link rel="icon" href="../content/images/size/w256h256/format/png/2023/07/icon-1.svg" type="image/png">
+<link rel="canonical" href="index.html">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<link rel="amphtml" href="amp/index.html">
+<meta property="og:site_name" content="SREDevOps.org">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nhost: Plataforma opensource alternativa a Firebase">
+<meta property="og:description" content="¿Te gustaría tener una plataforma para desarrollar aplicaciones web sin complicaciones? ¡Nhost es tu respuesta! Con Nhost, olvídate de preocuparte por la infraestructura y céntrate en la creación de tu aplicación.">
+<meta property="og:url" content="https://sredevops.org/nhost-alternativa-opensource-a-firebase-graphql/">
+<meta property="og:image" content="https://sredevops.org/content/images/2023/06/nhost.png">
+<meta property="article:published_time" content="2023-06-02T22:07:00.000Z">
+<meta property="article:modified_time" content="2023-06-04T22:13:34.000Z">
+<meta property="article:tag" content="Apps">
+<meta property="article:tag" content="Destacado">
+<meta property="article:tag" content="Cloud">
+<meta property="article:tag" content="Platform Engineering">
+<meta property="article:publisher" content="https://www.facebook.com/sredevops">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nhost: Plataforma opensource alternativa a Firebase">
+<meta name="twitter:description" content="¿Te gustaría tener una plataforma para desarrollar aplicaciones web sin complicaciones? ¡Nhost es tu respuesta! Con Nhost, olvídate de preocuparte por la infraestructura y céntrate en la creación de tu aplicación.">
+<meta name="twitter:url" content="https://sredevops.org/nhost-alternativa-opensource-a-firebase-graphql/">
+<meta name="twitter:image" content="https://sredevops.org/content/images/2023/06/nhost.png">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Nicolás Georger">
+<meta name="twitter:label2" content="Filed under">
+<meta name="twitter:data2" content="Apps, Destacado, Cloud, Platform Engineering">
+<meta name="twitter:site" content="@sredevopsorg">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SREDevOps.org",
+        "url": "https://sredevops.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/06/ghost.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nicolás Georger",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/06/don-alejandro.jpg",
+            "width": 376,
+            "height": 376
+        },
+        "url": "https://sredevops.org/author/nicolas-georger/",
+        "sameAs": [
+            "https://sredevops.org"
+        ]
+    },
+    "headline": "Nhost: Plataforma opensource alternativa a Firebase",
+    "url": "https://sredevops.org/nhost-alternativa-opensource-a-firebase-graphql/",
+    "datePublished": "2023-06-02T22:07:00.000Z",
+    "dateModified": "2023-06-04T22:13:34.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://sredevops.org/content/images/2023/06/nhost.png"
+    },
+    "keywords": "Apps, Destacado, Cloud, Platform Engineering",
+    "description": "¿Te gustaría tener una plataforma para desarrollar aplicaciones web sin complicaciones? ¡Nhost es tu respuesta! Con Nhost, olvídate de preocuparte por la infraestructura y céntrate en la creación de tu aplicación.",
+    "mainEntityOfPage": "https://sredevops.org/nhost-alternativa-opensource-a-firebase-graphql/"
+}
+    </script>
+<meta name="generator" content="Ghost 5.59">
+<link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="../rss/index.html">
+<script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/ghost/announcement-bar@~1.1/umd/announcement-bar.min.js" data-announcement-bar="https://sredevops.org/" data-api-url="https://sredevops.org/members/api/announcement/" crossorigin="anonymous"></script>
+<link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+<script defer src="../public/cards.min.js%3Fv=b67a8888e4"></script>
+<link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=b67a8888e4.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XHP2RTN2VG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XHP2RTN2VG');
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1221252298514939');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1221252298514939&ev=PageView&noscript=1"
+/></noscript>
+
+<meta name="facebook-domain-verification" content="rpzaz85ait61jdamyc3l3h270la0ex" /><style>:root {--ghost-accent-color: #ffffff;}</style>
+</head>
+<body class="post-template tag-apps tag-destacado tag-hash-es tag-cloud tag-platform-engineering is-head-left-logo has-sans-body">
+<div class="viewport">
+<header id="gh-head" class="gh-head outer is-header-hidden">
+<div class="gh-head-inner inner">
+<div class="gh-head-brand">
+<a class="gh-head-logo" href="../index.html">
+<img src="../content/images/2023/06/ghost.svg" alt="SREDevOps.org">
+</a>
+<button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+<button class="gh-burger"></button>
+</div>
+<nav class="gh-head-menu">
+<ul class="nav">
+<li class="nav-inicio"><a href="../index.html">Inicio</a></li>
+<li class="nav-nosotros"><a href="../que-es-sredevops/index.html">Nosotros</a></li>
+<li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+<li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+<li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+</ul>
+</nav>
+<div class="gh-head-actions">
+<button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+</div>
+</div>
+</header>
+<div class="site-content">
+<main id="site-main" class="site-main">
+<article class="article post tag-apps tag-destacado tag-hash-es tag-cloud tag-platform-engineering featured image-small">
+<header class="article-header gh-canvas">
+<div class="article-tag post-card-tags">
+<span class="post-card-primary-tag">
+<a href="../tag/apps/index.html">Apps</a>
+</span>
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h1 class="article-title">Nhost: Plataforma opensource alternativa a Firebase</h1>
+<p class="article-excerpt">¿Te gustaría tener una plataforma para desarrollar aplicaciones web sin complicaciones? ¡Nhost es tu respuesta! Con Nhost, olvídate de preocuparte por la infraestructura y céntrate en la creación de tu aplicación.</p>
+<div class="article-byline">
+<section class="article-byline-content">
+<ul class="author-list">
+<li class="author-list-item">
+<a href="../author/nicolas-georger/index.html" class="author-avatar">
+<img class="author-profile-image" src="../content/images/size/w100/2023/06/don-alejandro.jpg" alt="Nicolás Georger" />
+</a>
+</li>
+</ul>
+<div class="article-byline-meta">
+<h4 class="author-name"><a href="../author/nicolas-georger/index.html">Nicolás Georger</a></h4>
+<div class="byline-meta-content">
+<time class="byline-meta-date" datetime="2023-06-02">2 de jun. de 2023</time>
+<span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+</div>
+</div>
+</section>
+</div>
+<figure class="article-image">
+<img srcset="../content/images/size/w300/2023/06/nhost.png 300w,
+                           ../content/images/size/w600/2023/06/nhost.pngg 600w,
+                          ../content/images/size/w1000/2023/06/nhost.pngng 1000w,
+                         ../content/images/size/w2000/2023/06/nhost.pngpng 2000w" sizes="(min-width: 1400px) 1400px, 92vw" src="../content/images/size/w2000/2023/06/nhost.png" alt="nhost: opensource app hosting" />
+<figcaption>nhost: opensource app hosting</figcaption>
+</figure>
+</header>
+<section class="gh-content gh-canvas">
+<p><em>¿Te gustaría tener una plataforma para desarrollar aplicaciones web sin complicaciones? ¡Nhost es tu respuesta! Con Nhost, olvídate de preocuparte por la infraestructura y céntrate en la creación de tu aplicación.</em></p><p>Una de las cosas <em>bacanes</em> de Nhost es que te ofrece una base de datos PostgreSQL lista para usar. ¡Adiós a las complicaciones de configurar y mantener una base de datos! Además, Nhost cuenta con una API fácil de usar, lo que significa que puedes comunicarte con tu base de datos de forma rápida y sencilla, y eso que aún no llegamos a la integración nativa con GraphQL.</p><p><em>Y por si fuera poco...</em>. Nhost también te brinda más de 10 opciones para implementar providers de autenticación segura para tus usuarios. Puedes implementar fácilmente funciones de inicio de sesión, registro y gestión de usuarios en tu aplicación sin tener que lidiar con la seguridad tú mismo.  oAuth2 desde Github, Auth0, Google, entre otros.</p><p>¿Recuerdas las veces que tu aplicación se caía por tráfico? Nhost (versión cloud) ofrece escalabilidad automática, lo que significa que tu aplicación se ajustará  a cualquier cantidad de usuarios sin que se caiga ni tee deje <em>con más lag que manco con VTR.</em></p><p>Y si eres fanático del desarrollo frontend moderno, Nhost también tiene algo para ti. Puedes utilizar Next.js y React Native para crear tu interfaz de usuario, y Nhost se encargará de la parte del backend. ¡La combinación perfecta para una experiencia de desarrollo fluida!</p><p>Así que ahí lo tienes, Nhost es la plataforma perfecta para desarrollar aplicaciones web de manera sencilla y sin preocupaciones. Con su base de datos lista para usar, autenticación segura, escalabilidad automática y soporte para frontend moderno, tendrás foco en tu proyecto y en tu código.</p><p>Mención aparte, es que puedes usar un free tier razonable y mencoón aparte para esos SRE que están leyendo, ofrece opción <em>self managed </em>a través de containers y docker-compose, pero el trabajo de migrar hacia un deployment acorde a tu necesidad, queda a tu disposición.</p><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://github.com/nhost/nhost.git?ref=sredevops.org"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - nhost/nhost: The Open Source Firebase Alternative with GraphQL.</div><div class="kg-bookmark-description">The Open Source Firebase Alternative with GraphQL. - GitHub - nhost/nhost: The Open Source Firebase Alternative with GraphQL.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.com/fluidicon.png" alt><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">nhost</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://repository-images.githubusercontent.com/337414495/136c2bf7-b665-4f16-a20d-3c821cb89072" alt></div></a><figcaption>nhost repositorio en Github</figcaption></figure>
+</section>
+</article>
+</main>
+<aside class="read-more-wrap outer">
+<div class="read-more inner">
+<article class="post-card post featured">
+<a class="post-card-image-link" href="../br/o-que-e-engenharia-de-plataforma-o-que-e-isso-para-mim-o-que-aconteceu-com-o-devops/index.html">
+<img class="post-card-image" srcset="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                    https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                    https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1000 1000w,
+                    https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600" alt="O que é Engenharia de Plataforma? O que é isso para mim? O que aconteceu com o DevOps?" loading="lazy" />
+</a>
+<div class="post-card-content">
+<a class="post-card-content-link" href="../br/o-que-e-engenharia-de-plataforma-o-que-e-isso-para-mim-o-que-aconteceu-com-o-devops/index.html">
+<header class="post-card-header">
+<div class="post-card-tags">
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h2 class="post-card-title">
+O que é Engenharia de Plataforma? O que é isso para mim? O que aconteceu com o DevOps?
+</h2>
+</header>
+<div class="post-card-excerpt">Você tem ouvido e lido sobre Engenharia de Plataforma em toda a web ultimamente... mas nós realmente entendemos o que é Engenharia de Plataforma? Todos parecem convencidos e empolgados, mas você consegue ver como é diferente do DevOps? Tentaremos fazer um resumo geral com base no material que a Platform</div>
+</a>
+<footer class="post-card-meta">
+<time class="post-card-meta-date" datetime="2023-08-18">18 de ago. de 2023</time>
+<span class="post-card-meta-length">3 min read</span>
+</footer>
+</div>
+</article>
+<article class="post-card post featured">
+<a class="post-card-image-link" href="../br/corrupcao-burocracia-estaca-existe-uma-solucao-blockchain/index.html">
+<img class="post-card-image" srcset="../content/images/size/w300/2023/08/image-2-1.png 300w,
+                   ../content/images/size/w600/2023/08/image-2-1.pngg 600w,
+                  ../content/images/size/w1000/2023/08/image-2-1.pngng 1000w,
+                 ../content/images/size/w2000/2023/08/image-2-1.pngpng 2000w" sizes="(max-width: 1000px) 400px, 800px" src="../content/images/size/w600/2023/08/image-2-1.png" alt="Corrupção? Burocracia? Estaca? Existe uma solução: Blockchain." loading="lazy" />
+</a>
+<div class="post-card-content">
+<a class="post-card-content-link" href="../br/corrupcao-burocracia-estaca-existe-uma-solucao-blockchain/index.html">
+<header class="post-card-header">
+<div class="post-card-tags">
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h2 class="post-card-title">
+Corrupção? Burocracia? Estaca? Existe uma solução: Blockchain.
+</h2>
+</header>
+<div class="post-card-excerpt">Blockchain é uma tecnologia que está revolucionando o mundo, e o governo não é exceção. Essa tecnologia tem potencial para resolver conflitos sociais e políticos , como corrupção, burocracia e falta de participação cidadã .
+Tabela de conteúdos:
+* Como blockchain pode ser usado no governo?
+* Por que é conveniente para empresas, governos</div>
+</a>
+<footer class="post-card-meta">
+<time class="post-card-meta-date" datetime="2023-08-18">18 de ago. de 2023</time>
+<span class="post-card-meta-length">3 min read</span>
+</footer>
+</div>
+</article>
+<article class="post-card post featured">
+<a class="post-card-image-link" href="../corrupcion-burocracia-participacion-hay-una-solucion-blockchain/index.html">
+<img class="post-card-image" srcset="../content/images/size/w300/2023/08/image-2-1.png 300w,
+                   ../content/images/size/w600/2023/08/image-2-1.pngg 600w,
+                  ../content/images/size/w1000/2023/08/image-2-1.pngng 1000w,
+                 ../content/images/size/w2000/2023/08/image-2-1.pngpng 2000w" sizes="(max-width: 1000px) 400px, 800px" src="../content/images/size/w600/2023/08/image-2-1.png" alt="Corrupción? Burocracia? Participación? Hay una solución: Blockchain." loading="lazy" />
+</a>
+<div class="post-card-content">
+<a class="post-card-content-link" href="../corrupcion-burocracia-participacion-hay-una-solucion-blockchain/index.html">
+<header class="post-card-header">
+<div class="post-card-tags">
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h2 class="post-card-title">
+Corrupción? Burocracia? Participación? Hay una solución: Blockchain.
+</h2>
+</header>
+<div class="post-card-excerpt">Blockchain es una tecnología que está revolucionando el mundo, y el gobierno no es la excepción. Esta tecnología tiene el potencial de resolver los conflictos sociales y políticos, como la corrupción, la burocracia y la falta de participación ciudadana.
+Tabla de contenidos:
+* Cómo blockchain se puede usar en el gobierno?</div>
+</a>
+<footer class="post-card-meta">
+<time class="post-card-meta-date" datetime="2023-08-10">10 de ago. de 2023</time>
+<span class="post-card-meta-length">4 min read</span>
+</footer>
+</div>
+</article>
+</div>
+</aside>
+</div>
+<footer class="site-footer outer">
+<div class="inner">
+<section class="copyright"><a href="../index.html">SREDevOps.org</a> &copy; 2023</section>
+<nav class="site-footer-nav">
+<ul class="nav">
+<li class="nav-nosotros"><a href="../que-es-sredevops/index.html">Nosotros</a></li>
+<li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+<li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+<li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+<li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+<li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+</nav>
+<div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+</div>
+</footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=b67a8888e4"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"7faddf496bc4d772","version":"2023.8.0","r":1,"b":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

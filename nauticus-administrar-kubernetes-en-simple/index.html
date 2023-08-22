@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es" class="dark-mode">
+<head>
+<title>Nauticus: Administrar kubernetes en &quot;modo fácil&quot;</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preload" as="style" href="../assets/built/screen.css%3Fv=b67a8888e4.css" />
+<link rel="preload" as="script" href="../assets/built/casper.js%3Fv=b67a8888e4" />
+<link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=b67a8888e4.css" />
+<meta name="description" content="Nauticus es un controlador de Kubernetes de código abierto que simplifica la gestión de espacios (namespaces con características mejoradas) dentro de tu clúster. Introduce un nuevo nivel de abstracción, lo que facilita a los desarrolladores y administradores gestionar recursos y políticas.">
+<link rel="icon" href="../content/images/size/w256h256/format/png/2023/07/icon-1.svg" type="image/png">
+<link rel="canonical" href="index.html">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<link rel="amphtml" href="amp/index.html">
+<meta property="og:site_name" content="SREDevOps.org">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nauticus: Administrar kubernetes en &quot;modo fácil&quot;">
+<meta property="og:description" content="Nauticus es un controlador de Kubernetes de código abierto que simplifica la gestión de espacios (namespaces con características mejoradas) dentro de tu clúster. Introduce un nuevo nivel de abstracción, lo que facilita a los desarrolladores y administradores gestionar recursos y políticas.">
+<meta property="og:url" content="https://sredevops.org/nauticus-administrar-kubernetes-en-simple/">
+<meta property="og:image" content="https://sredevops.org/content/images/2023/05/1_R4vTTYsn5rfXpV4E2dmg1g-1.webp">
+<meta property="article:published_time" content="2023-05-29T01:26:00.000Z">
+<meta property="article:modified_time" content="2023-05-29T01:32:23.000Z">
+<meta property="article:tag" content="Kubernetes">
+<meta property="article:tag" content="Destacado">
+<meta property="article:tag" content="DevOps">
+<meta property="article:tag" content="Platform Engineering">
+<meta property="article:tag" content="Apps">
+<meta property="article:publisher" content="https://www.facebook.com/sredevops">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nauticus: Administrar kubernetes en &quot;modo fácil&quot;">
+<meta name="twitter:description" content="Nauticus es un controlador de Kubernetes de código abierto que simplifica la gestión de espacios (namespaces con características mejoradas) dentro de tu clúster. Introduce un nuevo nivel de abstracción, lo que facilita a los desarrolladores y administradores gestionar recursos y políticas.">
+<meta name="twitter:url" content="https://sredevops.org/nauticus-administrar-kubernetes-en-simple/">
+<meta name="twitter:image" content="https://sredevops.org/content/images/2023/05/1_R4vTTYsn5rfXpV4E2dmg1g-1.webp">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Nicolás Georger">
+<meta name="twitter:label2" content="Filed under">
+<meta name="twitter:data2" content="Kubernetes, Destacado, DevOps, Platform Engineering, Apps">
+<meta name="twitter:site" content="@sredevopsorg">
+<meta property="og:image:width" content="328">
+<meta property="og:image:height" content="306">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SREDevOps.org",
+        "url": "https://sredevops.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/06/ghost.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nicolás Georger",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/06/don-alejandro.jpg",
+            "width": 376,
+            "height": 376
+        },
+        "url": "https://sredevops.org/author/nicolas-georger/",
+        "sameAs": [
+            "https://sredevops.org"
+        ]
+    },
+    "headline": "Nauticus: Administrar kubernetes en &quot;modo fácil&quot;",
+    "url": "https://sredevops.org/nauticus-administrar-kubernetes-en-simple/",
+    "datePublished": "2023-05-29T01:26:00.000Z",
+    "dateModified": "2023-05-29T01:32:23.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://sredevops.org/content/images/2023/05/1_R4vTTYsn5rfXpV4E2dmg1g-1.webp",
+        "width": 328,
+        "height": 306
+    },
+    "keywords": "Kubernetes, Destacado, DevOps, Platform Engineering, Apps",
+    "description": "Nauticus es un controlador de Kubernetes de código abierto que simplifica la gestión de espacios (namespaces con características mejoradas) dentro de tu clúster. Introduce un nuevo nivel de abstracción, lo que facilita a los desarrolladores y administradores gestionar recursos y políticas.",
+    "mainEntityOfPage": "https://sredevops.org/nauticus-administrar-kubernetes-en-simple/"
+}
+    </script>
+<meta name="generator" content="Ghost 5.59">
+<link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="../rss/index.html">
+<script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/ghost/announcement-bar@~1.1/umd/announcement-bar.min.js" data-announcement-bar="https://sredevops.org/" data-api-url="https://sredevops.org/members/api/announcement/" crossorigin="anonymous"></script>
+<link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+<script defer src="../public/cards.min.js%3Fv=b67a8888e4"></script>
+<link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=b67a8888e4.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XHP2RTN2VG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XHP2RTN2VG');
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1221252298514939');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1221252298514939&ev=PageView&noscript=1"
+/></noscript>
+
+<meta name="facebook-domain-verification" content="rpzaz85ait61jdamyc3l3h270la0ex" /><style>:root {--ghost-accent-color: #ffffff;}</style>
+</head>
+<body class="post-template tag-kubernetes tag-destacado tag-hash-es tag-devops tag-platform-engineering tag-apps is-head-left-logo has-sans-body">
+<div class="viewport">
+<header id="gh-head" class="gh-head outer is-header-hidden">
+<div class="gh-head-inner inner">
+<div class="gh-head-brand">
+<a class="gh-head-logo" href="../index.html">
+<img src="../content/images/2023/06/ghost.svg" alt="SREDevOps.org">
+</a>
+<button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+<button class="gh-burger"></button>
+</div>
+<nav class="gh-head-menu">
+<ul class="nav">
+<li class="nav-inicio"><a href="../index.html">Inicio</a></li>
+<li class="nav-nosotros"><a href="../que-es-sredevops/index.html">Nosotros</a></li>
+<li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+<li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+<li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+</ul>
+</nav>
+<div class="gh-head-actions">
+<button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+</div>
+</div>
+</header>
+<div class="site-content">
+<main id="site-main" class="site-main">
+<article class="article post tag-kubernetes tag-destacado tag-hash-es tag-devops tag-platform-engineering tag-apps featured image-small">
+<header class="article-header gh-canvas">
+<div class="article-tag post-card-tags">
+<span class="post-card-primary-tag">
+<a href="../tag/kubernetes/index.html">Kubernetes</a>
+</span>
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h1 class="article-title">Nauticus: Administrar kubernetes en &quot;modo fácil&quot;</h1>
+<p class="article-excerpt">Nauticus es un controlador de Kubernetes de código abierto que simplifica la gestión de espacios (namespaces con características mejoradas) dentro de tu clúster. Introduce un nuevo nivel de abstracción, lo que facilita a los desarrolladores y administradores gestionar recursos y políticas.</p>
+<div class="article-byline">
+<section class="article-byline-content">
+<ul class="author-list">
+<li class="author-list-item">
+<a href="../author/nicolas-georger/index.html" class="author-avatar">
+<img class="author-profile-image" src="../content/images/size/w100/2023/06/don-alejandro.jpg" alt="Nicolás Georger" />
+</a>
+</li>
+</ul>
+<div class="article-byline-meta">
+<h4 class="author-name"><a href="../author/nicolas-georger/index.html">Nicolás Georger</a></h4>
+<div class="byline-meta-content">
+<time class="byline-meta-date" datetime="2023-05-28">28 de may. de 2023</time>
+<span class="byline-reading-time"><span class="bull">&bull;</span> 4 min read</span>
+</div>
+</div>
+</section>
+</div>
+<figure class="article-image">
+<img srcset="../content/images/size/w300/2023/05/1_R4vTTYsn5rfXpV4E2dmg1g-1.webp 300w,
+                           ../content/images/size/w600/2023/05/1_R4vTTYsn5rfXpV4E2dmg1g-1.webpp 600w,
+                          ../content/images/size/w1000/2023/05/1_R4vTTYsn5rfXpV4E2dmg1g-1.webpbp 1000w,
+                         ../content/images/size/w2000/2023/05/1_R4vTTYsn5rfXpV4E2dmg1g-1.webpebp 2000w" sizes="(min-width: 1400px) 1400px, 92vw" src="../content/images/size/w2000/2023/05/1_R4vTTYsn5rfXpV4E2dmg1g-1.webp" alt="Nauticus: Administrar kubernetes en &quot;modo fácil&quot;" />
+</figure>
+</header>
+<section class="gh-content gh-canvas">
+<figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://github.com/edixos/Nauticus?ref=sredevops.org"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - edixos/Nauticus: Simplifying Kubernetes cluster management with fully-managed Spaces</div><div class="kg-bookmark-description">Simplifying Kubernetes cluster management with fully-managed Spaces - GitHub - edixos/Nauticus: Simplifying Kubernetes cluster management with fully-managed Spaces</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.com/fluidicon.png" alt><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">edixos</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://repository-images.githubusercontent.com/588581536/dae1e35a-4fcf-4ac1-bbd9-0c5c7f0ad11c" alt></div></a><figcaption>Repositorio Nauticus en Github</figcaption></figure><h2 id="contexto">Contexto</h2><p>A medida que abrazamos la era de la contenerización, Kubernetes ha tomado el centro de atención, revolucionando la forma en que orquestamos y gestionamos aplicaciones en contenedores. Su amplia adopción es un testimonio de su poder y flexibilidad. Sin embargo, con esta flexibilidad también llega la complejidad. Gestionar los espacios de Kubernetes, asegurar una asignación eficiente de recursos y mantener políticas de seguridad puede ser una tarea desafiante.</p><p>Nauticus, un controlador de Kubernetes diseñado para simplificar la gestión de espacios de Kubernetes. Esta innovadora herramienta está lista para hacer que la gestión de Kubernetes sea más accesible y eficiente. Aquí tienes una inmersión profunda en cómo Nauticus está redefiniendo la gestión de Kubernetes.</p><h2 id="introducci%C3%B3n-a-nauticus">Introducción a Nauticus</h2><p>Nauticus es un controlador de Kubernetes de código abierto que simplifica la gestión de espacios (namespaces con características mejoradas) dentro de tu clúster. Introduce un nuevo nivel de abstracción, lo que facilita a los desarrolladores y administradores gestionar recursos y políticas.</p><p>Nauticus ofrece varias características poderosas:</p><ul><li>Gestión de Espacios: Crea, actualiza y elimina espacios fácilmente, similar a la gestión de namespaces de Kubernetes pero con mayor control.</li><li>Gestión de Recursos: Asigna cuotas de recursos para garantizar una utilización eficiente de los recursos dentro de un espacio y evitar el consumo excesivo de recursos.</li><li>Gestión de Políticas de Seguridad: Habilita el modo estricto por defecto para las políticas de red, aislando eficazmente los recursos dentro de un clúster de Kubernetes.</li><li>Vinculación Adicional de Roles: Asigna roles y permisos específicos a usuarios o cuentas de servicio dentro del espacio, brindando un nivel de control de acceso más detallado.</li><li>Rangos de Límites: Establece restricciones en los recursos que pueden ser solicitados y consumidos por los contenedores en un espacio.</li><li>Creación de Cuenta de Servicio: Crea una cuenta de servicio de Kubernetes vinculada al IAM específico de la nube, eliminando la molestia de la anotación manual.</li></ul><h2 id="%C2%BFpor-qu%C3%A9-nauticus">¿Por qué Nauticus?</h2><p>Gestionar los recursos de Kubernetes, especialmente en entornos de múltiples inquilinos, puede ser complejo. Asegurar que cada equipo tenga acceso a los recursos que necesita, al mismo tiempo que se previene el acceso no autorizado y el consumo excesivo, requiere una vigilancia constante.</p><p>Nauticus simplifica este proceso al proporcionar una herramienta centralizada y fácil de usar que gestiona los espacios y sus recursos asociados. Ofrece a los administradores la capacidad de asignar roles y permisos, gestionar políticas de red y asignar recursos, todo desde un único lugar.</p><p>Además, con Nauticus, puedes implementar un enfoque de "Namespace como un servicio", que permite a los desarrolladores gestionar sus propios namespaces, reduciendo la carga de trabajo de los administradores del clúster. Este enfoque mejora el flujo de trabajo general, fomenta ciclos de desarrollo más rápidos y reduce las posibilidades de error.</p><h2 id="nauticus-no-es">Nauticus no es</h2><p>En el panorama de herramientas de Kubernetes, es importante entender que diferentes soluciones están diseñadas con áreas de enfoque específicas en mente, y eso ciertamente es cierto para Nauticus. Nauticus se especializa en proporcionar soluciones sólidas para gestionar espacios y optimizar los recursos de Kubernetes, centrándose en particular en facilitar la carga de trabajo de administración relacionada con el aprovisionamiento.</p><p>Sin embargo, Nauticus no se enfoca en el enfoque de autoservicio que a menudo se adopta en entornos de Kubernetes. El término "autoservicio" en el contexto de Kubernetes se refiere a una configuración en la que los equipos o usuarios individuales pueden crear y gestionar sus propios recursos, sin necesidad de intervención directa de los administradores del clúster. El objetivo de este enfoque es fomentar una mayor agilidad y despliegues más rápidos, ya que los desarrolladores pueden controlar de manera autónoma sus entornos sin crear dependencias o cuellos de botella.</p><p>Los espacios de Nauticus son recursos de alcance de clúster, lo que significa que no están diseñados para encajar en un enfoque de autoservicio. La decisión de diseñar Nauticus de esta manera no es una limitación, sino una elección estratégica centrada en ofrecer una solución más eficaz para los desafíos a los que se enfrentan los administradores de Kubernetes durante el proceso de aprovisionamiento.</p><p>Dicho esto, si tu objetivo es adoptar un enfoque de autoservicio dentro de tu entorno de Kubernetes, te recomendamos que eches un vistazo a Capsule. Capsule es otra herramienta de Kubernetes diseñada específicamente para facilitar un enfoque de autoservicio, proporcionando características como multitenencia, aislamiento, políticas de red y más. Puedes obtener más información sobre Capsule en su sitio web oficial: Capsule.</p><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://medium.com/@ikaboubi/mastering-kubernetes-spaces-with-nauticus-52d349d98ea8?ref=sredevops.org"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Mastering Kubernetes Spaces with Nauticus</div><div class="kg-bookmark-description">Explore Nauticus: the future of Kubernetes administration. Simplify and optimize your DevOps workflow today!</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://cdn-static-1.medium.com/_/fp/icons/Medium-Avatar-500x500.svg" alt><span class="kg-bookmark-author">Medium</span><span class="kg-bookmark-publisher">Ismail KABOUBI</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://miro.medium.com/v2/resize:fit:328/1*R4vTTYsn5rfXpV4E2dmg1g.png" alt></div></a><figcaption>Fuente: Ismail Kaboubi en Medium</figcaption></figure>
+</section>
+</article>
+</main>
+<aside class="read-more-wrap outer">
+<div class="read-more inner">
+<article class="post-card post featured">
+<a class="post-card-image-link" href="../br/o-que-e-engenharia-de-plataforma-o-que-e-isso-para-mim-o-que-aconteceu-com-o-devops/index.html">
+<img class="post-card-image" srcset="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                    https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                    https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1000 1000w,
+                    https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600" alt="O que é Engenharia de Plataforma? O que é isso para mim? O que aconteceu com o DevOps?" loading="lazy" />
+</a>
+<div class="post-card-content">
+<a class="post-card-content-link" href="../br/o-que-e-engenharia-de-plataforma-o-que-e-isso-para-mim-o-que-aconteceu-com-o-devops/index.html">
+<header class="post-card-header">
+<div class="post-card-tags">
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h2 class="post-card-title">
+O que é Engenharia de Plataforma? O que é isso para mim? O que aconteceu com o DevOps?
+</h2>
+</header>
+<div class="post-card-excerpt">Você tem ouvido e lido sobre Engenharia de Plataforma em toda a web ultimamente... mas nós realmente entendemos o que é Engenharia de Plataforma? Todos parecem convencidos e empolgados, mas você consegue ver como é diferente do DevOps? Tentaremos fazer um resumo geral com base no material que a Platform</div>
+</a>
+<footer class="post-card-meta">
+<time class="post-card-meta-date" datetime="2023-08-18">18 de ago. de 2023</time>
+<span class="post-card-meta-length">3 min read</span>
+</footer>
+</div>
+</article>
+<article class="post-card post featured">
+<a class="post-card-image-link" href="../br/corrupcao-burocracia-estaca-existe-uma-solucao-blockchain/index.html">
+<img class="post-card-image" srcset="../content/images/size/w300/2023/08/image-2-1.png 300w,
+                   ../content/images/size/w600/2023/08/image-2-1.pngg 600w,
+                  ../content/images/size/w1000/2023/08/image-2-1.pngng 1000w,
+                 ../content/images/size/w2000/2023/08/image-2-1.pngpng 2000w" sizes="(max-width: 1000px) 400px, 800px" src="../content/images/size/w600/2023/08/image-2-1.png" alt="Corrupção? Burocracia? Estaca? Existe uma solução: Blockchain." loading="lazy" />
+</a>
+<div class="post-card-content">
+<a class="post-card-content-link" href="../br/corrupcao-burocracia-estaca-existe-uma-solucao-blockchain/index.html">
+<header class="post-card-header">
+<div class="post-card-tags">
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h2 class="post-card-title">
+Corrupção? Burocracia? Estaca? Existe uma solução: Blockchain.
+</h2>
+</header>
+<div class="post-card-excerpt">Blockchain é uma tecnologia que está revolucionando o mundo, e o governo não é exceção. Essa tecnologia tem potencial para resolver conflitos sociais e políticos , como corrupção, burocracia e falta de participação cidadã .
+Tabela de conteúdos:
+* Como blockchain pode ser usado no governo?
+* Por que é conveniente para empresas, governos</div>
+</a>
+<footer class="post-card-meta">
+<time class="post-card-meta-date" datetime="2023-08-18">18 de ago. de 2023</time>
+<span class="post-card-meta-length">3 min read</span>
+</footer>
+</div>
+</article>
+<article class="post-card post featured">
+<a class="post-card-image-link" href="../corrupcion-burocracia-participacion-hay-una-solucion-blockchain/index.html">
+<img class="post-card-image" srcset="../content/images/size/w300/2023/08/image-2-1.png 300w,
+                   ../content/images/size/w600/2023/08/image-2-1.pngg 600w,
+                  ../content/images/size/w1000/2023/08/image-2-1.pngng 1000w,
+                 ../content/images/size/w2000/2023/08/image-2-1.pngpng 2000w" sizes="(max-width: 1000px) 400px, 800px" src="../content/images/size/w600/2023/08/image-2-1.png" alt="Corrupción? Burocracia? Participación? Hay una solución: Blockchain." loading="lazy" />
+</a>
+<div class="post-card-content">
+<a class="post-card-content-link" href="../corrupcion-burocracia-participacion-hay-una-solucion-blockchain/index.html">
+<header class="post-card-header">
+<div class="post-card-tags">
+<span class="post-card-featured"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.49365 4.58752C3.53115 6.03752 2.74365 7.70002 2.74365 9.25002C2.74365 10.6424 3.29678 11.9778 4.28134 12.9623C5.26591 13.9469 6.60127 14.5 7.99365 14.5C9.38604 14.5 10.7214 13.9469 11.706 12.9623C12.6905 11.9778 13.2437 10.6424 13.2437 9.25002C13.2437 6.00002 10.9937 3.50002 9.16865 1.68127L6.99365 6.25002L4.49365 4.58752Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Featured</span>
+</div>
+<h2 class="post-card-title">
+Corrupción? Burocracia? Participación? Hay una solución: Blockchain.
+</h2>
+</header>
+<div class="post-card-excerpt">Blockchain es una tecnología que está revolucionando el mundo, y el gobierno no es la excepción. Esta tecnología tiene el potencial de resolver los conflictos sociales y políticos, como la corrupción, la burocracia y la falta de participación ciudadana.
+Tabla de contenidos:
+* Cómo blockchain se puede usar en el gobierno?</div>
+</a>
+<footer class="post-card-meta">
+<time class="post-card-meta-date" datetime="2023-08-10">10 de ago. de 2023</time>
+<span class="post-card-meta-length">4 min read</span>
+</footer>
+</div>
+</article>
+</div>
+</aside>
+</div>
+<footer class="site-footer outer">
+<div class="inner">
+<section class="copyright"><a href="../index.html">SREDevOps.org</a> &copy; 2023</section>
+<nav class="site-footer-nav">
+<ul class="nav">
+<li class="nav-nosotros"><a href="../que-es-sredevops/index.html">Nosotros</a></li>
+<li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+<li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+<li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+<li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+<li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+</nav>
+<div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+</div>
+</footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=b67a8888e4"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"7faddff0ec7dd772","version":"2023.8.0","r":1,"b":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>
