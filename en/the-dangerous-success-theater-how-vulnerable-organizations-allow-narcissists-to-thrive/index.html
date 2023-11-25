@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+    <link rel="preload" as="script" href="../../assets/built/source.js%3Fv=9bf28501d9">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+
+    <style>
+        :root {
+            --background-color: #0b0019
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="../../content/images/size/w256h256/format/png/2023/10/SREDevOpsOrg-1.svg" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="SREDevOps.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive">
+    <meta property="og:description" content="In today’s corporate landscape, a concerning phenomenon emerges: the “success theater”, a façade that conceals an organization’s underlying vulnerabilities. Amplifying this concern is how susceptible organizations become fertile ground for narcissistic leaders, setting the stage for potentially catastrophic consequences.
+
+The Success Theater: “The success theater refers to an">
+    <meta property="og:url" content="https://sredevops.org/en/the-dangerous-success-theater-how-vulnerable-organizations-allow-narcissists-to-thrive/">
+    <meta property="og:image" content="https://sredevops.org/content/images/2023/10/office.jpg">
+    <meta property="article:published_time" content="2023-10-28T17:40:00.000Z">
+    <meta property="article:modified_time" content="2023-11-07T16:02:47.000Z">
+    <meta property="article:tag" content="Opinion">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/sredevops">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive">
+    <meta name="twitter:description" content="In today’s corporate landscape, a concerning phenomenon emerges: the “success theater”, a façade that conceals an organization’s underlying vulnerabilities. Amplifying this concern is how susceptible organizations become fertile ground for narcissistic leaders, setting the stage for potentially catastrophic consequences.
+
+The Success Theater: “The success theater refers to an">
+    <meta name="twitter:url" content="https://sredevops.org/en/the-dangerous-success-theater-how-vulnerable-organizations-allow-narcissists-to-thrive/">
+    <meta name="twitter:image" content="https://sredevops.org/content/images/2023/10/office.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Rodrigo Estrada">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Opinion">
+    <meta name="twitter:site" content="@sredevopsorg">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="1000">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SREDevOps.org",
+        "url": "https://sredevops.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/10/SREDevOpsOrg-h-2.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Rodrigo Estrada",
+        "url": "https://sredevops.org/author/rodrigo-estrada/",
+        "sameAs": [
+            "https://medium.com/@rodrigo.estrada"
+        ]
+    },
+    "headline": "The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive",
+    "url": "https://sredevops.org/en/the-dangerous-success-theater-how-vulnerable-organizations-allow-narcissists-to-thrive/",
+    "datePublished": "2023-10-28T17:40:00.000Z",
+    "dateModified": "2023-11-07T16:02:47.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://sredevops.org/content/images/2023/10/office.jpg",
+        "width": 1500,
+        "height": 1000
+    },
+    "keywords": "Opinion",
+    "description": "In today’s corporate landscape, a concerning phenomenon emerges: the “success theater”, a façade that conceals an organization’s underlying vulnerabilities. Amplifying this concern is how susceptible organizations become fertile ground for narcissistic leaders, setting the stage for potentially catastrophic consequences.\n\nThe Success Theater: “The success theater refers to an organizational culture that exudes an exaggerated optimism, often misaligned with the real state of operations or market ",
+    "mainEntityOfPage": "https://sredevops.org/en/the-dangerous-success-theater-how-vulnerable-organizations-allow-narcissists-to-thrive/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.74">
+    <link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="index.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+    <script defer src="../../public/cards.min.js%3Fv=9bf28501d9"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=9bf28501d9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+
+<style>:root {--ghost-accent-color: #ffffff;}</style>
+    <!-- -->
+
+</head>
+<body class="post-template tag-hash-en tag-opinion has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="../../index.html">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-espanol"><a href="../../es/index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="../../br/index.html">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english nav-current-parent"><a href="../index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-hash-en tag-opinion featured">
+
+        <header class="gh-article-header gh-canvas">
+
+
+            <h1 class="gh-article-title is-title">The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="../../author/rodrigo-estrada/index.html"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"/></g></svg>
+</a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+
+                    <h4 class="gh-article-author-name"><a href="../../author/rodrigo-estrada/index.html">Rodrigo Estrada</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="28-10-2023">28 de oct. de 2023</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 4 min read</span>
+                    </div>
+                </div>
+            </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="../../content/images/size/w320/2023/10/office.jpg 320w,
+                   ../../content/images/size/w600/2023/10/office.jpgg 600w,
+                  ../../content/images/size/w960/2023/10/office.jpgpg 960w,
+                 ../../content/images/size/w1200/2023/10/office.jpgjpg 1200w,
+                ../../content/images/size/w2000/2023/10/office.jpg.jpg 2000w"
+            src="../../content/images/size/w1200/2023/10/office.jpg"
+            alt="The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive"
+        >
+            <figcaption><span style="white-space: pre-wrap;">In the business of paper: Not everything is as solid as it appears. </span></figcaption>
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>In today’s corporate landscape, a concerning phenomenon emerges: the&nbsp;<a href="https://lianedavey.medium.com/is-success-theater-masking-rot-in-your-organization-88c2dea66fb3?ref=sredevops.org" rel="noopener">“success theater”</a>, a façade that conceals an organization’s underlying vulnerabilities. Amplifying this concern is how susceptible organizations become fertile ground for narcissistic leaders, setting the stage for potentially catastrophic consequences.</p><p><em>The Success Theater: “The success theater refers to an organizational culture that exudes an exaggerated optimism, often misaligned with the real state of operations or market conditions. This mindset not only glosses over current challenges but also downplays alarms, dismisses dissenting voices, and fosters a narrative where every issue is merely a ‘chance to improve tomorrow’. It’s a stage where perception trumps reality, prioritizing the appearance of success at all costs, even if this means compromising fundamental aspects like profitability, customer satisfaction, or employee well-being.”</em></p><p>In this conducive environment, narcissistic leaders find the perfect setting to flourish. Capitalizing on their inherent need for constant admiration and tendency to overrate their own abilities, these leaders exploit the “success theater,” manipulating the narrative for their benefit. </p><h2 id="digital-transformation-a-new-stage-for-the-success-theater">Digital Transformation: A New Stage for the Success Theater</h2><p>In the modern era of&nbsp;<a href="https://www.mckinsey.com/business-functions/mckinsey-digital/our-insights/unlocking-success-in-digital-transformations?ref=sredevops.org" rel="noopener ugc nofollow">digital transformation</a>, the “success theater” takes on an even more deceptive dimension. Organizations can be dazzled by charismatic leaders promising innovation and technological progress. However, behind that allure of promises and charisma, there often lies a lack of real substance, leading to a culture of superficiality and denial.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://miro.medium.com/v2/resize:fit:1400/1*4fknBhc9XlP4kqb56Mdirw.jpeg" class="kg-image" alt loading="lazy" width="700" height="394"><figcaption><span style="white-space: pre-wrap;">Mastering the fine art of papering over the cracks</span></figcaption></figure><h2 id="commercial-vs-tech-companies-a-breeding-ground-for-narcissism">Commercial vs. Tech Companies: A Breeding Ground for Narcissism</h2><p>In the current business spectrum, it’s essential to distinguish between commercial enterprises and tech companies. Traditional commercial entities often revolve around expert managers with a sophisticated approach to “buy low and sell high.” Their success hinges on cash flow and short-term profitability maximization. In contrast, tech companies are&nbsp;<a href="https://hbr.org/2019/10/why-some-platforms-thrive-and-others-dont?ref=sredevops.org" rel="noopener ugc nofollow">development-driven</a>, focused on building long-term value through constant innovation and adaptation.</p><p>In commercial firms, there’s a growing awareness among managers and directors about the imperative need to evolve. Many recognize that the traditional model is no longer competitive in an era dominated by digital innovation. However, they face a dilemma: while they acknowledge the need to adapt, they lack the skills and capacities to do so. They’re caught between the urgency to transform and the fear of becoming obsolete.</p><p>This is where a narcissistic leader finds a sweet spot. Highly skilled and specialized individuals might intimidate these traditional managers, representing the very change they find foreign. Conversely, a narcissistic leader often portrays themselves as a “jack-of-all-trades,” wielding current tech jargon and concepts, but without a deep understanding of them. These leaders provide a simplified vision, promising quick results that cater to the comfort zone of managers who, resistant to change, might prefer to deny the reality and cling to hollow promises.</p><p>The outcome is alarming: narcissistic leaders, with their shallow and tailored content, align with what managers want to hear, promising unrealistically short timelines or budget cuts. This blend of denial and empty promises can steer organizations down a path of stagnation and decline.</p><p><em>Narcissism in an Organizational Context: “Within the corporate realm, narcissism isn’t just about inflated self-love. It involves leaders who exhibit a lack of empathy towards others, a constant need for admiration, and a grandiose perception of their worth and skills. These leaders tend to overestimate their capabilities and underestimate others’ contributions. Furthermore, they are prone to making impulsive decisions without considering the long-term ramifications for the organization or its employees. This mindset is not only detrimental to the work environment but can also lead to misguided business decisions, jeopardizing the organization’s long-term sustainability and success.”</em></p><h2 id="signs-that-a-corporate-environment-is-prone-to-narcissism">Signs That a Corporate Environment is Prone to Narcissism:</h2><ul><li>Lack of Robust Protocols: Organizations without solid HR policies and non-retaliatory communication pave the way for narcissists. These leaders control the narrative and often surround themselves with easily manipulated individuals.</li><li>Minimizing Alarms: In this “theater,” emerging problems are glossed over or color-coded less alarmingly, like “light green” instead of yellow, creating a false sense of security.</li><li>Marginalizing Dissenting Voices: Those trying to shed light on issues are seen as disruptors or even “organizational terrorists,” being sidelined or silenced instead of being heard.</li><li>Deceptive Digital Culture: In the age of digital transformation, the “success theater” becomes even more enticing. Organizations can be blinded by promises of innovation, but behind the charisma, there might not be genuine substance.</li><li>Prioritizing Perception: In such cultures, appearances matter more than reality. Narcissists thrive here, positioning themselves as the saviors who can perpetuate and enhance this perception.</li><li>Yes-Men and Conformity: Narcissists surround themselves with those who won’t challenge their decisions, rewarding blind loyalty and conformity.</li></ul><h2 id="the-cost-of-ignoring-reality">The Cost of Ignoring Reality</h2><p>The essence of the “success theater” is prioritizing perception over reality. In this gap, narcissists find their ideal playground, leveraging the environment to advance their agendas, often at the organization’s expense.</p><p>Countermeasures: Building Resilient Organizations</p><p>To combat these phenomena, organizations should:</p><ol><li>Establish robust HR protocols: Ensure mechanisms to address concerns without retaliation.</li><li>Promote transparency and open communication: Foster an environment where employees feel safe voicing concerns.</li><li>Champion&nbsp;<a href="https://www.betterup.com/blog/the-importance-of-an-ethical-leader?ref=sredevops.org#:~:text=Ethical%20leadership%20means%20that%20individuals,fairness%2C%20transparency%2C%20and%20honesty." rel="noopener ugc nofollow">ethical leadership</a>: Prioritize integrity and ethics over short-term success.</li></ol><p>The “success theater” might be enticing, but it’s crucial for organizations to recognize its dangers and take steps to shield themselves from narcissistic leaders. By cultivating a culture of transparency and integrity, organizations can pave the way for a more sustainable and ethical future.</p>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-espanol"><a href="../../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="https://sredevops.dev.br">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english nav-current-parent"><a href="../index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+    <li class="nav-chat"><a href="../../chat/index.html">Chat</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+        
+
+    </div>
+</footer>    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../assets/built/source.js%3Fv=9bf28501d9"></script>
+
+<style>
+    .gh-navigation-menu .nav-discord a,
+    .gh-navigation-menu .nav-facebook a,
+    .gh-navigation-menu .nav-github a,
+    .gh-navigation-menu .nav-instagram a,
+    .gh-navigation-menu .nav-linkedin a,
+    .gh-navigation-menu .nav-twitter a,
+    .gh-navigation-menu .nav-x a,
+    .gh-navigation-menu .nav-youtube a {
+        font-size: 0 !important;
+    }
+
+    .gh-navigation-menu .nav-discord a::before,
+    .gh-navigation-menu .nav-facebook a::before,
+    .gh-navigation-menu .nav-github a::before,
+    .gh-navigation-menu .nav-instagram a::before,
+    .gh-navigation-menu .nav-linkedin a::before,
+    .gh-navigation-menu .nav-twitter a::before,
+    .gh-navigation-menu .nav-x a::before,
+    .gh-navigation-menu .nav-youtube a::before {
+        font-family: "Font Awesome 6 Brands";
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .gh-navigation-menu .nav-discord a::before {content: "\f392"}
+    .gh-navigation-menu .nav-facebook a::before {content: "\f09a"}
+    .gh-navigation-menu .nav-github a::before {content: "\f09b"}
+    .gh-navigation-menu .nav-instagram a::before {content: "\f16d"}
+    .gh-navigation-menu .nav-linkedin a::before {content: "\f08c"}
+    .gh-navigation-menu .nav-twitter a::before {content: "\f099"}
+    .gh-navigation-menu .nav-x a::before {content: "\e61b"}
+    .gh-navigation-menu .nav-youtube a::before {content: "\f167"}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82bd137efbc8648d","version":"2023.10.0","r":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","b":1}' crossorigin="anonymous"></script>
+</body>
+</html>

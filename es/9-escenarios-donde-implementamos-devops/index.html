@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>9 escenarios donde implementamos cultura DevOps</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+    <link rel="preload" as="script" href="../../assets/built/source.js%3Fv=9bf28501d9">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+
+    <style>
+        :root {
+            --background-color: #0b0019
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="../../content/images/size/w256h256/format/png/2023/10/SREDevOpsOrg-1.svg" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="SREDevOps.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="9 escenarios donde implementamos cultura DevOps">
+    <meta property="og:description" content="&quot;El arte de DevOps&quot; reconoce 9 escenarios en las que podemos implementar cultura DevOps:
+
+1- Planificar
+2- Codificar/Desarrollar
+3- Construir (Building)
+4- Probar/Testing
+5- Liberar (Release)
+6- Implementar
+7- Operar
+8- Monitorizar
+9- Pipeline CI/CD
+
+The Art of DevOps — The 9 SituationsChapter 11 — Phases of the DevOps">
+    <meta property="og:url" content="https://sredevops.org/es/9-escenarios-donde-implementamos-devops/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta property="article:published_time" content="2023-05-22T03:50:11.000Z">
+    <meta property="article:modified_time" content="2023-11-07T15:59:29.000Z">
+    <meta property="article:tag" content="Opinion">
+    <meta property="article:tag" content="Selected content">
+    <meta property="article:tag" content="DevOps">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/sredevops">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="9 escenarios donde implementamos cultura DevOps">
+    <meta name="twitter:description" content="&quot;El arte de DevOps&quot; reconoce 9 escenarios en las que podemos implementar cultura DevOps:
+
+1- Planificar
+2- Codificar/Desarrollar
+3- Construir (Building)
+4- Probar/Testing
+5- Liberar (Release)
+6- Implementar
+7- Operar
+8- Monitorizar
+9- Pipeline CI/CD
+
+The Art of DevOps — The 9 SituationsChapter 11 — Phases of the DevOps">
+    <meta name="twitter:url" content="https://sredevops.org/es/9-escenarios-donde-implementamos-devops/">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nicolás Georger">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Opinion, Selected content, DevOps">
+    <meta name="twitter:site" content="@sredevopsorg">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="1333">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SREDevOps.org",
+        "url": "https://sredevops.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/10/SREDevOpsOrg-h-2.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nicolás Georger",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/09/perfil2.jpeg",
+            "width": 400,
+            "height": 400
+        },
+        "url": "https://sredevops.org/author/ngeorger/",
+        "sameAs": [
+            "https://sredevops.org"
+        ]
+    },
+    "headline": "9 escenarios donde implementamos cultura DevOps",
+    "url": "https://sredevops.org/es/9-escenarios-donde-implementamos-devops/",
+    "datePublished": "2023-05-22T03:50:11.000Z",
+    "dateModified": "2023-11-07T15:59:29.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&ixlib=rb-4.0.3&q=80&w=2000",
+        "width": 2000,
+        "height": 1333
+    },
+    "keywords": "Opinion, Selected content, DevOps",
+    "description": "&quot;El arte de DevOps&quot; reconoce 9 escenarios en las que podemos implementar cultura DevOps:\n\n1- Planificar\n2- Codificar/Desarrollar\n3- Construir (Building)\n4- Probar/Testing\n5- Liberar (Release)\n6- Implementar\n7- Operar\n8- Monitorizar\n9- Pipeline CI/CD\n\nThe Art of DevOps — The 9 SituationsChapter 11 — Phases of the DevOps lifecycleLevel Up CodingGreg Billington\n\nPlanificar es el arte de describir la secuencia ideal de eventos y predecir la duración de esos eventos, de manera que el líder técnico (c",
+    "mainEntityOfPage": "https://sredevops.org/es/9-escenarios-donde-implementamos-devops/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.74">
+    <link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="index.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+    <script defer src="../../public/cards.min.js%3Fv=9bf28501d9"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=9bf28501d9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+
+<style>:root {--ghost-accent-color: #ffffff;}</style>
+
+</head>
+<body class="post-template tag-opinion tag-hash-es tag-selected tag-devops has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="../../index.html">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-espanol nav-current-parent"><a href="../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="../../br/index.html">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-opinion tag-hash-es tag-selected tag-devops featured">
+
+        <header class="gh-article-header gh-canvas">
+
+
+            <h1 class="gh-article-title is-title">9 escenarios donde implementamos cultura DevOps</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="../../author/ngeorger/index.html">
+                                <img class="author-profile-image" src="../../content/images/size/w160/2023/09/perfil2.jpeg" alt="Nicolás Georger" />
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+
+                    <h4 class="gh-article-author-name"><a href="../../author/ngeorger/index.html">Nicolás Georger</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="21-05-2023">21 de may. de 2023</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 4 min read</span>
+                    </div>
+                </div>
+            </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                    https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                    https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                    https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                    https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+            src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200"
+            alt="9 escenarios donde implementamos cultura DevOps"
+        >
+            <figcaption><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@epicantus?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Daria Nepriakhina 🇺🇦</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></figcaption>
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>"El arte de DevOps" reconoce 9 escenarios en las que podemos implementar cultura DevOps:</p><p>1- Planificar<br>2- Codificar/Desarrollar<br>3-  Construir (Building)<br>4- Probar/Testing<br>5- Liberar (Release)<br>6- Implementar<br>7- Operar<br>8- Monitorizar<br>9- Pipeline CI/CD</p><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://levelup.gitconnected.com/the-art-of-devops-the-9-situations-74d534bc058a?ref=sredevops.org"><div class="kg-bookmark-content"><div class="kg-bookmark-title">The Art of DevOps — The 9 Situations</div><div class="kg-bookmark-description">Chapter 11 — Phases of the DevOps lifecycle</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://cdn-static-1.medium.com/_/fp/icons/Medium-Avatar-500x500.svg" alt><span class="kg-bookmark-author">Level Up Coding</span><span class="kg-bookmark-publisher">Greg Billington</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://miro.medium.com/v2/resize:fit:544/1*keqRPPTgeufCZ_kx-4U3_w.png" alt></div></a><figcaption><p><span style="white-space: pre-wrap;">Original en Inglés por Greg Billington, traducido con el soporte de OpenAI</span></p></figcaption></figure><p><strong>Planificar </strong>es el arte de describir la secuencia ideal de eventos y predecir la duración de esos eventos, de manera que el líder técnico (con cierta certeza) conozca la fecha de la fiesta de celebración una vez que el lanzamiento se haya realizado.</p><p><strong>Codificar/Desarrollar</strong> es la etapa de crear los scripts del pipeline CI/CD para ensamblar y compilar el código de los desarrolladores en un servidor central. Esto también requiere agregar tantas herramientas de verificación y equilibrio como sea posible, como el famoso "lint" o sonarcloud.</p><p>La construcción es la fase en la que el ingeniero ejecuta los scripts y plantillas para configurar o instanciar un entorno construido a partir de infraestructura real o virtual.</p><p>La prueba es donde el ingeniero verifica que el script se haya ejecutado correctamente y haya creado todos los recursos y elementos deseados, y los haya conectado mediante una red apropiada para que exista un entorno completo y operativo.</p><p>La implementación es donde el pipeline CI/CD construye un entorno e implementa el software de la aplicación en él, con una alta probabilidad de que funcione como se ha probado anteriormente.</p><p>La operación es donde el entorno y la aplicación se ejecutan para realizar la función requerida. El sistema también debe realizar tareas ocultas durante esta fase en preparación para cualquier contraataque que requiera la intervención de los señores de la Continuidad del Negocio o la Recuperación ante Desastres.</p><p>La monitorización es donde se observa el entorno y la aplicación para asegurarse de que estén funcionando dentro de límites aceptables; de lo contrario, se generará una alerta y se notificará al ingeniero de DevOps del evento de alarma. El ingeniero puede investigar más a través del uso de los registros del sistema operativo y de la aplicación, que son registros de una precisión y virtud incuestionables.</p><p>CI/CD no es una fase, sino un pegamento global significativo y magnífico llamado "el pipeline" que controla el flujo de los sistemas de construcción, prueba e implementación como el agua en un canal que solo tiene un camino a seguir. Esta es una tubería que se debe usar con frecuencia y cuanto más rápido fluya el agua a través de ella, mejor. Aquellos que no conocen la abreviatura CI/CD temblarán ante su gran poder e influencia.</p><p>Realiza incursiones para abastecer a tu equipo cuando haya terrenos fértiles en abundancia. Dales las mejores laptops, equipadas con montañas de memoria, discos rápidos y pantallas de sobra. Sus viejas y confiables armas pueden ser entregadas a otros que no estén en la vanguardia de la batalla y solo usen aplicaciones de oficina.</p><p>Los ingenieros, en momentos desesperados, pierden el sentido del miedo. Pueden estar abiertos a cambios repentinos y temerarios en los sistemas de producción, lo cual puede ayudar, pero debe usarse con precaución y solo si la situación es grave.</p><p>Prohíbe la interpretación de presagios y las dudas sobre el futuro; que no haya:</p><p>Ningún <em>"TO-DO" (pendiente, por hacer</em> sin completar en los scripts. Bloques de código comentados porque la función ha sido eliminada pero se han dejado como madera muerta para aquellos que siguen. Cualquier comentario que ponga en duda a aquellos ingenieros que codificaron esta monstruosidad en tiempos anteriores. Firewalls con puertos abiertos. Certificados autofirmados debido a la falta de cuidado o tiempo para obtener uno real. El principio para gestionar un equipo y construir un sistema es establecer un estándar que todos deben alcanzar.</p><p> Al construir tu solución:</p><p>Hazla frágil y susceptible de romperse y detenerse en cualquier oportunidad inesperada. Libera información sobre cualquier error y registra los registros con la máxima definición. Esto se conocerá como la "etapa de desarrollo".</p><p>Hazla resistente para la batalla, robusta para continuar cuando todo a su alrededor falle y flaque. Oculta al enemigo cualquier motivo de preocupación y continúa usando el mejor camino disponible; solo registra los errores más graves para que los registros no se llenen demasiado rápido. Esto se conocerá como "Producción".</p><p>Cuando viajes desde la tierra del Desarrollo a la Producción, puede haber otras tierras intermedias. Cuantas más tierras, mejor, ya que cada una tiene sus propiedades que facilitan su recorrido. Estas tierras pueden incluir entornos de Prueba de Características, Prueba de Sistema, Prueba Unitaria, Demostración al Cliente, Prueba de Aceptación del Cliente, Preproducción, Producción.</p><p>Prueba de Características: debe centrarse en una sola cosa.</p><p>Prueba de Sistema: debe asegurarse de que todas las partes del producto funcionen correctamente según la ley moral.</p><p>Prueba Unitaria: debe comprobar que un solo método cumpla con sus obligaciones.</p><p>Demostración al Cliente: debe incluir conjuntos de datos de fácil uso para el cliente, tener la capacidad de mostrar todas las características (adornos y detalles llamativos) y tener un aspecto visualmente atractivo, llevando la marca del cliente para obtener puntos extra. Por encima de todo, esto debe funcionar cuando se le solicite.</p><p>Prueba de Aceptación del Cliente: esto debe funcionar sin problemas, ya que el pago de recompensas y hitos depende de ello.</p><p>Producción: este debe ser el entorno más rápido y robusto de todos, debe ser seguro, estar siempre en funcionamiento y protegido de intromisiones accidentales.</p><p>Los planes deben ser flexibles y adaptables, y el equipo debe agregar un panel de control a su herramienta de observabilidad. Comparte este panel de control (o una versión simplificada) con los maestros y las partes interesadas. El libro de ejecución es un almanaque del mago y debe ser protegido para que solo aquellos que entienden y creen puedan verlo.</p><p>Si el enemigo, que son los "errores", deja una puerta abierta, debes entrar rápidamente y solucionarlos.</p><p>Evita un lanzamiento defectuoso asegurándote de tener el control del cliente y adaptándote al problema hasta que puedas luchar con un nuevo lanzamiento decisivo; de lo contrario, implementa un parche rápido.</p>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-espanol"><a href="../../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="https://sredevops.dev.br">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+    <li class="nav-chat"><a href="../../chat/index.html">Chat</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+        
+
+    </div>
+</footer>    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../assets/built/source.js%3Fv=9bf28501d9"></script>
+
+<style>
+    .gh-navigation-menu .nav-discord a,
+    .gh-navigation-menu .nav-facebook a,
+    .gh-navigation-menu .nav-github a,
+    .gh-navigation-menu .nav-instagram a,
+    .gh-navigation-menu .nav-linkedin a,
+    .gh-navigation-menu .nav-twitter a,
+    .gh-navigation-menu .nav-x a,
+    .gh-navigation-menu .nav-youtube a {
+        font-size: 0 !important;
+    }
+
+    .gh-navigation-menu .nav-discord a::before,
+    .gh-navigation-menu .nav-facebook a::before,
+    .gh-navigation-menu .nav-github a::before,
+    .gh-navigation-menu .nav-instagram a::before,
+    .gh-navigation-menu .nav-linkedin a::before,
+    .gh-navigation-menu .nav-twitter a::before,
+    .gh-navigation-menu .nav-x a::before,
+    .gh-navigation-menu .nav-youtube a::before {
+        font-family: "Font Awesome 6 Brands";
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .gh-navigation-menu .nav-discord a::before {content: "\f392"}
+    .gh-navigation-menu .nav-facebook a::before {content: "\f09a"}
+    .gh-navigation-menu .nav-github a::before {content: "\f09b"}
+    .gh-navigation-menu .nav-instagram a::before {content: "\f16d"}
+    .gh-navigation-menu .nav-linkedin a::before {content: "\f08c"}
+    .gh-navigation-menu .nav-twitter a::before {content: "\f099"}
+    .gh-navigation-menu .nav-x a::before {content: "\e61b"}
+    .gh-navigation-menu .nav-youtube a::before {content: "\f167"}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82bd18cf9f9c6d5d","version":"2023.10.0","r":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","b":1}' crossorigin="anonymous"></script>
+</body>
+</html>

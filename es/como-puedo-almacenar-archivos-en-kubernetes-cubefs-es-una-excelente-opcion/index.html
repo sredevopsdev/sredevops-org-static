@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>Cómo puedo almacenar archivos en Kubernetes? CubeFS es una excelente opción</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+    <link rel="preload" as="script" href="../../assets/built/source.js%3Fv=9bf28501d9">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+
+    <style>
+        :root {
+            --background-color: #0b0019
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="../../content/images/size/w256h256/format/png/2023/10/SREDevOpsOrg-1.svg" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="SREDevOps.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Cómo puedo almacenar archivos en Kubernetes? CubeFS es una excelente opción">
+    <meta property="og:description" content="https://cubefs.io/docs/master/deploy/k8s.html#deployment-architecture
+
+
+
+
+¿Qué es CubeFS?
+
+CubeFS es un producto de almacenamiento cloud-native, siendo uno de los proyectos en grado &quot;Incubator&quot; de la CNCF ( Cloud Native Computing Foundation). Es compatible con varios protocolos de acceso a datos, como S3, POSIX y HDFS, y admite">
+    <meta property="og:url" content="https://sredevops.org/es/como-puedo-almacenar-archivos-en-kubernetes-cubefs-es-una-excelente-opcion/">
+    <meta property="og:image" content="https://sredevops.org/content/images/2023/07/Screenshot-2023-07-18-at-11.23.32.png">
+    <meta property="article:published_time" content="2023-07-18T15:24:41.000Z">
+    <meta property="article:modified_time" content="2023-11-07T15:44:22.000Z">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="DevOps">
+    <meta property="article:tag" content="Cloud">
+    <meta property="article:tag" content="Storage">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/sredevops">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cómo puedo almacenar archivos en Kubernetes? CubeFS es una excelente opción">
+    <meta name="twitter:description" content="https://cubefs.io/docs/master/deploy/k8s.html#deployment-architecture
+
+
+
+
+¿Qué es CubeFS?
+
+CubeFS es un producto de almacenamiento cloud-native, siendo uno de los proyectos en grado &quot;Incubator&quot; de la CNCF ( Cloud Native Computing Foundation). Es compatible con varios protocolos de acceso a datos, como S3, POSIX y HDFS, y admite">
+    <meta name="twitter:url" content="https://sredevops.org/es/como-puedo-almacenar-archivos-en-kubernetes-cubefs-es-una-excelente-opcion/">
+    <meta name="twitter:image" content="https://sredevops.org/content/images/2023/07/Screenshot-2023-07-18-at-11.23.32.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nicolás Georger">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Kubernetes, DevOps, Cloud, Storage">
+    <meta name="twitter:site" content="@sredevopsorg">
+    <meta property="og:image:width" content="1380">
+    <meta property="og:image:height" content="976">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SREDevOps.org",
+        "url": "https://sredevops.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/10/SREDevOpsOrg-h-2.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nicolás Georger",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/09/perfil2.jpeg",
+            "width": 400,
+            "height": 400
+        },
+        "url": "https://sredevops.org/author/ngeorger/",
+        "sameAs": [
+            "https://sredevops.org"
+        ]
+    },
+    "headline": "Cómo puedo almacenar archivos en Kubernetes? CubeFS es una excelente opción",
+    "url": "https://sredevops.org/es/como-puedo-almacenar-archivos-en-kubernetes-cubefs-es-una-excelente-opcion/",
+    "datePublished": "2023-07-18T15:24:41.000Z",
+    "dateModified": "2023-11-07T15:44:22.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://sredevops.org/content/images/2023/07/Screenshot-2023-07-18-at-11.23.32.png",
+        "width": 1380,
+        "height": 976
+    },
+    "keywords": "Kubernetes, DevOps, Cloud, Storage",
+    "description": "https://cubefs.io/docs/master/deploy/k8s.html#deployment-architecture\n\n\n\n\n¿Qué es CubeFS?\n\nCubeFS es un producto de almacenamiento cloud-native, siendo uno de los proyectos en grado &quot;Incubator&quot; de la CNCF ( Cloud Native Computing Foundation). Es compatible con varios protocolos de acceso a datos, como S3, POSIX y HDFS, y admite dos motores de almacenamiento: múltiples réplicas y erasure code. Brinda a los usuarios múltiples funciones, como multiusuario, implementación multi-AZ y replicación entr",
+    "mainEntityOfPage": "https://sredevops.org/es/como-puedo-almacenar-archivos-en-kubernetes-cubefs-es-una-excelente-opcion/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.74">
+    <link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="index.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+    <script defer src="../../public/cards.min.js%3Fv=9bf28501d9"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=9bf28501d9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+
+<style>:root {--ghost-accent-color: #ffffff;}</style>
+
+</head>
+<body class="post-template tag-kubernetes tag-hash-es tag-devops tag-cloud tag-storage has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="../../index.html">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-espanol nav-current-parent"><a href="../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="../../br/index.html">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-kubernetes tag-hash-es tag-devops tag-cloud tag-storage featured">
+
+        <header class="gh-article-header gh-canvas">
+
+
+            <h1 class="gh-article-title is-title">Cómo puedo almacenar archivos en Kubernetes? CubeFS es una excelente opción</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="../../author/ngeorger/index.html">
+                                <img class="author-profile-image" src="../../content/images/size/w160/2023/09/perfil2.jpeg" alt="Nicolás Georger" />
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+
+                    <h4 class="gh-article-author-name"><a href="../../author/ngeorger/index.html">Nicolás Georger</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="18-07-2023">18 de jul. de 2023</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 4 min read</span>
+                    </div>
+                </div>
+            </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="../../content/images/size/w320/2023/07/Screenshot-2023-07-18-at-11.23.32.png 320w,
+                   ../../content/images/size/w600/2023/07/Screenshot-2023-07-18-at-11.23.32.pngg 600w,
+                  ../../content/images/size/w960/2023/07/Screenshot-2023-07-18-at-11.23.32.pngng 960w,
+                 ../../content/images/size/w1200/2023/07/Screenshot-2023-07-18-at-11.23.32.pngpng 1200w,
+                ../../content/images/size/w2000/2023/07/Screenshot-2023-07-18-at-11.23.32.png.png 2000w"
+            src="../../content/images/size/w1200/2023/07/Screenshot-2023-07-18-at-11.23.32.png"
+            alt="Cómo puedo almacenar archivos en Kubernetes? CubeFS es una excelente opción"
+        >
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p></p><figure class="kg-card kg-image-card"><img src="https://cubefs.io/assets/k8s-component.d9c57140.png" class="kg-image" alt="image" loading="lazy"></figure><p><a href="https://cubefs.io/docs/master/deploy/k8s.html?ref=sredevops.org#deployment-architecture">https://cubefs.io/docs/master/deploy/k8s.html#deployment-architecture</a></p><p></p><h2 id="%C2%BFqu%C3%A9-es-cubefs">¿Qué es CubeFS?</h2><p>CubeFS es un producto de almacenamiento cloud-native, siendo uno de los proyectos en grado "Incubator" de la CNCF ( <a href="https://www.cncf.io/projects/cubefs/?ref=sredevops.org">Cloud Native Computing Foundation</a>).  Es compatible con varios protocolos de acceso a datos, como <strong>S3, POSIX y HDFS,</strong> y admite dos <em>motores de almacenamiento</em>: múltiples réplicas y <a href="https://blog.min.io/erasure-coding/?ref=sredevops.org" rel="noreferrer">erasure code</a>. Brinda a los usuarios múltiples funciones, como multiusuario, implementación multi-AZ y replicación entre regiones, y se usa ampliamente en escenarios como big data, IA, plataformas de contenedores, bases de datos, almacenamiento de middleware y separación informática, uso compartido de datos y protección de Datos.</p><h2 id="%C2%BFpor-qu%C3%A9-cubefs">¿Por qué CubeFS?</h2><h3 id="multiprotocolo">Multiprotocolo</h3><p>Compatible con diversos protocolos de acceso como S3, POSIX y HDFS, y el acceso entre protocolos es interoperable.</p><ul><li><strong>Compatible con POSIX</strong>: Compatible con la interfaz POSIX, lo que hace que el desarrollo de aplicaciones sea extremadamente simple para aplicaciones de capa superior, tan conveniente como usar un sistema de archivos local. Además, CubeFS relajó los requisitos de coherencia de la semántica POSIX durante la implementación para equilibrar el rendimiento de las operaciones de archivos y metadatos.</li><li><strong>Compatible con S3</strong>: compatible con el protocolo de almacenamiento de objetos de AWS S3, los usuarios pueden usar el SDK nativo de Amazon S3 para administrar recursos en CubeFS.</li><li><strong>Compatible con HDFS</strong>: Compatible con el protocolo de interfaz Hadoop FileSystem, los usuarios pueden usar CubeFS para reemplazar el sistema de archivos Hadoop (HDFS) sin afectar el negocio de capa superior.</li></ul><h3 id="multimotor">Multimotor</h3><p>Al admitir dos motores: múltiples réplicas y codificación de borrado, los usuarios pueden elegir de manera flexible de acuerdo con sus escenarios comerciales.</p><ul><li><strong>Motor de almacenamiento de múltiples réplicas</strong>: los datos entre copias están en una relación de espejo y la coherencia de los datos entre copias se garantiza a través de un protocolo de replicación muy coherente. Los usuarios pueden configurar de manera flexible diferentes números de copias según los escenarios de su aplicación.</li><li><strong>Motor de almacenamiento de codificación de borrado</strong>：El motor de codificación de borrado tiene las características de alta confiabilidad, alta disponibilidad, bajo costo y admite escala ultra grande (EB). De acuerdo con los diferentes modelos AZ, los modos de codificación de borrado se pueden seleccionar de manera flexible.</li></ul><h3 id="multiusuario">Multiusuario</h3><p>Apoyar la administración de múltiples inquilinos y proporcionar políticas detalladas de aislamiento de inquilinos.</p><h3 id="altamente-escalable">Altamente escalable</h3><p>Puede construir fácilmente servicios de almacenamiento distribuido con escala de nivel PB o EB, y cada módulo se puede escalar horizontalmente.</p><h3 id="alto-rendimiento">Alto rendimiento</h3><p>CubeFS admite el almacenamiento en caché de varios niveles para optimizar el acceso a archivos pequeños y admite múltiples protocolos de replicación de alto rendimiento.</p><ul><li><strong>Gestión de metadatos</strong>: el clúster de metadatos usa almacenamiento de metadatos en memoria y utiliza dos árboles B (inodeBTree y dentryBTree) para administrar índices y mejorar el rendimiento del acceso a los metadatos.</li><li><strong>Protocolo de replicación de consistencia sólida</strong>：CubeFS adopta diferentes protocolos de replicación de acuerdo con el modo de escritura del archivo para garantizar la consistencia de los datos entre las réplicas. Si el archivo se escribe secuencialmente, se utiliza el protocolo de replicación principal-respaldo para optimizar el rendimiento de E/S. Si el archivo se escribe aleatoriamente para sobrescribir el contenido del archivo existente, se utiliza un protocolo de replicación basado en Multi-Raft para garantizar una gran coherencia de los datos.</li><li><strong>Almacenamiento en caché de niveles múltiples</strong>: el volumen de codificación de borrado admite la capacidad de aceleración de almacenamiento en caché de niveles múltiples para proporcionar un mayor rendimiento de acceso a datos para datos calientes:<ul><li>Caché local: el componente BlockCache se puede implementar en la máquina cliente como un caché local utilizando el disco local. Puede leer directamente la memoria caché local sin pasar por la red, pero la capacidad está limitada por el disco local.</li><li>Caché global: una caché global distribuida creada con el componente de réplica DataNode. Por ejemplo, un DataNode con un disco SSD implementado en el mismo centro de datos que el cliente se puede usar como caché global. En comparación con el caché local, debe pasar por la red, pero tiene una mayor capacidad y se puede escalar dinámicamente, y se puede ajustar la cantidad de réplicas.</li></ul></li></ul><h2 id="cloud-native">Cloud Native</h2><p>Basado en el standard CSI <a href="https://kubernetes.io/blog/2019/01/15/container-storage-interface-ga/?ref=sredevops.org" rel="noreferrer">(Container Storage Interface</a>) , CubeFS se integra y despliega fácilmente en Kubernetes..</p><h2 id="casos-y-escenarios-de-uso">Casos y escenarios de uso</h2><p>Como plataforma de almacenamiento distribuido nativa de la nube, CubeFS proporciona múltiples protocolos de acceso, por lo que puedes utilizarlo en distintas situaciiones, enumeremos:;</p><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/cubefs/cubefs/master/docs/source/pic/cfs-arch-ec.png" class="kg-image" alt loading="lazy"></figure><h3 id="an%C3%A1lisis-de-grandes-datos">Análisis de grandes datos</h3><p>Compatible con el protocolo HDFS, CubeFS proporciona una base de almacenamiento unificado para el ecosistema Hadoop (como Spark y Hive), proporcionando espacio de almacenamiento ilimitado y capacidades de almacenamiento de datos de gran ancho de banda para motores informáticos.</p><h3 id="deep-learningmachine-learning">Deep Learning/Machine Learning</h3><p>Como sistema de archivos paralelos distribuidos, CubeFS es compatible con el entrenamiento de IA, el almacenamiento y la distribución de modelos, la aceleración de E/S y otros requisitos.</p><h3 id="almacenamiento-compartido-entre-contenedores">Almacenamiento compartido entre contenedores</h3><p>El clúster de contenedores puede almacenar los archivos de configuración o los datos de carga de inicialización de las imágenes de contenedores en CubeFS, y leerlos en tiempo real cuando se cargan contenedores por lotes. Múltiples PODs pueden compartir datos persistentes a través de CubeFS, y se puede realizar una rápida conmutación por error en caso de fallo del POD.<br></p><h3 id="bases-de-datos-y-middleware">Bases de datos y middleware</h3><p>Proporciona servicios de disco en nube de alta concurrencia y baja latencia para aplicaciones de bases de datos como MySQL, ElasticSearch y ClickHouse, consiguiendo una separación completa entre almacenamiento e informática.</p><p>Servicios en línea</p><p>Proporciona servicios de almacenamiento de objetos de alta fiabilidad y bajo coste para negocios en línea (como publicidad, secuencias de clics y búsquedas) o contenidos gráficos, de texto, audio y vídeo de usuarios finales.<br><br>De NAS (Network Attached Storage)  a la nube<br>Sustituye el almacenamiento local tradicional y el NAS sin conexión y facilita estrategias en cloud adoption.</p><p>Fuente: </p><p><a href="https://cubefs.io/docs/master/overview/introduction.html?ref=sredevops.org#database-middleware">https://cubefs.io/docs/master/overview/introduction.html#database-middleware</a></p>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-espanol"><a href="../../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="https://sredevops.dev.br">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+    <li class="nav-chat"><a href="../../chat/index.html">Chat</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+        
+
+    </div>
+</footer>    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../assets/built/source.js%3Fv=9bf28501d9"></script>
+
+<style>
+    .gh-navigation-menu .nav-discord a,
+    .gh-navigation-menu .nav-facebook a,
+    .gh-navigation-menu .nav-github a,
+    .gh-navigation-menu .nav-instagram a,
+    .gh-navigation-menu .nav-linkedin a,
+    .gh-navigation-menu .nav-twitter a,
+    .gh-navigation-menu .nav-x a,
+    .gh-navigation-menu .nav-youtube a {
+        font-size: 0 !important;
+    }
+
+    .gh-navigation-menu .nav-discord a::before,
+    .gh-navigation-menu .nav-facebook a::before,
+    .gh-navigation-menu .nav-github a::before,
+    .gh-navigation-menu .nav-instagram a::before,
+    .gh-navigation-menu .nav-linkedin a::before,
+    .gh-navigation-menu .nav-twitter a::before,
+    .gh-navigation-menu .nav-x a::before,
+    .gh-navigation-menu .nav-youtube a::before {
+        font-family: "Font Awesome 6 Brands";
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .gh-navigation-menu .nav-discord a::before {content: "\f392"}
+    .gh-navigation-menu .nav-facebook a::before {content: "\f09a"}
+    .gh-navigation-menu .nav-github a::before {content: "\f09b"}
+    .gh-navigation-menu .nav-instagram a::before {content: "\f16d"}
+    .gh-navigation-menu .nav-linkedin a::before {content: "\f08c"}
+    .gh-navigation-menu .nav-twitter a::before {content: "\f099"}
+    .gh-navigation-menu .nav-x a::before {content: "\e61b"}
+    .gh-navigation-menu .nav-youtube a::before {content: "\f167"}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82bd169f98d3648d","version":"2023.10.0","r":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","b":1}' crossorigin="anonymous"></script>
+</body>
+</html>

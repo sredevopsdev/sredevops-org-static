@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>SREDevOps.org (Page 3)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+    <link rel="preload" as="script" href="../../assets/built/source.js%3Fv=9bf28501d9">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+
+    <style>
+        :root {
+            --background-color: #0b0019
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="../../content/images/size/w256h256/format/png/2023/10/SREDevOpsOrg-1.svg" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="prev" href="../2.html">
+    <link rel="next" href="../4/index.html">
+    <meta name="generator" content="Ghost 5.74">
+    <link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="index.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+    <script defer src="../../public/cards.min.js%3Fv=9bf28501d9"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=9bf28501d9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+
+<style>:root {--ghost-accent-color: #ffffff;}</style>
+
+</head>
+<body class="paged has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="../../index.html">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-espanol"><a href="../../es/index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="../../br/index.html">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+        <section class="gh-header is-magazine gh-outer">
+        
+
+    <div class="gh-header-inner gh-inner">
+
+
+                    <article class="gh-card post tag-mlops tag-hash-es tag-apps featured">
+    <a class="gh-card-link" href="../../es/que-es-dvc-data-version-control-y-como-puede-ayudar-en-tus-proyectos-de-datos/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.png7.png 2000w"
+                    sizes="640px"
+                    src="../../content/images/size/w600/2023/07/68747470733a2f2f6476632e6f72672f696d672f6c6f676f2d6769746875622d726561646d652e706e67.png"
+                    alt="¿Qué es DVC (Data Version Control)  y cómo puede ayudar en tus proyectos de datos?"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">MLOps</p>
+            <h3 class="gh-card-title is-title">¿Qué es DVC (Data Version Control)  y cómo puede ayudar en tus proyectos de datos?</h3>
+                <p class="gh-card-excerpt is-body">DVC es una herramienta gratuita y de código abierto para el control de versiones de datos. Te ayuda a administrar, rastrear y compartir conjuntos de datos a lo largo de su ciclo de vida. DVC se puede utilizar para almacenar conjuntos de datos en cualquier formato, incluidos archivos CSV, JSON,</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/mlops/index.html">MLOps</a> | <a href="../../tag/apps/index.html">Apps</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <div class="gh-header-left">
+                    <article class="gh-card post tag-quantum-computing tag-hash-es tag-qubits tag-opinion tag-news tag-selected featured">
+    <a class="gh-card-link" href="../../es/google-anuncia-la-supremacia-cuantica-presenta-sycamore-el-procesador-de-70-qubits-que-deja-en-ridiculo-a-los-supercomputadores-actuales/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1534744971734-e1628d37ea01?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHF1YW50dW0lMjB8ZW58MHx8fHwxNjg5NDIwNDc2fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1534744971734-e1628d37ea01?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHF1YW50dW0lMjB8ZW58MHx8fHwxNjg5NDIwNDc2fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1534744971734-e1628d37ea01?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHF1YW50dW0lMjB8ZW58MHx8fHwxNjg5NDIwNDc2fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1534744971734-e1628d37ea01?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHF1YW50dW0lMjB8ZW58MHx8fHwxNjg5NDIwNDc2fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1534744971734-e1628d37ea01?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHF1YW50dW0lMjB8ZW58MHx8fHwxNjg5NDIwNDc2fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1534744971734-e1628d37ea01?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHF1YW50dW0lMjB8ZW58MHx8fHwxNjg5NDIwNDc2fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1534744971734-e1628d37ea01?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHF1YW50dW0lMjB8ZW58MHx8fHwxNjg5NDIwNDc2fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="Google anuncia la &quot;supremacía cuántica&quot;: presenta Sycamore, el procesador de 70 qubits que deja en ridículo a los supercomputadores actuales"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">Quantum Computing</p>
+            <h3 class="gh-card-title is-title">Google anuncia la &quot;supremacía cuántica&quot;: presenta Sycamore, el procesador de 70 qubits que deja en ridículo a los supercomputadores actuales</h3>
+                <p class="gh-card-excerpt is-body">Qué significa la computación cuántica? Qué significa Phase transition? Qué es Random Circuit Sampling?</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/quantum-computing/index.html">Quantum Computing</a> | <a href="../../tag/qubits/index.html">Qubits</a> | <a href="../../tag/opinion/index.html">Opinion</a> | <a href="../../tag/news/index.html">News</a> | <a href="../../tag/selected/index.html">Selected content</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <article class="gh-card post tag-hash-es tag-automatizacion tag-paas featured">
+    <a class="gh-card-link" href="../../es/pipedream-uno-de-los-mejores-servicios-para-automatizaciones-anuncia-soporte-para-node-v18/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/07/unnamed--1-.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/07/unnamed--1-.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/07/unnamed--1-.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/07/unnamed--1-.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/07/unnamed--1-.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/07/unnamed--1-.png-.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/07/unnamed--1-.png"
+                    alt="Pipedream, uno de los mejores servicios para automatizaciones, anuncia soporte para Node v18"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Pipedream, uno de los mejores servicios para automatizaciones, anuncia soporte para Node v18</h3>
+                <p class="gh-card-excerpt is-body">Pipedream ahora utiliza Node v18 como su entorno de ejecución predeterminado. Esta actualización brinda a los desarrolladores una serie de mejoras y características nuevas para potenciar sus flujos de trabajo. Veamos más detalles al respecto.
+
+
+Node v18: Potencia y estabilidad para los flujos de trabajo en Pipedream
+
+Desde la implementación</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/automatizacion/index.html">Automatización</a> | <a href="../../tag/paas/index.html">PaaS</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <article class="gh-card post tag-devops tag-hash-es tag-aws featured">
+    <a class="gh-card-link" href="../../es/no-mas-bastiones-en-aws-con-ec2-instance-connect-conectar-a-tu-instancia-sin-ip-publica/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/07/ec2-instance-connect-endpoint.svg 160w,
+                           ../../content/images/size/w320/format/webp/2023/07/ec2-instance-connect-endpoint.svgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/07/ec2-instance-connect-endpoint.svgvg 600w,
+                         ../../content/images/size/w960/format/webp/2023/07/ec2-instance-connect-endpoint.svgsvg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/07/ec2-instance-connect-endpoint.svg.svg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/07/ec2-instance-connect-endpoint.svgt.svg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/07/ec2-instance-connect-endpoint.svg"
+                    alt="No más bastiones en AWS: Con EC2 Instance Connect llegas a tu instancia sin IP pública"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">DevOps</p>
+            <h3 class="gh-card-title is-title">No más bastiones en AWS: Con EC2 Instance Connect llegas a tu instancia sin IP pública</h3>
+                <p class="gh-card-excerpt is-body">Desde hoy puedes conectarte a un servidor EC2 en Amazon Web Services (AWS) utilizando "EC2 Instance Connect", sin necesidad de una IP pública ni un host bastión . Este artículo te ayudará a entender cómo configurar correctamente tu endpoint y obtener una conexión segura a tu servidor EC2 en AWS.</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/devops/index.html">DevOps</a> | <a href="../../tag/aws/index.html">AWS</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    </div>
+                    <div class="gh-header-right">
+                    <article class="gh-card post tag-platform-engineering tag-hash-es tag-selected tag-opinion tag-sre tag-devops featured">
+    <a class="gh-card-link" href="../../es/que-es-platform-engineering-para-que-me-sirve-que-paso-con-devops/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fGludGVncmF0aW9ufGVufDB8fHx8MTY4ODA5NDYzMXww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="Qué es Platform Engineering? Para qué me sirve? Qué pasó con DevOps?"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">Platform Engineering</p>
+            <h3 class="gh-card-title is-title">Qué es Platform Engineering? Para qué me sirve? Qué pasó con DevOps?</h3>
+                <p class="gh-card-excerpt is-body">¿Has estado escuchando y leyendo sobre Platform Engineering (ingeniería de plataformas) en toda la web últimamente... pero ¿realmente entendemos qué es Platform Engineering? Todo el mundo parece estar convencido y entusiasmado, pero ¿puedes ver en qué se diferencia de DevOps? Intentaremos dar un resumen general apoyándonos en el material que</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/platform-engineering/index.html">Platform Engineering</a> | <a href="../../tag/selected/index.html">Selected content</a> | <a href="../../tag/opinion/index.html">Opinion</a> | <a href="../../tag/sre/index.html">SRE</a> | <a href="../../tag/devops/index.html">DevOps</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <article class="gh-card post tag-news tag-selected tag-linux featured">
+    <a class="gh-card-link" href="https://sredevops.org/p/63a9f3bd-2cf4-4d25-a379-2228beef108b/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1640552435388-a54879e72b28?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fExJTlVYfGVufDB8fHx8MTY4Nzc3NzE2N3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1640552435388-a54879e72b28?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fExJTlVYfGVufDB8fHx8MTY4Nzc3NzE2N3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1640552435388-a54879e72b28?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fExJTlVYfGVufDB8fHx8MTY4Nzc3NzE2N3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1640552435388-a54879e72b28?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fExJTlVYfGVufDB8fHx8MTY4Nzc3NzE2N3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1640552435388-a54879e72b28?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fExJTlVYfGVufDB8fHx8MTY4Nzc3NzE2N3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1640552435388-a54879e72b28?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fExJTlVYfGVufDB8fHx8MTY4Nzc3NzE2N3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1640552435388-a54879e72b28?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fExJTlVYfGVufDB8fHx8MTY4Nzc3NzE2N3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="Kernel Linux 6.4 ya disponible, incluye soporte para Macs Silicon M2"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">News</p>
+            <h3 class="gh-card-title is-title">Kernel Linux 6.4 ya disponible, incluye soporte para Macs Silicon M2</h3>
+                <p class="gh-card-excerpt is-body">Llega unos meses después del lanzamiento de Linux Kernel 6.3, acorde a lo planificado.
+
+Esta versión ofrece muchas mejoras, como la compatibilidad inicial con Apple Silicon M2 (ARM64), mejoras en el almacenamiento, mejor monitoreo de sensores y más.
+
+Aunque no se trata de una actualización importante para los usuarios</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/news/index.html">News</a> | <a href="../../tag/selected/index.html">Selected content</a> | <a href="../../tag/linux/index.html">Linux</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <article class="gh-card post tag-inteligencia-artificial tag-hash-es tag-selected tag-cine tag-videos featured">
+    <a class="gh-card-link" href="../../es/inteligencia-artificial-vs-bomba-atomica-oppenheimer-y-el-mensaje-de-nolan/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1655721530791-59f5bbd64a48?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxudWNsZWFyJTIwYWl8ZW58MHx8fHwxNjg3NjY3NjI5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1655721530791-59f5bbd64a48?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxudWNsZWFyJTIwYWl8ZW58MHx8fHwxNjg3NjY3NjI5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1655721530791-59f5bbd64a48?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxudWNsZWFyJTIwYWl8ZW58MHx8fHwxNjg3NjY3NjI5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1655721530791-59f5bbd64a48?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxudWNsZWFyJTIwYWl8ZW58MHx8fHwxNjg3NjY3NjI5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1655721530791-59f5bbd64a48?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxudWNsZWFyJTIwYWl8ZW58MHx8fHwxNjg3NjY3NjI5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1655721530791-59f5bbd64a48?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxudWNsZWFyJTIwYWl8ZW58MHx8fHwxNjg3NjY3NjI5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1655721530791-59f5bbd64a48?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxudWNsZWFyJTIwYWl8ZW58MHx8fHwxNjg3NjY3NjI5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="Inteligencia Artificial vs Bomba Atómica: Oppenheimer y el mensaje de Nolan"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">Inteligencia Artificial</p>
+            <h3 class="gh-card-title is-title">Inteligencia Artificial vs Bomba Atómica: Oppenheimer y el mensaje de Nolan</h3>
+                <p class="gh-card-excerpt is-body">En cuanto a la IA, el director plantea una preocupación más profunda sobre IA: atribuirle características divinas que nos eximan de la responsabilidad de nuestros actos. “Si respaldamos la opinión de que la IA es todopoderosa, estamos respaldando la opinión de que puede eximir a las personas de la responsabilidad</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/inteligencia-artificial/index.html">Inteligencia Artificial</a> | <a href="../../tag/selected/index.html">Selected content</a> | <a href="../../tag/cine/index.html">Cine</a> | <a href="../../tag/videos/index.html">Videos</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    </div>
+
+
+
+    </div>
+
+</section>
+
+    
+
+
+<section class="gh-container is-grid has-sidebar gh-outer">
+    <div class="gh-container-inner gh-inner">
+        
+            <h2 class="gh-container-title">
+                Recientes
+            </h2>
+
+        <main class="gh-main">
+            <div class="gh-feed">
+
+                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../br/9-cenarios-onde-implementamos-a-cultura-devops/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="9 cenários onde implementamos a cultura DevOps"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">9 cenários onde implementamos a cultura DevOps</h3>
+                <p class="gh-card-excerpt is-body">“A arte do DevOps” reconhece 9 cenários nos quais podemos implementar a cultura DevOps:
+
+1- Plano
+2- Codificar/Desenvolver
+3- Construir (Edifício)
+4- Teste/Teste
+5- Liberação
+6- Implementar
+7- Operar
+8- Monitorar
+9- Pipeline CI/CD
+
+A Arte do DevOps — As 9 SituaçõesCapítulo 11 — Fases do ciclo de vida</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured no-image">
+    <a class="gh-card-link" href="../../es/devops-el-salto-evolutivo-a-platform-engineering/index.html">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">DevOps: El salto evolutivo a Platform Engineering</h3>
+                <p class="gh-card-excerpt is-body">Éste salto no debe entenderse como un reemplazo o cambio a las culturas DevOps, es más bien una implementación que está surgiendo como una evolución incremental a DevOps bajo ciertos contextos y organizaciones, más que una
+
+
+Desde las raíces: Entender DevOps
+
+DevOps revolucionó la forma en que los equipos diseñan,</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../en/the-dangerous-success-theater-how-vulnerable-organizations-allow-narcissists-to-thrive/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/office.jpg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/office.jpgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/office.jpgpg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/office.jpgjpg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/office.jpg.jpg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/office.jpge.jpg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/office.jpg"
+                    alt="The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive</h3>
+                <p class="gh-card-excerpt is-body">In today’s corporate landscape, a concerning phenomenon emerges: the “success theater”, a façade that conceals an organization’s underlying vulnerabilities. Amplifying this concern is how susceptible organizations become fertile ground for narcissistic leaders, setting the stage for potentially catastrophic consequences.
+
+The Success Theater: “The success theater refers to an</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/lacuna-critica-de-seguranca-usada-em-milhares-de-ambientes-e-revelada-no-nginx-ingress-cve-2023-5043-injecao-de-anotacao-causa-execucao-arbitraria-de-comandos/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgpg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgjpg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg.jpg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg8.jpg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg"
+                    alt="Lacuna crítica de segurança, usada em milhares de ambientes, é revelada no nginx-ingress [CVE-2023-5043: injeção de anotação causa execução arbitrária de comandos]"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Lacuna crítica de segurança, usada em milhares de ambientes, é revelada no nginx-ingress [CVE-2023-5043: injeção de anotação causa execução arbitrária de comandos]</h3>
+                <p class="gh-card-excerpt is-body">Se você usa o nginx como controlador de entrada e mantém configurações por meio de anotações, revise este alerta publicado no Grupo "Oficial" do Google do Kubernetess:, hoje, 25 de outubro de 2023:
+
+
+
+
+
+Issue Details
+
+
+A security issue was identified in ingress-nginx where the nginx.ingress.kubernetes.io/configuration-snippet annotation</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../es/brecha-critica-de-seguridad-usada-en-miles-de-entornos-es-revelada-en-nginx-ingress-cve-2023-5043-annotation-injection-causes-arbitrary-command-execution/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgpg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgjpg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg.jpg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg8.jpg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg"
+                    alt="Imagen de: Crowdstrike"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Brecha crítica  de seguridad,  usada en miles de entornos, es revelada en nginx-ingress [CVE-2023-5043: annotation injection causes arbitrary command execution]</h3>
+                <p class="gh-card-excerpt is-body">Si utilizas nginx como ingress controller y mantienes configuraciones via annottations, debes revisar esta alerta publicada en Kubernetess "Official" Google Group:, hoy 25 de Octubre 2023:
+
+
+
+
+
+Issue Details
+
+
+A security issue was identified in ingress-nginx where the nginx.ingress.kubernetes.io/configuration-snippet annotation on an Ingress object (in the networking.</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/opentf-agora-e-opentofu-e-faz-parte-da-linux-foundation-agora-voce-pode-usar-o-primeiro-alfa/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/tofu-insurance.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/tofu-insurance.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/tofu-insurance.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/tofu-insurance.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/tofu-insurance.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/tofu-insurance.pnge.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/tofu-insurance.png"
+                    alt="OpenTF agora é OpenTofu e faz parte da Linux Foundation, agora você pode usar o primeiro alfa!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">OpenTF agora é OpenTofu e faz parte da Linux Foundation, agora você pode usar o primeiro alfa!</h3>
+                <p class="gh-card-excerpt is-body">Recentemente contamos por que o Terraform estava morto - pelo menos para a comunidade Open Source -, por que a confiança e a responsabilidade de todos os atores do ecossistema de código aberto são importantes. Aqui você pode ver nosso post sobre a Morte do Terraform .
+
+
+Vamos direto ao ponto</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../es/opentf-ahora-es-opentofu-y-es-parte-de-linux-foundation-ya-puedes-usar-el-primer-alpha/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/tofu-insurance.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/tofu-insurance.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/tofu-insurance.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/tofu-insurance.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/tofu-insurance.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/tofu-insurance.pnge.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/tofu-insurance.png"
+                    alt="OpenTF ahora es OpenTofu y es parte de Linux Foundation, ¡ya puedes usar el primer alpha!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">OpenTF ahora es OpenTofu y es parte de Linux Foundation, ¡ya puedes usar el primer alpha!</h3>
+                <p class="gh-card-excerpt is-body">Hace poco te contábamos por qué Terraform estaba muerto -al menos para la comunidad Open Source-, el por qué es importante la confianza y la responsabilidad de todos los actores en el ecosistema de código abierto. Aquí puedes ver nuestra publicación de la muerte de Terraform.
+
+
+Vamos al grano
+
+Ya</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/seguranca-em-ci-cd-e-pipelines-3-abordagens-faceis-para-seguranca-continua-e-nao-diga-que-voce-foi-roubado/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/public.jpeg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/public.jpegg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/public.jpegeg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/public.jpegpeg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/public.jpegjpeg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/public.jpeg.jpeg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/public.jpeg"
+                    alt="Segurança em CI/CD e Pipelines: 3 abordagens fáceis para &quot;Segurança Contínua&quot;"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Segurança em CI/CD e Pipelines: 3 abordagens fáceis para &quot;Segurança Contínua&quot;</h3>
+                <p class="gh-card-excerpt is-body">A segurança de CI/CD é um tópico cada vez mais importante à medida que os pipelines de CI/CD se tornam mais complexos e seu uso se expande. Portanto , as superfícies de ataque são dinâmicas e exigem um foco cultural e técnico, não possuindo apenas processos tediosos e muitas</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/gnu-completa-40-anos-mas-quem-e-esse-tal-do-gnu-voce-ja-o-conhece-bem/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/40y.webp 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/40y.webpp 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/40y.webpbp 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/40y.webpebp 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/40y.webpwebp 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/40y.webp.webp 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/40y.webp"
+                    alt="GNU completa 40 anos! 🎉... Mas quem é esse tal do Gnu? 🤔 Você já o conhece bem!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">GNU completa 40 anos! 🎉... Mas quem é esse tal do Gnu? 🤔 Você já o conhece bem!</h3>
+                <p class="gh-card-excerpt is-body">Quarenta anos de GNU e o movimento do software livre
+GNU, o sistema operacional de software livre semelhante ao Unix, completa 40 anos este ano. Isso mesmo, 40 anos de liberdade para rodar, copiar, distribuir, estudar, alterar e melhorar nossos softwares! Para comemorar, a Free Software Foundation (FSF) realizará um</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../es/seguridad-en-ci-cd-y-pipelines-3-enfoques-faciles-para-la-seguridad-continua-y-que-no-digas-que-te-jakiaron/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/public.jpeg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/public.jpegg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/public.jpegeg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/public.jpegpeg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/public.jpegjpeg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/public.jpeg.jpeg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/public.jpeg"
+                    alt="Seguridad en CI/CD y Pipelines: 3 enfoques fáciles para la &quot;Seguridad Continua&quot; y que no digas que &quot;te jakiaron&quot;"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Seguridad en CI/CD y Pipelines: 3 enfoques fáciles para la &quot;Seguridad Continua&quot; y que no digas que &quot;te jakiaron&quot;</h3>
+                <p class="gh-card-excerpt is-body">"me jakiaron..."
+
+
+- Anónimo
+
+
+
+
+
+La seguridad de CI/CD es un tema cada vez más importante a medida que las pipelines de CI/CD se vuelven más complejas y su uso se extiende. Por lo superficies de ataque son dinámicas y requieren de un foco cultural y técnico, no sólo</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../es/gnu-cumple-40-anos-pero-quien-es-ese-tal-nu-ya-lo-conoces-bien/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/40y.webp 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/40y.webpp 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/40y.webpbp 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/40y.webpebp 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/40y.webpwebp 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/40y.webp.webp 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/40y.webp"
+                    alt="¡GNU cumple 40 años! 🎉... ¿Pero quién es ese tal Ñu? 🤔 Ya lo conoces bien!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">¡GNU cumple 40 años! 🎉... ¿Pero quién es ese tal Ñu? 🤔 Ya lo conoces bien!</h3>
+                <p class="gh-card-excerpt is-body">Cuarenta años de GNU y el movimiento del software libre
+
+GNU, el sistema operativo Unix-like de software libre, cumple 40 años este año. ¡Así es, 40 años de libertad para ejecutar, copiar, distribuir, estudiar, cambiar y mejorar nuestro software! Para celebrarlo, la Free Software Foundation (FSF) organiza un evento especial</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/terraform-esta-morto-viva-o-opentf/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/on-dark.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/on-dark.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/on-dark.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/on-dark.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/on-dark.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/on-dark.pngk.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/on-dark.png"
+                    alt="Terraform está morto, viva o OpenTF!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Terraform está morto, viva o OpenTF!</h3>
+                <p class="gh-card-excerpt is-body">(Ou porque a comunidade Open Source é tão importante)
+
+
+Neste momento histórico, em que a tecnologia está a transformar rapidamente o nosso mundo, é essencial que os indivíduos e as organizações se comprometam a promover práticas éticas e sustentáveis no seu desenvolvimento e utilização .
+
+
+Você pode ver os detalhes do</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>
+
+
+            </div>
+        </main>
+
+            <aside class="gh-sidebar">
+                <div class="gh-sidebar-inner">
+                    <section class="gh-about">
+                            <img class="gh-about-icon" src="../../content/images/2023/10/SREDevOpsOrg-1.svg" alt="SREDevOps.org" loading="lazy">
+                        <h3 class="gh-about-title is-title">SREDevOps.org</h3>
+                            <p class="gh-about-description is-body">Site Reliability Engineering (SRE), DevOps, Cloud Native, GNU/Linux, Platform Engineering </p>
+                    </section>
+                        <section class="gh-recommendations">
+                            <h4 class="gh-sidebar-title">Recommendations</h4>
+                                <ul class="recommendations">
+        <li class="recommendation">
+            <a href="https://engage.isaca.org/santiagochapter/inicio/" data-recommendation="65566fd48d7bda00014eb8a6" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://higherlogicdownload.s3.amazonaws.com/ISACA/2eba75bf-f1e5-4817-ba97-0d500406d54e/UploadedImages/2020%20Favicon-32x32.png" alt="ISACA Santiago Chapter" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">ISACA Santiago Chapter</h5>
+                <span class="recommendation-url">engage.isaca.org/santiagochapter/inicio</span>
+                <p class="recommendation-description"></p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://app.snyk.io/share/9a148854-0f30-40bb-8a56-ae074608fb7e/" data-recommendation="6555b9598d7bda00014eb7fc" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://res.cloudinary.com/snyk/image/upload/v1468845142/favicon/apple-touch-icon.png" alt="Snyk - Secure your projects" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">Snyk - Secure your projects</h5>
+                <span class="recommendation-url">app.snyk.io/share/9a148854-0f30-40bb-8a56-ae074608fb7e</span>
+                <p class="recommendation-description">Snyk</p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://thenewstack.io/" data-recommendation="6555b57f8d7bda00014eb7fb" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://thenewstack.io/favicon.ico" alt="The New Stack" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">The New Stack</h5>
+                <span class="recommendation-url">thenewstack.io</span>
+                <p class="recommendation-description">The latest news and resources on cloud native technologies, distributed systems and data architectures with emphasis on DevOps and open source projects.</p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://www.devopsparadox.com/" data-recommendation="654ea3703c67ff0001cd695a" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://www.devopsparadox.com/apple-touch-icon.png" alt="DevOps Paradox" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">DevOps Paradox</h5>
+                <span class="recommendation-url">devopsparadox.com</span>
+                <p class="recommendation-description">DevOps Paradox</p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://netmaker.io/" data-recommendation="654ea29d3c67ff0001cd6959" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://uploads-ssl.webflow.com/64149f8bba6c1301c5e75001/641826f63c41852aed428edd_favicon.png" alt="Netmaker: Wireguard® VPN &amp; Software Defined Networking" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">Netmaker: Wireguard® VPN &amp; Software Defined Networking</h5>
+                <span class="recommendation-url">netmaker.io</span>
+                <p class="recommendation-description">Netmaker is a platform that uses Software Defined Networking (SDN) to build a powerful Wireguard VPN. Securely connect and manage a complex network with ease.</p>
+            </a>
+        </li>
+    </ul>
+
+                            <button data-portal="recommendations">See all <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></button>
+                        </section>
+                </div>
+            </aside>
+
+            <div class="gh-more is-title">
+                <a href="../2.html">See all <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></a>
+            </div>
+
+    </div>
+</section>
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-espanol"><a href="../../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="https://sredevops.dev.br">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+    <li class="nav-chat"><a href="../../chat/index.html">Chat</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+        
+
+    </div>
+</footer>    
+</div>
+
+
+<script src="../../assets/built/source.js%3Fv=9bf28501d9"></script>
+
+<style>
+    .gh-navigation-menu .nav-discord a,
+    .gh-navigation-menu .nav-facebook a,
+    .gh-navigation-menu .nav-github a,
+    .gh-navigation-menu .nav-instagram a,
+    .gh-navigation-menu .nav-linkedin a,
+    .gh-navigation-menu .nav-twitter a,
+    .gh-navigation-menu .nav-x a,
+    .gh-navigation-menu .nav-youtube a {
+        font-size: 0 !important;
+    }
+
+    .gh-navigation-menu .nav-discord a::before,
+    .gh-navigation-menu .nav-facebook a::before,
+    .gh-navigation-menu .nav-github a::before,
+    .gh-navigation-menu .nav-instagram a::before,
+    .gh-navigation-menu .nav-linkedin a::before,
+    .gh-navigation-menu .nav-twitter a::before,
+    .gh-navigation-menu .nav-x a::before,
+    .gh-navigation-menu .nav-youtube a::before {
+        font-family: "Font Awesome 6 Brands";
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .gh-navigation-menu .nav-discord a::before {content: "\f392"}
+    .gh-navigation-menu .nav-facebook a::before {content: "\f09a"}
+    .gh-navigation-menu .nav-github a::before {content: "\f09b"}
+    .gh-navigation-menu .nav-instagram a::before {content: "\f16d"}
+    .gh-navigation-menu .nav-linkedin a::before {content: "\f08c"}
+    .gh-navigation-menu .nav-twitter a::before {content: "\f099"}
+    .gh-navigation-menu .nav-x a::before {content: "\e61b"}
+    .gh-navigation-menu .nav-youtube a::before {content: "\f167"}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82bd15528c9c648d","version":"2023.10.0","r":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","b":1}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,41 +1,66 @@
 <!DOCTYPE html>
-<html lang="es" class="dark-mode">
+<html lang="es">
 <head>
-<title>Qué es SREDevOps.org?</title>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="HandheldFriendly" content="True" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="preload" as="style" href="../assets/built/screen.css%3Fv=b67a8888e4.css" />
-<link rel="preload" as="script" href="../assets/built/casper.js%3Fv=b67a8888e4" />
-<link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=b67a8888e4.css" />
-<meta name="description" content="Promovemos y difundimos conocimientos, tutoriales, noticias e información del universo Cloud Native, alrededor de las culturas, prácticas, roles DevOps, Site Reliability Engineering (SRE), Platform Engineers, Cloud Native, etc.">
-<link rel="icon" href="../content/images/size/w256h256/format/png/2023/07/icon-1.svg" type="image/png">
-<link rel="canonical" href="index.html">
-<meta name="referrer" content="no-referrer-when-downgrade">
-<meta property="og:site_name" content="SREDevOps.org">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Qué es SREDevOps.org?">
-<meta property="og:description" content="Promovemos y difundimos conocimientos, tutoriales, noticias e información del universo Cloud Native, alrededor de las culturas, prácticas, roles DevOps, Site Reliability Engineering (SRE), Platform Engineers, Cloud Native, etc.">
-<meta property="og:url" content="https://sredevops.org/que-es-sredevops/">
-<meta property="og:image" content="https://sredevops.org/content/images/2023/07/Untitled-2.png">
-<meta property="article:published_time" content="2023-05-10T18:13:35.000Z">
-<meta property="article:modified_time" content="2023-08-09T13:59:57.000Z">
-<meta property="article:tag" content="SREDevOps">
-<meta property="article:publisher" content="https://www.facebook.com/sredevops">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Qué es SREDevOps.org?">
-<meta name="twitter:description" content="Promovemos y difundimos conocimientos, tutoriales, noticias e información del universo Cloud Native, alrededor de las culturas, prácticas, roles DevOps, Site Reliability Engineering (SRE), Platform Engineers, Cloud Native, etc.">
-<meta name="twitter:url" content="https://sredevops.org/que-es-sredevops/">
-<meta name="twitter:image" content="https://sredevops.org/content/images/2023/07/Untitled-1.png">
-<meta name="twitter:label1" content="Written by">
-<meta name="twitter:data1" content="Nicolás Georger">
-<meta name="twitter:label2" content="Filed under">
-<meta name="twitter:data2" content="SREDevOps">
-<meta name="twitter:site" content="@sredevopsorg">
-<meta property="og:image:width" content="2000">
-<meta property="og:image:height" content="876">
-<script type="application/ld+json">
+
+    <title>Qué es SREDevOps.org?</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="../assets/built/screen.css%3Fv=9bf28501d9.css">
+    <link rel="preload" as="script" href="../assets/built/source.js%3Fv=9bf28501d9">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=9bf28501d9.css">
+
+    <style>
+        :root {
+            --background-color: #0b0019
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <meta name="description" content="Propósito:  Crear comunidad, vínculos y materiales que faciliten la difusión, profundización e innovación, basadas en el código abierto, desarrollo comunitario y vanguardista, desde un enfoque Cloud Native con raíz GNU/Linux.">
+    <link rel="icon" href="../content/images/size/w256h256/format/png/2023/10/SREDevOpsOrg-1.svg" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="SREDevOps.org">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Qué es SREDevOps.org?">
+    <meta property="og:description" content="Propósito:  Crear comunidad, vínculos y materiales que faciliten la difusión, profundización e innovación, basadas en el código abierto, desarrollo comunitario y vanguardista, desde un enfoque Cloud Native con raíz GNU/Linux.">
+    <meta property="og:url" content="https://sredevops.org/que-es-sredevops/">
+    <meta property="og:image" content="https://sredevops.org/content/images/2023/11/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape-4.png">
+    <meta property="article:published_time" content="2023-05-10T18:13:35.000Z">
+    <meta property="article:modified_time" content="2023-11-11T21:58:39.000Z">
+    <meta property="article:tag" content="SREDevOps">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/sredevops">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Qué es SREDevOps.org?">
+    <meta name="twitter:description" content="Propósito:  Crear comunidad, vínculos y materiales que faciliten la difusión, profundización e innovación, basadas en el código abierto, desarrollo comunitario y vanguardista, desde un enfoque Cloud Native con raíz GNU/Linux.">
+    <meta name="twitter:url" content="https://sredevops.org/que-es-sredevops/">
+    <meta name="twitter:image" content="https://sredevops.org/content/images/2023/11/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape-3.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nicolás Georger">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="SREDevOps">
+    <meta name="twitter:site" content="@sredevopsorg">
+    <meta property="og:image:width" content="1136">
+    <meta property="og:image:height" content="640">
+    
+    <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -45,7 +70,7 @@
         "url": "https://sredevops.org/",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://sredevops.org/content/images/2023/06/ghost.svg"
+            "url": "https://sredevops.org/content/images/2023/10/SREDevOpsOrg-h-2.svg"
         }
     },
     "author": {
@@ -53,11 +78,11 @@
         "name": "Nicolás Georger",
         "image": {
             "@type": "ImageObject",
-            "url": "https://sredevops.org/content/images/2023/06/don-alejandro.jpg",
-            "width": 376,
-            "height": 376
+            "url": "https://sredevops.org/content/images/2023/09/perfil2.jpeg",
+            "width": 400,
+            "height": 400
         },
-        "url": "https://sredevops.org/author/nicolas-georger/",
+        "url": "https://sredevops.org/author/ngeorger/",
         "sameAs": [
             "https://sredevops.org"
         ]
@@ -65,29 +90,25 @@
     "headline": "Qué es SREDevOps.org?",
     "url": "https://sredevops.org/que-es-sredevops/",
     "datePublished": "2023-05-10T18:13:35.000Z",
-    "dateModified": "2023-08-09T13:59:57.000Z",
+    "dateModified": "2023-11-11T21:58:39.000Z",
     "keywords": "SREDevOps",
-    "description": "Promovemos y difundimos conocimientos, tutoriales, noticias e información del universo Cloud Native, alrededor de las culturas, prácticas, roles DevOps, Site Reliability Engineering (SRE), Platform Engineers, Cloud Native, etc.",
+    "description": "Propósito:  Crear comunidad, vínculos y materiales que faciliten la difusión, profundización e innovación, basadas en el código abierto, desarrollo comunitario y vanguardista, desde un enfoque Cloud Native con raíz GNU/Linux.",
     "mainEntityOfPage": "https://sredevops.org/que-es-sredevops/"
 }
     </script>
-<meta name="generator" content="Ghost 5.59">
-<link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="../rss/index.html">
-<script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/ghost/announcement-bar@~1.1/umd/announcement-bar.min.js" data-announcement-bar="https://sredevops.org/" data-api-url="https://sredevops.org/members/api/announcement/" crossorigin="anonymous"></script>
-<link href="https://sredevops.org/webmentions/receive/" rel="webmention">
-<script defer src="../public/cards.min.js%3Fv=b67a8888e4"></script>
-<link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=b67a8888e4.css">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XHP2RTN2VG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XHP2RTN2VG');
-</script>
-
+    <meta name="generator" content="Ghost 5.74">
+    <link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="index.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+    <script defer src="../public/cards.min.js%3Fv=9bf28501d9"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=9bf28501d9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -97,144 +118,192 @@
   gtag('config', 'G-G6XFMLDJNT');
 </script>
 
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1221252298514939');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1221252298514939&ev=PageView&noscript=1"
-/></noscript>
 
-<meta name="facebook-domain-verification" content="rpzaz85ait61jdamyc3l3h270la0ex" /><style>:root {--ghost-accent-color: #ffffff;}</style>
+<style>:root {--ghost-accent-color: #ffffff;}</style>
+
 </head>
-<body class="page-template page-que-es-sredevops tag-sredevops tag-hash-es is-head-left-logo has-sans-body">
-<div class="viewport">
-<header id="gh-head" class="gh-head outer is-header-hidden">
-<div class="gh-head-inner inner">
-<div class="gh-head-brand">
-<a class="gh-head-logo" href="../index.html">
-<img src="../content/images/2023/06/ghost.svg" alt="SREDevOps.org">
-</a>
-<button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
-<button class="gh-burger"></button>
-</div>
-<nav class="gh-head-menu">
-<ul class="nav">
-<li class="nav-inicio"><a href="../index.html">Inicio</a></li>
-<li class="nav-nosotros nav-current"><a href="index.html">Nosotros</a></li>
-<li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
-<li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
-<li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
-</ul>
-</nav>
-<div class="gh-head-actions">
-<button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
-</div>
-</div>
-</header>
-<div class="site-content">
-<main id="site-main" class="site-main">
-<article class="article post tag-sredevops tag-hash-es featured no-image">
-<header class="article-header gh-canvas">
-<h1 class="article-title">Qué es SREDevOps.org?</h1>
-</header>
-<section class="gh-content gh-canvas">
-<p>Promovemos y difundimos conocimientos, tutoriales, noticias e información del universo Cloud Native, alrededor de las culturas, prácticas, roles DevOps, Site Reliability Engineering (SRE), Platform Engineers, Cloud Native, etc.</p><h3 id="qui%C3%A9nes-somos">Quiénes somos?</h3><ul><li><strong>Fundador, editor (Chile)</strong><br>- Nicolás Georger: <a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6f060109002f1c1d0a0b0a19001f1c410c03">[email&#160;protected]</a></li><li><strong>Edição em português (Brasil/USA)</strong><br>- Diego Mondini: <a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d8bcb1bdbfb7f6b5bf98abaabdbcbdaeb7a8abf6bcbdaef6baaa">[email&#160;protected]</a></li></ul><div class="kg-card kg-callout-card kg-callout-card-green"><div class="kg-callout-emoji">📌</div><div class="kg-callout-text">Buscabas otro contenido? Quieres saber qué es SRE, DevOps o Platform Engineering? <a href="../tag/sre/index.html">Puedes ver la categoría SRE aquí</a>.</div></div><h3 id="quiz%C3%A1s-lo-podemos-describir-de-otra-manera-intentemos">Quizás lo podemos describir de otra manera... intentemos</h3><pre><code class="language-yaml">---
-api: v1beta1
-kind: proyecto
-name: SREDevOps.cl
-annotations:
- - año: 2023
-spec:
-  queremos:
-    construir:
-    - Curiosidad Continua
-    - Comunidades como Soporte
-    para:
-        data: |- 
-            Difundir las culturas, prácticas, roles,      
-            tecnologías y noticias del universo cloud     
-            native, desde la perspectiva de una comunidad 
-            de personas con diversidad de experiencias,   
-            culturas e identidades, que han desempeñando  
-            roles como SREs, Platform Engineers, DevOps,  
-            Developers, etc.'
-    cómo:
-        data: |-
-            Reunir-personas y facilitar-plataformas que deseen
-            - aprender
-            - enseñar
-            - compartir
-            - comunicar
-            - enlazar
-            - contribuir
----
-api: v1beta1
-kind: actividades
-name: propuestas-2023 
-annotations:
-  - año: 2023
-spec:
-  cómo:
-    facilitar:
-          - reunir-personas
-          - plataformas
-          - recursos-educativos
-          - información relevante
-        foco-en:
-          - Latinoamérica
-          - Español
-    plataformas:
-      - discord:
-        enlace: 'https://discord.com/invite/etg3g2XM'
-      - github:
-        enlace: 'https://github.com/sredevopsdev'
-      - instagram:
-        enlace: 'https://www.instagram.com/sredevopscl/'
+<body class="page-template page-que-es-sredevops tag-sredevops has-sans-title has-sans-body">
 
-</code></pre>
-</section>
-</article>
-</main>
-</div>
-<footer class="site-footer outer">
-<div class="inner">
-<section class="copyright"><a href="../index.html">SREDevOps.org</a> &copy; 2023</section>
-<nav class="site-footer-nav">
-<ul class="nav">
-<li class="nav-nosotros nav-current"><a href="index.html">Nosotros</a></li>
-<li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
-<li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
-<li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
-<li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
-<li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="../index.html">
+                    <img src="../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-espanol"><a href="../es/index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="../br/index.html">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros nav-current"><a href="index.html">Nosotros</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
 </ul>
-</nav>
-<div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+    <article class="gh-article post tag-sredevops featured no-image">
+
+
+        <section class="gh-content gh-canvas is-body">
+            <div class="kg-card kg-callout-card kg-callout-card-green"><div class="kg-callout-emoji">📌</div><div class="kg-callout-text">Buscabas otro contenido? Quieres saber qué es SRE, DevOps o Platform Engineering? Puedes ver las categorías: <a href="../tag/sre/index.html" rel="noreferrer">SRE</a>, <a href="../tag/devops/index.html" rel="noreferrer">DevOps</a>, <a href="../tag/platform-engineering/index.html" rel="noreferrer">Platform Engineering</a></div></div><h1 id="comunidad-site-reliability-engineering-sre-devops-cloud-native-gnulinux-y-m%C3%A1s-%F0%9F%8C%8E">Comunidad Site Reliability Engineering (SRE), DevOps, Cloud Native, GNU/Linux y más.  🌎</h1>
+<p>Contacto: <a href="../cdn-cgi/l/email-protection.html#89e0e7efe6c9fafbecedecffe6f9faa7eae5"><span class="__cf_email__" data-cfemail="fd94939b92bd8e8f9899988b928d8ed39e91">[email&#160;protected]</span></a></p>
+<p><a href="../es/index.html">Español 🇨🇱 🇪🇸 🇲🇽</a> | <a href="https://sredevops.dev.br/?ref=sredevops.org">Portugues 🇧🇷 🇵🇹</a> | <a href="../en/index.html">English 🇬🇧 🇺🇸</a> | <a href="index.html">Nosotros</a> | <a href="https://discord.com/invite/bK9rXFTvpk?ref=sredevops.org">Discord</a> | <a href="https://github.com/sredevopsdev?ref=sredevops.org">Github</a> | <a href="https://www.linkedin.com/company/sredevops/?ref=sredevops.org">LinkedIn</a> | <a href="https://twitter.com/sredevopsorg?ref=sredevops.org">Twitter</a> | <a href="https://www.instagram.com/sredevopsorg/?ref=sredevops.org">Instagram</a></p>
+<h3 id="prop%C3%B3sito">Propósito</h3>
+<p>Crear comunidad, vínculos y materiales que faciliten la difusión, profundización e innovación, basadas en el código abierto, desarrollo comunitario y vanguardista, desde un enfoque Cloud Native con raíz GNU/Linux.</p>
+<h3 id="principios-y-conceptos">Principios y Conceptos</h3>
+<p>Entendemos que nuestras realidades y contextos poseen "carencias o desventajas" que son a su vez un acelerador para "pensar fuera de la caja" y permitan crear mejoras individuales, organizacionales, empresariales y sociales.<br>
+Algunas de estas oportunidades son la equidad de género, el desarrollo económico, la igualdad de oportunidades y en un sentido general, entender que estamos en un marco de cambio climático e incertidumbres crecientes, con la paradoja de tener a la vez las mejores condiciones y tecnología conocida en la historia.</p>
+<p>Queremos estar en el futuro a través del presente y para ello estamos llamados a compartir aprendizajes y reencontrarnos en la creatividad comunitaria.</p>
+<h3 id="te-sumas">Te sumas?</h3>
+<p>Puedes escribirnos a los correos más abajo, participar en nuestro Discord (Links arriba) o puedes <a href="https://github.com/orgs/sredevopsdev/discussions/new?ref=sredevops.org">Abrir una discusión en Github</a>.</p>
+<h3 id="qui%C3%A9nes-somos">Quiénes somos? </h3><ul><li>Nicolás Georger | <a href="https://github.com/ngeorger?ref=sredevops.org" rel="noreferrer">@ngeorger</a> | <a href="../cdn-cgi/l/email-protection.html#6900070f06291a1b0c0d0c1f06191a470a05" rel="noreferrer"><span class="__cf_email__" data-cfemail="d3babdb5bc93a0a1b6b7b6a5bca3a0fdb0bf">[email&#160;protected]</span></a></li><li>Diego Mondini | <a href="https://github.com/mondiniit?ref=sredevops.org" rel="noreferrer">@mondiniit</a> | <a href="../cdn-cgi/l/email-protection.html#84e0ede1e3ebaae9e3c4f7f6e1e0e1f2ebf4f7aae0e1f2aae6f6" rel="noreferrer"><span class="__cf_email__" data-cfemail="f6929f939199d89b91b6858493929380998685d8929380d89484">[email&#160;protected]</span></a></li><li>Rudy Pinochet | <a href="https://github.com/rudy500?ref=sredevops.org" rel="noreferrer">@rudy500</a> </li></ul><h3 id="colaboradores">Colaboradores</h3><ul><li>Rodrigo Estrada |  | <a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="483a272c3a212f27662d3b3c3a292c29082f25292124662b2725">[email&#160;protected]</a></li></ul><p><em><a href="https://github.com/sredevopsdev/.github/edit/main/README.md?ref=sredevops.org">Editar en Github</a></em></p>
+
+        </section>
+
+    </article>
+</main>
+
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-espanol"><a href="../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="https://sredevops.dev.br">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros nav-current"><a href="index.html">Nosotros</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+    <li class="nav-chat"><a href="../chat/index.html">Chat</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+        
+
+    </div>
+</footer>    
 </div>
-</footer>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
 </div>
-<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
-</script>
-<script src="../assets/built/casper.js%3Fv=b67a8888e4"></script>
-<script>
-$(document).ready(function () {
-    // Mobile Menu Trigger
-    $('.gh-burger').click(function () {
-        $('body').toggleClass('gh-head-open');
-    });
-    // FitVids - Makes video embeds responsive
-    $(".gh-content").fitVids();
-});
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"7fadde0bc8d4d772","version":"2023.8.0","r":1,"b":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","si":100}' crossorigin="anonymous"></script>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../assets/built/source.js%3Fv=9bf28501d9"></script>
+
+<style>
+    .gh-navigation-menu .nav-discord a,
+    .gh-navigation-menu .nav-facebook a,
+    .gh-navigation-menu .nav-github a,
+    .gh-navigation-menu .nav-instagram a,
+    .gh-navigation-menu .nav-linkedin a,
+    .gh-navigation-menu .nav-twitter a,
+    .gh-navigation-menu .nav-x a,
+    .gh-navigation-menu .nav-youtube a {
+        font-size: 0 !important;
+    }
+
+    .gh-navigation-menu .nav-discord a::before,
+    .gh-navigation-menu .nav-facebook a::before,
+    .gh-navigation-menu .nav-github a::before,
+    .gh-navigation-menu .nav-instagram a::before,
+    .gh-navigation-menu .nav-linkedin a::before,
+    .gh-navigation-menu .nav-twitter a::before,
+    .gh-navigation-menu .nav-x a::before,
+    .gh-navigation-menu .nav-youtube a::before {
+        font-family: "Font Awesome 6 Brands";
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .gh-navigation-menu .nav-discord a::before {content: "\f392"}
+    .gh-navigation-menu .nav-facebook a::before {content: "\f09a"}
+    .gh-navigation-menu .nav-github a::before {content: "\f09b"}
+    .gh-navigation-menu .nav-instagram a::before {content: "\f16d"}
+    .gh-navigation-menu .nav-linkedin a::before {content: "\f08c"}
+    .gh-navigation-menu .nav-twitter a::before {content: "\f099"}
+    .gh-navigation-menu .nav-x a::before {content: "\e61b"}
+    .gh-navigation-menu .nav-youtube a::before {content: "\f167"}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82bd11ea6cb4648d","version":"2023.10.0","r":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","b":1}' crossorigin="anonymous"></script>
 </body>
 </html>

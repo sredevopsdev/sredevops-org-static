@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>Corrupción? Burocracia? Participación? Hay una solución: Blockchain.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+    <link rel="preload" as="script" href="../../assets/built/source.js%3Fv=9bf28501d9">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+
+    <style>
+        :root {
+            --background-color: #0b0019
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="../../content/images/size/w256h256/format/png/2023/10/SREDevOpsOrg-1.svg" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="SREDevOps.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Corrupción? Burocracia? Participación? Hay una solución: Blockchain.">
+    <meta property="og:description" content="Blockchain es una tecnología que está revolucionando el mundo, y el gobierno no es la excepción. Esta tecnología tiene el potencial de resolver los conflictos sociales y políticos, como la corrupción, la burocracia y la falta de participación ciudadana.
+
+
+Tabla de contenidos:
+
+
+ * Cómo blockchain se puede usar en el gobierno?">
+    <meta property="og:url" content="https://sredevops.org/es/corrupcion-burocracia-participacion-hay-una-solucion-blockchain/">
+    <meta property="og:image" content="https://sredevops.org/content/images/2023/08/image-2-1.png">
+    <meta property="article:published_time" content="2023-08-10T14:15:51.000Z">
+    <meta property="article:modified_time" content="2023-11-07T15:41:34.000Z">
+    <meta property="article:tag" content="Opinion">
+    <meta property="article:tag" content="SREDevOps">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/sredevops">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Corrupción? Burocracia? Participación? Hay una solución: Blockchain.">
+    <meta name="twitter:description" content="Blockchain es una tecnología que está revolucionando el mundo, y el gobierno no es la excepción. Esta tecnología tiene el potencial de resolver los conflictos sociales y políticos, como la corrupción, la burocracia y la falta de participación ciudadana.
+
+
+Tabla de contenidos:
+
+
+ * Cómo blockchain se puede usar en el gobierno?">
+    <meta name="twitter:url" content="https://sredevops.org/es/corrupcion-burocracia-participacion-hay-una-solucion-blockchain/">
+    <meta name="twitter:image" content="https://sredevops.org/content/images/2023/08/image-2-1.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nicolás Georger">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Opinion, SREDevOps">
+    <meta name="twitter:site" content="@sredevopsorg">
+    <meta property="og:image:width" content="2202">
+    <meta property="og:image:height" content="1002">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SREDevOps.org",
+        "url": "https://sredevops.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/10/SREDevOpsOrg-h-2.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nicolás Georger",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/09/perfil2.jpeg",
+            "width": 400,
+            "height": 400
+        },
+        "url": "https://sredevops.org/author/ngeorger/",
+        "sameAs": [
+            "https://sredevops.org"
+        ]
+    },
+    "headline": "Corrupción? Burocracia? Participación? Hay una solución: Blockchain.",
+    "url": "https://sredevops.org/es/corrupcion-burocracia-participacion-hay-una-solucion-blockchain/",
+    "datePublished": "2023-08-10T14:15:51.000Z",
+    "dateModified": "2023-11-07T15:41:34.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://sredevops.org/content/images/2023/08/image-2-1.png",
+        "width": 2202,
+        "height": 1002
+    },
+    "keywords": "Opinion, SREDevOps",
+    "description": "Blockchain es una tecnología que está revolucionando el mundo, y el gobierno no es la excepción. Esta tecnología tiene el potencial de resolver los conflictos sociales y políticos, como la corrupción, la burocracia y la falta de participación ciudadana.\n\n\nTabla de contenidos:\n\n\n * Cómo blockchain se puede usar en el gobierno?\n * Por qué es conveniente para empresas, gobiernos y principalmente la ciudadanía?\n * Existe actualmente ejemplos donde ya se utilice?\n * Si soy desarrollador, de qué forma",
+    "mainEntityOfPage": "https://sredevops.org/es/corrupcion-burocracia-participacion-hay-una-solucion-blockchain/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.74">
+    <link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="index.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+    <script defer src="../../public/cards.min.js%3Fv=9bf28501d9"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=9bf28501d9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+
+<style>:root {--ghost-accent-color: #ffffff;}</style>
+
+</head>
+<body class="post-template tag-opinion tag-hash-es tag-sredevops has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="../../index.html">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-espanol nav-current-parent"><a href="../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="../../br/index.html">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-opinion tag-hash-es tag-sredevops featured">
+
+        <header class="gh-article-header gh-canvas">
+
+
+            <h1 class="gh-article-title is-title">Corrupción? Burocracia? Participación? Hay una solución: Blockchain.</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="../../author/ngeorger/index.html">
+                                <img class="author-profile-image" src="../../content/images/size/w160/2023/09/perfil2.jpeg" alt="Nicolás Georger" />
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+
+                    <h4 class="gh-article-author-name"><a href="../../author/ngeorger/index.html">Nicolás Georger</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="10-08-2023">10 de ago. de 2023</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 4 min read</span>
+                    </div>
+                </div>
+            </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="../../content/images/size/w320/2023/08/image-2-1.png 320w,
+                   ../../content/images/size/w600/2023/08/image-2-1.pngg 600w,
+                  ../../content/images/size/w960/2023/08/image-2-1.pngng 960w,
+                 ../../content/images/size/w1200/2023/08/image-2-1.pngpng 1200w,
+                ../../content/images/size/w2000/2023/08/image-2-1.png.png 2000w"
+            src="../../content/images/size/w1200/2023/08/image-2-1.png"
+            alt="Corrupción? Burocracia? Participación? Hay una solución: Blockchain."
+        >
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>Blockchain es una tecnología que está revolucionando el mundo, y el gobierno no es la excepción. Esta tecnología tiene el potencial de <strong>resolver los conflictos sociales y políticos</strong>, como la<strong> corrupción, la burocracia y la falta de participación ciudadana</strong>.</p><h2 id="tabla-de-contenidos">Tabla de contenidos:</h2>
+<ul>
+<li><strong>Cómo blockchain se puede usar en el gobierno?</strong></li>
+<li><strong>Por qué es conveniente para empresas, gobiernos y principalmente la ciudadanía?</strong></li>
+<li><strong>Existe actualmente ejemplos donde ya se utilice?</strong></li>
+<li><strong>Si soy desarrollador, de qué forma puedo especializarme en blockchain?</strong></li>
+<li><strong>Si soy funcionario público, cómo puedo entender mejor y promover el uso de blockchain?</strong></li>
+</ul>
+<h2 id="c%C3%B3mo-blockchain-se-puede-usar-en-el-gobierno">Cómo blockchain se puede usar en el gobierno?</h2><p>Blockchain se puede usar en el gobierno de muchas maneras, dentro de la idea central de "accountability",, algunas formas son:</p><ul><li><strong>Para almacenar, distribuir y almacenar actos administrativos:</strong> Blockchain puede ser utilizado para registrar y gestionar documentos gubernamentales, como actas de nacimiento, registros de propiedad y registros de votación. Esto puede ayudar a reducir la corrupción y garantizar que los documentos sean precisos, públicos, transparentes y seguros.</li><li><strong>Para mejorar la eficiencia del gobierno:</strong> Blockchain puede ser utilizado para mejorar la eficiencia del gobierno al automatizar procesos y eliminar la necesidad de intermediarios. Esto puede ahorrar recursos públicos,  simplificar trámites a la ciudadanía y garantizar confiabilidad en dichos procesos.</li><li><strong>Para aumentar la participación ciudadana:</strong> Blockchain puede ser utilizado para aumentar la participación ciudadana al permitir que todas las personas sean parte del control, tanto en los recursos , como en los cumplimientos de promesas de campañas,  acceder y participar en procesos gubernamentales de manera simple y notoriamente eficiente. Esto puede ayudar a hacer que los gobiernos y el Estado sea más transparente y responsable ante la ciudadanía.</li></ul><h2 id="por-qu%C3%A9-es-conveniente-para-empresas-gobiernos-y-principalmente-la-ciudadan%C3%ADa">Por qué es conveniente para empresas, gobiernos y principalmente la ciudadanía?</h2><ul><li><strong>Transparencia:</strong> Blockchain es una tecnología transparente, lo que significa que todas las transacciones se registran y almacenan de forma pública. Esto puede ayudar a prevenir la corrupción y garantizar que las transacciones sean justas y equitativas.</li><li><strong>Seguridad:</strong> Blockchain es una tecnología segura, ya que utiliza criptografía para proteger los datos. Esto puede ayudar a prevenir el robo de datos y el fraude.</li><li><strong>Eficiencia:</strong> Blockchain es una tecnología eficiente, ya que puede automatizar procesos y eliminar la necesidad de intermediarios, es decir trámites y burocracia.</li></ul><h2 id="existe-actualmente-ejemplos-donde-ya-se-utilice">Existe actualmente ejemplos donde ya se utilice?</h2><p>Blockchain ya se está utilizando en el gobierno de varias formas, incluyendo:</p><ul><li><strong>🇪🇪 Estonia:</strong> Estonia es uno de los países líderes en el uso de blockchain en el gobierno. El gobierno estonio utiliza blockchain para registrar y gestionar documentos gubernamentales, como actas de nacimiento, registros de propiedad y registros de votación.</li><li><strong>🇦🇪 Dubai:</strong> Dubai es otro país que está adoptando blockchain en el gobierno. El gobierno de Dubai planea utilizar blockchain para crear una ciudad inteligente, donde los ciudadanos puedan acceder a los servicios gubernamentales de manera segura y eficiente.</li><li><strong>🇺🇸 Estados Unidos:</strong>  Distintos gobiernos locales, tanto como el federal en Estados Unidos están utilizando blockchain para registrar y gestionar registros de propiedad, contratos gubernamentales y registros de votación.</li></ul><h2 id="si-soy-desarrollador-de-qu%C3%A9-forma-puedo-especializarme-en-blockchain">Si soy desarrollador, de qué forma puedo especializarme en blockchain?</h2><ul><li><strong>Aprende sobre el funcionamiento interno de blockchain.</strong> Esto incluye entender cómo funcionan los bloques, las cadenas y la criptografía. Si estás interesado en realizar casos de ejemplo, <a href="https://discord.com/invite/bK9rXFTvpk?ref=sredevops.org" rel="noreferrer">escríbenos y podremos realizar hackathons en nuestra comunidad Discord</a>.</li><li><strong>Construye proyectos de blockchain.</strong> Esto es una de las mejores maneras de aprender sobre la tecnología y desarrollar tus habilidades. Hay muchos proyectos diferentes que puedes construir, como aplicaciones descentralizadas, redes de pagos y plataformas de contratos inteligentes.</li><li><strong>Únete a comunidades de blockchain.</strong> Hay muchas comunidades en línea y en persona donde puedes conectarte con otros desarrolladores de blockchain. Estas comunidades pueden ser una gran fuente de apoyo y aprendizaje.</li><li><strong>Mantente al día con las últimas noticias de blockchain.</strong> La tecnología blockchain está en constante evolución, por lo que es importante mantenerse al día con las últimas noticias. Puedes hacerlo leyendo publicaciones de blog, viendo videos y asistiendo a conferencias.</li></ul><h2 id="si-soy-funcionario-p%C3%BAblico-c%C3%B3mo-puedo-entender-mejor-y-promover-el-uso-de-blockchain">Si soy funcionario público, cómo puedo entender mejor y promover el uso de blockchain?</h2><ul><li><strong>Aprende sobre los beneficios de blockchain.</strong> Blockchain tiene el potencial de mejorar la eficiencia, la transparencia y la seguridad de muchos procesos gubernamentales. Puedes aprender sobre los beneficios leyendo libros, artículos y viendo videos.</li><li><strong>Conecta con otros funcionarios públicos que están interesados en blockchain.</strong> Hay muchas comunidades en línea y en persona donde puedes conectarte con otros funcionarios públicos que están interesados en blockchain. Estas comunidades pueden ser una gran fuente de apoyo y aprendizaje.</li><li><strong>Desarrolla una estrategia para el uso de blockchain en tu gobierno.</strong> Una vez que entiendas los beneficios de blockchain, puedes empezar a desarrollar una estrategia para su uso en tu gobierno. Esta estrategia debe ser específica para tu gobierno y debe tener en cuenta los desafíos y oportunidades únicos de tu comunidad.</li><li><strong>Implementa blockchain en tu gobierno.</strong> Una vez que tengas una estrategia, puedes empezar a implementar blockchain en tu gobierno. Esto puede implicar trabajar con desarrolladores para construir aplicaciones de blockchain, o puede implicar trabajar con otros funcionarios públicos para cambiar los procesos gubernamentales.</li></ul><p>Debemos ser parte de la solución, te invitamos a proponer ideas y participar con nosotros en Discord, todos podemos aprender, no necesitas ser experta/o.</p><div class="kg-card kg-file-card"><a class="kg-file-card-container" href="../../content/files/2023/08/Blockchain_en_la_administracion_publica.pdf" title="Download" download><div class="kg-file-card-contents"><div class="kg-file-card-title">Blockchain_en_la_administracion_publica</div><div class="kg-file-card-caption"></div><div class="kg-file-card-metadata"><div class="kg-file-card-filename">Blockchain_en_la_administracion_publica.pdf</div><div class="kg-file-card-filesize">683 KB</div></div></div><div class="kg-file-card-icon"><svg viewbox="0 0 24 24"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>download-circle</title><polyline class="a" points="8.25 14.25 12 18 15.75 14.25"/><line class="a" x1="12" y1="6.75" x2="12" y2="18"/><circle class="a" cx="12" cy="12" r="11.25"/></svg></div></a></div><figure class="kg-card kg-image-card"><img src="../../content/images/2023/08/blockchain-graphic-g2--1-.jpg" class="kg-image" alt loading="lazy" width="1920" height="1198" srcset="../../content/images/size/w600/2023/08/blockchain-graphic-g2--1-.jpg 600w, ../../content/images/size/w1000/2023/08/blockchain-graphic-g2--1-.jpg 1000w, ../../content/images/size/w1600/2023/08/blockchain-graphic-g2--1-.jpg 1600w, ../../content/images/2023/08/blockchain-graphic-g2--1-.jpg 1920w" sizes="(min-width: 720px) 720px"></figure>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-espanol"><a href="../../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="https://sredevops.dev.br">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+    <li class="nav-chat"><a href="../../chat/index.html">Chat</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+        
+
+    </div>
+</footer>    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../assets/built/source.js%3Fv=9bf28501d9"></script>
+
+<style>
+    .gh-navigation-menu .nav-discord a,
+    .gh-navigation-menu .nav-facebook a,
+    .gh-navigation-menu .nav-github a,
+    .gh-navigation-menu .nav-instagram a,
+    .gh-navigation-menu .nav-linkedin a,
+    .gh-navigation-menu .nav-twitter a,
+    .gh-navigation-menu .nav-x a,
+    .gh-navigation-menu .nav-youtube a {
+        font-size: 0 !important;
+    }
+
+    .gh-navigation-menu .nav-discord a::before,
+    .gh-navigation-menu .nav-facebook a::before,
+    .gh-navigation-menu .nav-github a::before,
+    .gh-navigation-menu .nav-instagram a::before,
+    .gh-navigation-menu .nav-linkedin a::before,
+    .gh-navigation-menu .nav-twitter a::before,
+    .gh-navigation-menu .nav-x a::before,
+    .gh-navigation-menu .nav-youtube a::before {
+        font-family: "Font Awesome 6 Brands";
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .gh-navigation-menu .nav-discord a::before {content: "\f392"}
+    .gh-navigation-menu .nav-facebook a::before {content: "\f09a"}
+    .gh-navigation-menu .nav-github a::before {content: "\f09b"}
+    .gh-navigation-menu .nav-instagram a::before {content: "\f16d"}
+    .gh-navigation-menu .nav-linkedin a::before {content: "\f08c"}
+    .gh-navigation-menu .nav-twitter a::before {content: "\f099"}
+    .gh-navigation-menu .nav-x a::before {content: "\e61b"}
+    .gh-navigation-menu .nav-youtube a::before {content: "\f167"}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82bd199d1c996d5d","version":"2023.10.0","r":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","b":1}' crossorigin="anonymous"></script>
+</body>
+</html>
