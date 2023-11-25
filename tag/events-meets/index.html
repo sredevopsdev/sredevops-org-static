@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>Events and meets - SREDevOps.org</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+    <link rel="preload" as="script" href="../../assets/built/source.js%3Fv=9bf28501d9">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+
+    <style>
+        :root {
+            --background-color: #0b0019
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="../../content/images/size/w256h256/format/png/2023/10/SREDevOpsOrg-1.svg" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="SREDevOps.org">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Events and meets - SREDevOps.org">
+    <meta property="og:description" content="Comunidad Site Reliability Engineering (SRE), DevOps, Cloud Native, GNU/Linux, Platform Engineering y más.">
+    <meta property="og:url" content="https://sredevops.org/tag/events-meets/">
+    <meta property="og:image" content="https://sredevops.org/content/images/2023/11/bg-logo.png">
+    <meta property="article:publisher" content="https://www.facebook.com/sredevops">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Events and meets - SREDevOps.org">
+    <meta name="twitter:description" content="Comunidad Site Reliability Engineering (SRE), DevOps, Cloud Native, GNU/Linux, Platform Engineering y más.">
+    <meta name="twitter:url" content="https://sredevops.org/tag/events-meets/">
+    <meta name="twitter:image" content="https://sredevops.org/content/images/2023/11/bg-logo.png">
+    <meta name="twitter:site" content="@sredevopsorg">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Series",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SREDevOps.org",
+        "url": "https://sredevops.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/10/SREDevOpsOrg-h-2.svg"
+        }
+    },
+    "url": "https://sredevops.org/tag/events-meets/",
+    "name": "Events and meets",
+    "mainEntityOfPage": "https://sredevops.org/tag/events-meets/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.74">
+    <link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="index.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+    <script defer src="../../public/cards.min.js%3Fv=9bf28501d9"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=9bf28501d9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+
+<style>:root {--ghost-accent-color: #ffffff;}</style>
+
+</head>
+<body class="tag-template tag-events-meets has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="../../index.html">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-espanol"><a href="../../es/index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="../../br/index.html">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+<main class="gh-main gh-outer">
+
+        <section class="gh-archive has-sidebar gh-inner">
+            <div class="gh-archive-inner">
+                <header class="gh-archive-wrapper">
+                    <h1 class="gh-article-title is-title">Events and meets</h1>
+                </header>
+                            </div>
+        </section>
+
+    
+<section class="gh-container is-grid has-sidebar gh-outer">
+    <div class="gh-container-inner gh-inner">
+        
+
+        <main class="gh-main">
+            <div class="gh-feed">
+
+
+
+                        <article class="gh-card post tag-platform-engineering tag-hash-es tag-news tag-events-meets featured">
+    <a class="gh-card-link" href="../../es/platformcon-2023/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/08/platform--1-.jpg 160w,
+                           ../../content/images/size/w320/format/webp/2023/08/platform--1-.jpgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/08/platform--1-.jpgpg 600w,
+                         ../../content/images/size/w960/format/webp/2023/08/platform--1-.jpgjpg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/08/platform--1-.jpg.jpg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/08/platform--1-.jpg-.jpg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/08/platform--1-.jpg"
+                    alt="PlatformCon 2023: 8 y 9 de Junio, ¡participa!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">Platform Engineering</p>
+            <h3 class="gh-card-title is-title">PlatformCon 2023: 8 y 9 de Junio, ¡participa!</h3>
+                <p class="gh-card-excerpt is-body">PlatformCon 2023, es un evento en línea que reúne a profesionales y entusiastas de la tecnología en torno a los conceptos de "Platform Engineering", Site Reliability Engineering y el mundo del cloud computing.</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../platform-engineering/index.html">Platform Engineering</a> | <a href="../news/index.html">News</a> | <a href="index.html">Events and meets</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>
+            </div>
+        </main>
+
+            <aside class="gh-sidebar">
+                <div class="gh-sidebar-inner">
+                    <section class="gh-about">
+                            <img class="gh-about-icon" src="../../content/images/2023/10/SREDevOpsOrg-1.svg" alt="SREDevOps.org" loading="lazy">
+                        <h3 class="gh-about-title is-title">SREDevOps.org</h3>
+                            <p class="gh-about-description is-body">Site Reliability Engineering (SRE), DevOps, Cloud Native, GNU/Linux, Platform Engineering </p>
+                    </section>
+                        <section class="gh-recommendations">
+                            <h4 class="gh-sidebar-title">Recommendations</h4>
+                                <ul class="recommendations">
+        <li class="recommendation">
+            <a href="https://engage.isaca.org/santiagochapter/inicio/" data-recommendation="65566fd48d7bda00014eb8a6" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://higherlogicdownload.s3.amazonaws.com/ISACA/2eba75bf-f1e5-4817-ba97-0d500406d54e/UploadedImages/2020%20Favicon-32x32.png" alt="ISACA Santiago Chapter" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">ISACA Santiago Chapter</h5>
+                <span class="recommendation-url">engage.isaca.org/santiagochapter/inicio</span>
+                <p class="recommendation-description"></p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://app.snyk.io/share/9a148854-0f30-40bb-8a56-ae074608fb7e/" data-recommendation="6555b9598d7bda00014eb7fc" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://res.cloudinary.com/snyk/image/upload/v1468845142/favicon/apple-touch-icon.png" alt="Snyk - Secure your projects" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">Snyk - Secure your projects</h5>
+                <span class="recommendation-url">app.snyk.io/share/9a148854-0f30-40bb-8a56-ae074608fb7e</span>
+                <p class="recommendation-description">Snyk</p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://thenewstack.io/" data-recommendation="6555b57f8d7bda00014eb7fb" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://thenewstack.io/favicon.ico" alt="The New Stack" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">The New Stack</h5>
+                <span class="recommendation-url">thenewstack.io</span>
+                <p class="recommendation-description">The latest news and resources on cloud native technologies, distributed systems and data architectures with emphasis on DevOps and open source projects.</p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://www.devopsparadox.com/" data-recommendation="654ea3703c67ff0001cd695a" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://www.devopsparadox.com/apple-touch-icon.png" alt="DevOps Paradox" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">DevOps Paradox</h5>
+                <span class="recommendation-url">devopsparadox.com</span>
+                <p class="recommendation-description">DevOps Paradox</p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://netmaker.io/" data-recommendation="654ea29d3c67ff0001cd6959" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://uploads-ssl.webflow.com/64149f8bba6c1301c5e75001/641826f63c41852aed428edd_favicon.png" alt="Netmaker: Wireguard® VPN &amp; Software Defined Networking" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">Netmaker: Wireguard® VPN &amp; Software Defined Networking</h5>
+                <span class="recommendation-url">netmaker.io</span>
+                <p class="recommendation-description">Netmaker is a platform that uses Software Defined Networking (SDN) to build a powerful Wireguard VPN. Securely connect and manage a complex network with ease.</p>
+            </a>
+        </li>
+    </ul>
+
+                            <button data-portal="recommendations">See all <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></button>
+                        </section>
+                </div>
+            </aside>
+
+
+    </div>
+</section>
+</main>
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-espanol"><a href="../../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="https://sredevops.dev.br">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+    <li class="nav-chat"><a href="../../chat/index.html">Chat</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+        
+
+    </div>
+</footer>    
+</div>
+
+
+<script src="../../assets/built/source.js%3Fv=9bf28501d9"></script>
+
+<style>
+    .gh-navigation-menu .nav-discord a,
+    .gh-navigation-menu .nav-facebook a,
+    .gh-navigation-menu .nav-github a,
+    .gh-navigation-menu .nav-instagram a,
+    .gh-navigation-menu .nav-linkedin a,
+    .gh-navigation-menu .nav-twitter a,
+    .gh-navigation-menu .nav-x a,
+    .gh-navigation-menu .nav-youtube a {
+        font-size: 0 !important;
+    }
+
+    .gh-navigation-menu .nav-discord a::before,
+    .gh-navigation-menu .nav-facebook a::before,
+    .gh-navigation-menu .nav-github a::before,
+    .gh-navigation-menu .nav-instagram a::before,
+    .gh-navigation-menu .nav-linkedin a::before,
+    .gh-navigation-menu .nav-twitter a::before,
+    .gh-navigation-menu .nav-x a::before,
+    .gh-navigation-menu .nav-youtube a::before {
+        font-family: "Font Awesome 6 Brands";
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .gh-navigation-menu .nav-discord a::before {content: "\f392"}
+    .gh-navigation-menu .nav-facebook a::before {content: "\f09a"}
+    .gh-navigation-menu .nav-github a::before {content: "\f09b"}
+    .gh-navigation-menu .nav-instagram a::before {content: "\f16d"}
+    .gh-navigation-menu .nav-linkedin a::before {content: "\f08c"}
+    .gh-navigation-menu .nav-twitter a::before {content: "\f099"}
+    .gh-navigation-menu .nav-x a::before {content: "\e61b"}
+    .gh-navigation-menu .nav-youtube a::before {content: "\f167"}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82bd18cd3c986d5d","version":"2023.10.0","r":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","b":1}' crossorigin="anonymous"></script>
+</body>
+</html>

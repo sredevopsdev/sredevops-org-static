@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>Cómo desplegar Ghost (CMS/Blog) en Kubernetes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+    <link rel="preload" as="script" href="../../assets/built/source.js%3Fv=9bf28501d9">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+
+    <style>
+        :root {
+            --background-color: #0b0019
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="../../content/images/size/w256h256/format/png/2023/10/SREDevOpsOrg-1.svg" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="SREDevOps.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Cómo desplegar Ghost (CMS/Blog) en Kubernetes">
+    <meta property="og:description" content="Una solución simple para desplegar Ghost CMS en Kubernetes, probado en k3s.
+
+GitHub - sredevopsdev/ghost-on-kubernetes: Deploy an updated, full Ghost v5.x.x (Blog CMS from @TryGhost) on any Kubernetes (k3s, GKE, AKS, etc)Deploy an updated, full Ghost v5.x.x (Blog CMS from @TryGhost) on any Kubernetes">
+    <meta property="og:url" content="https://sredevops.org/es/como-desplegar-ghost-en-kubernetes/">
+    <meta property="og:image" content="https://sredevops.org/content/images/2023/11/ghost-1.png">
+    <meta property="article:published_time" content="2023-06-11T09:18:10.000Z">
+    <meta property="article:modified_time" content="2023-11-21T17:30:52.000Z">
+    <meta property="article:tag" content="Apps">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="OpenSource">
+    <meta property="article:tag" content="SREDevOps">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/sredevops">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cómo desplegar Ghost (CMS/Blog) en Kubernetes">
+    <meta name="twitter:description" content="Una solución simple para desplegar Ghost CMS en Kubernetes, probado en k3s.
+
+GitHub - sredevopsdev/ghost-on-kubernetes: Deploy an updated, full Ghost v5.x.x (Blog CMS from @TryGhost) on any Kubernetes (k3s, GKE, AKS, etc)Deploy an updated, full Ghost v5.x.x (Blog CMS from @TryGhost) on any Kubernetes">
+    <meta name="twitter:url" content="https://sredevops.org/es/como-desplegar-ghost-en-kubernetes/">
+    <meta name="twitter:image" content="https://sredevops.org/content/images/2023/11/ghost-1.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nicolás Georger">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Apps, Kubernetes, OpenSource, SREDevOps">
+    <meta name="twitter:site" content="@sredevopsorg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SREDevOps.org",
+        "url": "https://sredevops.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/10/SREDevOpsOrg-h-2.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nicolás Georger",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://sredevops.org/content/images/2023/09/perfil2.jpeg",
+            "width": 400,
+            "height": 400
+        },
+        "url": "https://sredevops.org/author/ngeorger/",
+        "sameAs": [
+            "https://sredevops.org"
+        ]
+    },
+    "headline": "Cómo desplegar Ghost (CMS/Blog) en Kubernetes",
+    "url": "https://sredevops.org/es/como-desplegar-ghost-en-kubernetes/",
+    "datePublished": "2023-06-11T09:18:10.000Z",
+    "dateModified": "2023-11-21T17:30:52.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://sredevops.org/content/images/2023/11/ghost-1.png",
+        "width": 1280,
+        "height": 640
+    },
+    "keywords": "Apps, Kubernetes, OpenSource, SREDevOps",
+    "description": "Una solución simple para desplegar Ghost CMS en Kubernetes, probado en k3s.\n\nGitHub - sredevopsdev/ghost-on-kubernetes: Deploy an updated, full Ghost v5.x.x (Blog CMS from @TryGhost) on any Kubernetes (k3s, GKE, AKS, etc)Deploy an updated, full Ghost v5.x.x (Blog CMS from @TryGhost) on any Kubernetes (k3s, GKE, AKS, etc) - GitHub - sredevopsdev/ghost-on-kubernetes: Deploy an updated, full Ghost v5.x.x (Blog CMS fro…GitHubsredevopsdev\n\n\nGhost on Kubernetes by SREDevOps\n\n\n\n\n\nThis repo deploys a cl",
+    "mainEntityOfPage": "https://sredevops.org/es/como-desplegar-ghost-en-kubernetes/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.74">
+    <link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="index.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+    <script defer src="../../public/cards.min.js%3Fv=9bf28501d9"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=9bf28501d9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+
+<style>:root {--ghost-accent-color: #ffffff;}</style>
+
+</head>
+<body class="post-template tag-hash-es tag-hash-en tag-apps tag-kubernetes tag-opensource tag-sredevops has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="../../index.html">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-espanol nav-current-parent"><a href="../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="../../br/index.html">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-hash-es tag-hash-en tag-apps tag-kubernetes tag-opensource tag-sredevops featured">
+
+        <header class="gh-article-header gh-canvas">
+
+
+            <h1 class="gh-article-title is-title">Cómo desplegar Ghost (CMS/Blog) en Kubernetes</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="../../author/ngeorger/index.html">
+                                <img class="author-profile-image" src="../../content/images/size/w160/2023/09/perfil2.jpeg" alt="Nicolás Georger" />
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+
+                    <h4 class="gh-article-author-name"><a href="../../author/ngeorger/index.html">Nicolás Georger</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="11-06-2023">11 de jun. de 2023</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 3 min read</span>
+                    </div>
+                </div>
+            </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="../../content/images/size/w320/2023/11/ghost-1.png 320w,
+                   ../../content/images/size/w600/2023/11/ghost-1.pngg 600w,
+                  ../../content/images/size/w960/2023/11/ghost-1.pngng 960w,
+                 ../../content/images/size/w1200/2023/11/ghost-1.pngpng 1200w,
+                ../../content/images/size/w2000/2023/11/ghost-1.png.png 2000w"
+            src="../../content/images/size/w1200/2023/11/ghost-1.png"
+            alt="Cómo desplegar Ghost (CMS/Blog) en Kubernetes"
+        >
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>Una solución simple para desplegar Ghost CMS en Kubernetes, probado en k3s.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/sredevopsdev/ghost-on-kubernetes?ref=sredevops.org"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - sredevopsdev/ghost-on-kubernetes: Deploy an updated, full Ghost v5.x.x (Blog CMS from @TryGhost) on any Kubernetes (k3s, GKE, AKS, etc)</div><div class="kg-bookmark-description">Deploy an updated, full Ghost v5.x.x (Blog CMS from @TryGhost) on any Kubernetes (k3s, GKE, AKS, etc) - GitHub - sredevopsdev/ghost-on-kubernetes: Deploy an updated, full Ghost v5.x.x (Blog CMS fro…</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.com/fluidicon.png" alt><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">sredevopsdev</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/00ef8e8a7d20b47793aab8255e4059a012fb49d60cbce6ecab515592329adce7/sredevopsdev/ghost-on-kubernetes" alt></div></a></figure><h1 id="ghost-on-kubernetes-by-sredevops">Ghost on Kubernetes by <a href="../../index.html">SREDevOps</a></h1>
+<p><a href="https://github.com/sredevopsdev/ghost-on-kubernetes/actions/workflows/build-custom-image.yaml?ref=sredevops.org"><img src="https://github.com/sredevopsdev/ghost-on-kubernetes/actions/workflows/build-custom-image.yaml/badge.svg" alt="Build and push image to DockerHub and GitHub Container Registry" loading="lazy"></a></p>
+<p>This repo deploys a clean Ghost CMS v5.xx.x from <a href="https://github.com/TryGhost/Ghost?ref=sredevops.org">@TryGhost (upstream)</a> in Kubernetes, as a Deployment using our <a href="https://github.com/sredevopsdev/ghost-on-kubernetes/blob/main/Dockerfile?ref=sredevops.org">custom image</a> built based on the <a href="https://github.com/docker-library/ghost/blob/master/5/debian/Dockerfile?ref=sredevops.org">"official" Ghost 5 debian image</a>, but with some modifications:</p>
+<ul>
+<li>We use the official Node 18 Hydrogen bookworm slim image as base.</li>
+<li>Removed gosu, we use the default user (node) to run Ghost.</li>
+<li>Modified the entrypoint to run as node user, so we can run the pod as non-root.</li>
+<li>Update every possible dependencies in the base image to minimize vulnerabilities.</li>
+<li>We update npm and ghost-cli to the latest versions on every build.</li>
+<li>We use the latest version of Ghost 5.</li>
+</ul>
+<blockquote>
+<p><em><em>Note: At this time, we dropped support for arm64 and armv7l, but we will add it back soon. Pull requests are welcome.</em></em></p>
+</blockquote>
+<h2 id="installation">Installation</h2>
+<h2 id="1-clone-the-repository">1. Clone the repository</h2>
+<pre><code class="language-bash"># Clone the repository
+git clone https://github.com/sredevopsdev/ghost-on-kubernetes.git
+# Change directory
+cd ghost-on-kubernetes
+# Checkout to your local branch (optional)
+git checkout -b my-branch
+
+</code></pre>
+<h2 id="2-review-the-default-values-and-make-changes-as-per-your-requirements-if-any-into-the-following-files">2. Review the default values and make changes as per your requirements, if any into the following files</h2>
+<ul>
+<li>deploy/00-namespace.yaml</li>
+<li>deploy/01-config.production.yaml # Check config.production.sample.json for more details</li>
+</ul>
+<pre><code class="language-yaml">config.production.sample.json: |
+{
+  "url": "http://localhost:2368", # Change the url as per your requirements
+  "admin": {
+    "url": "http://localhost:2368" # Change the url as per your requirements
+  },
+  "server": {
+    "port": 2368,
+    "host": "0.0.0.0"
+  },
+  "mail": {
+    "transport": "SMTP", # Or use Mailgun, etc.
+    "options": {
+      "service": "Google",
+      "host": "smtp.gmail.com",
+      "port": 465,
+      "secure": true,
+      "auth": {
+        "user": "<a href="../../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2a5f594f586a474b434604494547">[email&#160;protected]</a>",
+        "pass": "pass"
+      }
+    }
+  },
+  "logging": {
+    "transports": [
+      "stdout"
+    ]
+  },
+  "database": {
+    "client": "mysql",
+    "connection": 
+    {
+      "host": "mysql-ghostk3s", # Same as service name
+      "user": "userdb", # Same as in secret
+      "password": "passdb", # Same as in secret
+      "database": "db", # Same as in secret
+      "port": "3306"
+    }
+  },
+  "debug": true,
+  "process": "local",
+  "paths": {
+    "contentPath": "/var/lib/ghost/content"
+  }
+}
+
+
+</code></pre>
+<ul>
+<li>deploy/01-secrets.yaml</li>
+</ul>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-ghostk3s
+  namespace: ghostk3s
+type: Opaque
+stringData:
+  MYSQL_DATABASE: mysql-db-name # Same as in config.production.json
+  MYSQL_USER: mysql-db-user # Same as in config.production.json
+  MYSQL_PASSWORD: mysql-db-password # Same as in config.production.json
+  MYSQL_ROOT_PASSWORD: mysql-db-root-password # Same as in config.production.json
+</code></pre>
+<ul>
+<li>deploy/02-pvc.yaml # Change the storageClassName as per your requirements</li>
+<li>deploy/03-ingress.yaml # Change the hosts as per your requirements</li>
+<li>deploy/03-service.yaml</li>
+<li>deploy/04-mysql.yaml</li>
+<li>deploy/05-ghost-deployment.yaml</li>
+</ul>
+<h2 id="3-apply-your-manifests">3. Apply your manifests</h2>
+<pre><code class="language-bash"># Create the namespace
+kubectl apply -f deploy/00-namespace.yaml
+# Create the secrets
+kubectl apply -f deploy/01-secrets.yaml
+kubectl apply -f deploy/01-config.production.yaml
+# Create the persistent volume
+kubectl apply -f deploy/02-pvc.yaml
+# Create the ingress
+kubectl apply -f deploy/03-ingress.yaml
+# Create the services
+kubectl apply -f deploy/03-service.yaml
+# Create the MySQL database
+kubectl apply -f deploy/04-mysql.yaml
+# Create the Ghost deployment
+kubectl apply -f deploy/05-ghost-deployment.yaml
+</code></pre>
+<h2 id="4-access-your-ghost-cms">4. Access your Ghost CMS</h2>
+<pre><code class="language-bash"># Get the ingress IP address
+kubectl get ing -n ghostk3s -o wide 
+
+
+</code></pre>
+<h2 id="5-open-your-browser-and-access-the-ghost-cms">5. Open your browser and access the Ghost CMS</h2>
+<p><a href="http://localhost:2368/?ref=sredevops.org">http://localhost:2368</a></p>
+<h2 id="6-login-to-your-ghost-cms">6. Login to your Ghost CMS</h2>
+<p><a href="http://localhost:2368/ghost?ref=sredevops.org">http://localhost:2368/ghost</a></p>
+
+        </section>
+
+    </article>
+
+
+</main>
+
+
+
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-espanol"><a href="../../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="https://sredevops.dev.br">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+    <li class="nav-chat"><a href="../../chat/index.html">Chat</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+        
+
+    </div>
+</footer>    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../../assets/built/source.js%3Fv=9bf28501d9"></script>
+
+<style>
+    .gh-navigation-menu .nav-discord a,
+    .gh-navigation-menu .nav-facebook a,
+    .gh-navigation-menu .nav-github a,
+    .gh-navigation-menu .nav-instagram a,
+    .gh-navigation-menu .nav-linkedin a,
+    .gh-navigation-menu .nav-twitter a,
+    .gh-navigation-menu .nav-x a,
+    .gh-navigation-menu .nav-youtube a {
+        font-size: 0 !important;
+    }
+
+    .gh-navigation-menu .nav-discord a::before,
+    .gh-navigation-menu .nav-facebook a::before,
+    .gh-navigation-menu .nav-github a::before,
+    .gh-navigation-menu .nav-instagram a::before,
+    .gh-navigation-menu .nav-linkedin a::before,
+    .gh-navigation-menu .nav-twitter a::before,
+    .gh-navigation-menu .nav-x a::before,
+    .gh-navigation-menu .nav-youtube a::before {
+        font-family: "Font Awesome 6 Brands";
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .gh-navigation-menu .nav-discord a::before {content: "\f392"}
+    .gh-navigation-menu .nav-facebook a::before {content: "\f09a"}
+    .gh-navigation-menu .nav-github a::before {content: "\f09b"}
+    .gh-navigation-menu .nav-instagram a::before {content: "\f16d"}
+    .gh-navigation-menu .nav-linkedin a::before {content: "\f08c"}
+    .gh-navigation-menu .nav-twitter a::before {content: "\f099"}
+    .gh-navigation-menu .nav-x a::before {content: "\e61b"}
+    .gh-navigation-menu .nav-youtube a::before {content: "\f167"}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82bd15d1adc3648d","version":"2023.10.0","r":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","b":1}' crossorigin="anonymous"></script>
+</body>
+</html>

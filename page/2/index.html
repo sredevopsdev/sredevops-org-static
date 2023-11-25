@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>SREDevOps.org (Page 2)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+    <link rel="preload" as="script" href="../../assets/built/source.js%3Fv=9bf28501d9">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/built/screen.css%3Fv=9bf28501d9.css">
+
+    <style>
+        :root {
+            --background-color: #0b0019
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="../../content/images/size/w256h256/format/png/2023/10/SREDevOpsOrg-1.svg" type="image/png">
+    <link rel="canonical" href="../2.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="prev" href="../../index.html">
+    <link rel="next" href="../3/index.html">
+    <meta name="generator" content="Ghost 5.74">
+    <link rel="alternate" type="application/rss+xml" title="SREDevOps.org" href="../2.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="595a486a3b02389565a8881cd7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://sredevops.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://sredevops.org/webmentions/receive/" rel="webmention">
+    <script defer src="../../public/cards.min.js%3Fv=9bf28501d9"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=9bf28501d9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XFMLDJNT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6XFMLDJNT');
+</script>
+
+
+<style>:root {--ghost-accent-color: #ffffff;}</style>
+
+</head>
+<body class="paged has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="../../index.html">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-espanol"><a href="../../es/index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="../../br/index.html">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+        <section class="gh-header is-magazine gh-outer">
+        
+
+    <div class="gh-header-inner gh-inner">
+
+
+                    <article class="gh-card post tag-hash-es tag-devops featured">
+    <a class="gh-card-link" href="../../es/seguridad-en-ci-cd-y-pipelines-3-enfoques-faciles-para-la-seguridad-continua-y-que-no-digas-que-te-jakiaron/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/public.jpeg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/public.jpegg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/public.jpegeg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/public.jpegpeg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/public.jpegjpeg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/public.jpeg.jpeg 2000w"
+                    sizes="640px"
+                    src="../../content/images/size/w600/2023/10/public.jpeg"
+                    alt="Seguridad en CI/CD y Pipelines: 3 enfoques fáciles para la &quot;Seguridad Continua&quot; y que no digas que &quot;te jakiaron&quot;"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Seguridad en CI/CD y Pipelines: 3 enfoques fáciles para la &quot;Seguridad Continua&quot; y que no digas que &quot;te jakiaron&quot;</h3>
+                <p class="gh-card-excerpt is-body">"me jakiaron..."
+
+
+- Anónimo
+
+
+
+
+
+La seguridad de CI/CD es un tema cada vez más importante a medida que las pipelines de CI/CD se vuelven más complejas y su uso se extiende. Por lo superficies de ataque son dinámicas y requieren de un foco cultural y técnico, no sólo</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/devops/index.html">DevOps</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <div class="gh-header-left">
+                    <article class="gh-card post tag-hash-es tag-news featured">
+    <a class="gh-card-link" href="../../es/gnu-cumple-40-anos-pero-quien-es-ese-tal-nu-ya-lo-conoces-bien/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/40y.webp 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/40y.webpp 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/40y.webpbp 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/40y.webpebp 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/40y.webpwebp 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/40y.webp.webp 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/40y.webp"
+                    alt="¡GNU cumple 40 años! 🎉... ¿Pero quién es ese tal Ñu? 🤔 Ya lo conoces bien!"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">¡GNU cumple 40 años! 🎉... ¿Pero quién es ese tal Ñu? 🤔 Ya lo conoces bien!</h3>
+                <p class="gh-card-excerpt is-body">Cuarenta años de GNU y el movimiento del software libre
+
+GNU, el sistema operativo Unix-like de software libre, cumple 40 años este año. ¡Así es, 40 años de libertad para ejecutar, copiar, distribuir, estudiar, cambiar y mejorar nuestro software! Para celebrarlo, la Free Software Foundation (FSF) organiza un evento especial</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/news/index.html">News</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <article class="gh-card post tag-hash-br tag-opensource tag-infraestructura">
+    <a class="gh-card-link" href="../../br/terraform-esta-morto-viva-o-opentf/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/on-dark.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/on-dark.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/on-dark.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/on-dark.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/on-dark.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/on-dark.pngk.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/on-dark.png"
+                    alt="Terraform está morto, viva o OpenTF!"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Terraform está morto, viva o OpenTF!</h3>
+                <p class="gh-card-excerpt is-body">(Ou porque a comunidade Open Source é tão importante)
+
+
+Neste momento histórico, em que a tecnologia está a transformar rapidamente o nosso mundo, é essencial que os indivíduos e as organizações se comprometam a promover práticas éticas e sustentáveis no seu desenvolvimento e utilização .
+
+
+Você pode ver os detalhes do</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/opensource/index.html">OpenSource</a> | <a href="../../tag/infraestructura/index.html">Infraestructura</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <article class="gh-card post tag-hash-br tag-opensource">
+    <a class="gh-card-link" href="../../br/licencas-opensource-o-que-significam-e-como-posso-usa-las/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpg 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpgpg 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpgjpg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpg.jpg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpgh.jpg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpg"
+                    alt="Licenças OpenSource, o que significam e como posso usá-las?"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Licenças OpenSource, o que significam e como posso usá-las?</h3>
+                <p class="gh-card-excerpt is-body">Aqui mostramos um quadro resumido das 10 licenças mais utilizadas dentro do Open Source e quais são suas principais características quanto ao seu uso em nossos projetos.
+
+
+
+Licenças OpenSource: tabela comparativa
+
+
+Nome da licença Iniciais Permissivo/Copyleft Reuso? Modificar? Uso comercial? Patentes Licença Apache 2.0 Apache2 Permissivo Sim Sim</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/opensource/index.html">OpenSource</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    </div>
+                    <div class="gh-header-right">
+                    <article class="gh-card post tag-hash-es tag-opinion tag-opensource featured">
+    <a class="gh-card-link" href="../../es/licencias-opensource-que-significan-y-como-puedo-utilizarlas/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpg 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpgpg 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpgjpg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpg.jpg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpgh.jpg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/markus-spiske-iar-afB0QQw-unsplash.jpg"
+                    alt="Licencias OpenSource, qué significan y cómo puedo utilizarlas?"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Licencias OpenSource, qué significan y cómo puedo utilizarlas?</h3>
+                <p class="gh-card-excerpt is-body">Aquí te mostramos una tabla resumen de las 10 licencias más utilizadas dentro del Open Source y cuáles son sus principales características respecto a su uso en nuestros proyectos.
+
+
+Licencias OpenSource: Tabla comparativa
+
+
+
+
+
+Nombre licencia
+Sigla
+Perm?
+Reutilizar?
+Modificar?
+Uso comercial?
+Patentes
+
+
+
+
+Apache License 2.0
+Apache 2
+Permisiva
+Si</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/opinion/index.html">Opinion</a> | <a href="../../tag/opensource/index.html">OpenSource</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <article class="gh-card post tag-hash-br tag-memes tag-videos">
+    <a class="gh-card-link" href="../../br/repo-com-microservices-project-feat-display-birthday-in-cfg/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/Screenshot-2023-09-03-at-09.07.24.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/Screenshot-2023-09-03-at-09.07.24.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/Screenshot-2023-09-03-at-09.07.24.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/Screenshot-2023-09-03-at-09.07.24.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/Screenshot-2023-09-03-at-09.07.24.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/Screenshot-2023-09-03-at-09.07.24.png4.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/Screenshot-2023-09-03-at-09.07.24.png"
+                    alt="repo.com/microservices-project/feat/display-birthday-in-cfg"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">repo.com/microservices-project/feat/display-birthday-in-cfg</h3>
+                <p class="gh-card-excerpt is-body">"Ainda não entendo por que é tão difícil exibir a data de aniversário.
+na página de configurações... Por que não podemos implementar esse recurso neste trimestre?"
+
+
+Imperdível se você ainda não viu ;)</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/memes/index.html">Memes y humor</a> | <a href="../../tag/videos/index.html">Videos</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    <article class="gh-card post tag-hash-es tag-infraestructura tag-cloud tag-news tag-sre tag-devops featured">
+    <a class="gh-card-link" href="../../es/terraform-ha-muerto-larga-vida-a-opentf/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/on-dark.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/on-dark.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/on-dark.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/on-dark.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/on-dark.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/on-dark.pngk.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/on-dark.png"
+                    alt="Terraform ha muerto, ¡Larga vida a OpenTF!"
+                    
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Terraform ha muerto, ¡Larga vida a OpenTF!</h3>
+                <p class="gh-card-excerpt is-body">(O del por qué es tan importante la comunidad Open Source)
+
+En este momento histórico, en que la tecnología está transformando rápidamente nuestro mundo, es fundamental que las personas y organizaciones se comprometan a promover prácticas éticas y sostenibles en su desarrollo y uso.
+
+Puedes ver klos detalles del roadmap</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                Tags:<a href="../../tag/infraestructura/index.html">Infraestructura</a> | <a href="../../tag/cloud/index.html">Cloud</a> | <a href="../../tag/news/index.html">News</a> | <a href="../../tag/sre/index.html">SRE</a> | <a href="../../tag/devops/index.html">DevOps</a>
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                    </div>
+
+
+
+    </div>
+
+</section>
+
+    
+
+
+<section class="gh-container is-grid has-sidebar gh-outer">
+    <div class="gh-container-inner gh-inner">
+        
+            <h2 class="gh-container-title">
+                Recientes
+            </h2>
+
+        <main class="gh-main">
+            <div class="gh-feed">
+
+                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../br/9-cenarios-onde-implementamos-a-cultura-devops/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fHNjZW5hcmlvc3xlbnwwfHx8fDE2ODQ3MjczNDd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="9 cenários onde implementamos a cultura DevOps"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">9 cenários onde implementamos a cultura DevOps</h3>
+                <p class="gh-card-excerpt is-body">“A arte do DevOps” reconhece 9 cenários nos quais podemos implementar a cultura DevOps:
+
+1- Plano
+2- Codificar/Desenvolver
+3- Construir (Edifício)
+4- Teste/Teste
+5- Liberação
+6- Implementar
+7- Operar
+8- Monitorar
+9- Pipeline CI/CD
+
+A Arte do DevOps — As 9 SituaçõesCapítulo 11 — Fases do ciclo de vida</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured no-image">
+    <a class="gh-card-link" href="../../es/devops-el-salto-evolutivo-a-platform-engineering/index.html">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">DevOps: El salto evolutivo a Platform Engineering</h3>
+                <p class="gh-card-excerpt is-body">Éste salto no debe entenderse como un reemplazo o cambio a las culturas DevOps, es más bien una implementación que está surgiendo como una evolución incremental a DevOps bajo ciertos contextos y organizaciones, más que una
+
+
+Desde las raíces: Entender DevOps
+
+DevOps revolucionó la forma en que los equipos diseñan,</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../en/the-dangerous-success-theater-how-vulnerable-organizations-allow-narcissists-to-thrive/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/office.jpg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/office.jpgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/office.jpgpg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/office.jpgjpg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/office.jpg.jpg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/office.jpge.jpg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/office.jpg"
+                    alt="The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">The Dangerous Success Theater: How Vulnerable Organizations Allow Narcissists to Thrive</h3>
+                <p class="gh-card-excerpt is-body">In today’s corporate landscape, a concerning phenomenon emerges: the “success theater”, a façade that conceals an organization’s underlying vulnerabilities. Amplifying this concern is how susceptible organizations become fertile ground for narcissistic leaders, setting the stage for potentially catastrophic consequences.
+
+The Success Theater: “The success theater refers to an</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/lacuna-critica-de-seguranca-usada-em-milhares-de-ambientes-e-revelada-no-nginx-ingress-cve-2023-5043-injecao-de-anotacao-causa-execucao-arbitraria-de-comandos/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgpg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgjpg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg.jpg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg8.jpg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg"
+                    alt="Lacuna crítica de segurança, usada em milhares de ambientes, é revelada no nginx-ingress [CVE-2023-5043: injeção de anotação causa execução arbitrária de comandos]"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Lacuna crítica de segurança, usada em milhares de ambientes, é revelada no nginx-ingress [CVE-2023-5043: injeção de anotação causa execução arbitrária de comandos]</h3>
+                <p class="gh-card-excerpt is-body">Se você usa o nginx como controlador de entrada e mantém configurações por meio de anotações, revise este alerta publicado no Grupo "Oficial" do Google do Kubernetess:, hoje, 25 de outubro de 2023:
+
+
+
+
+
+Issue Details
+
+
+A security issue was identified in ingress-nginx where the nginx.ingress.kubernetes.io/configuration-snippet annotation</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../es/brecha-critica-de-seguridad-usada-en-miles-de-entornos-es-revelada-en-nginx-ingress-cve-2023-5043-annotation-injection-causes-arbitrary-command-execution/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgpg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpgjpg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg.jpg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg8.jpg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/0123_06_Linux-Container-Escapes_Blog_1060x698.jpg"
+                    alt="Imagen de: Crowdstrike"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Brecha crítica  de seguridad,  usada en miles de entornos, es revelada en nginx-ingress [CVE-2023-5043: annotation injection causes arbitrary command execution]</h3>
+                <p class="gh-card-excerpt is-body">Si utilizas nginx como ingress controller y mantienes configuraciones via annottations, debes revisar esta alerta publicada en Kubernetess "Official" Google Group:, hoy 25 de Octubre 2023:
+
+
+
+
+
+Issue Details
+
+
+A security issue was identified in ingress-nginx where the nginx.ingress.kubernetes.io/configuration-snippet annotation on an Ingress object (in the networking.</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/opentf-agora-e-opentofu-e-faz-parte-da-linux-foundation-agora-voce-pode-usar-o-primeiro-alfa/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/tofu-insurance.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/tofu-insurance.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/tofu-insurance.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/tofu-insurance.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/tofu-insurance.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/tofu-insurance.pnge.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/tofu-insurance.png"
+                    alt="OpenTF agora é OpenTofu e faz parte da Linux Foundation, agora você pode usar o primeiro alfa!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">OpenTF agora é OpenTofu e faz parte da Linux Foundation, agora você pode usar o primeiro alfa!</h3>
+                <p class="gh-card-excerpt is-body">Recentemente contamos por que o Terraform estava morto - pelo menos para a comunidade Open Source -, por que a confiança e a responsabilidade de todos os atores do ecossistema de código aberto são importantes. Aqui você pode ver nosso post sobre a Morte do Terraform .
+
+
+Vamos direto ao ponto</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../es/opentf-ahora-es-opentofu-y-es-parte-de-linux-foundation-ya-puedes-usar-el-primer-alpha/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/tofu-insurance.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/tofu-insurance.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/tofu-insurance.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/tofu-insurance.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/tofu-insurance.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/tofu-insurance.pnge.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/tofu-insurance.png"
+                    alt="OpenTF ahora es OpenTofu y es parte de Linux Foundation, ¡ya puedes usar el primer alpha!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">OpenTF ahora es OpenTofu y es parte de Linux Foundation, ¡ya puedes usar el primer alpha!</h3>
+                <p class="gh-card-excerpt is-body">Hace poco te contábamos por qué Terraform estaba muerto -al menos para la comunidad Open Source-, el por qué es importante la confianza y la responsabilidad de todos los actores en el ecosistema de código abierto. Aquí puedes ver nuestra publicación de la muerte de Terraform.
+
+
+Vamos al grano
+
+Ya</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/seguranca-em-ci-cd-e-pipelines-3-abordagens-faceis-para-seguranca-continua-e-nao-diga-que-voce-foi-roubado/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/public.jpeg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/public.jpegg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/public.jpegeg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/public.jpegpeg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/public.jpegjpeg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/public.jpeg.jpeg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/public.jpeg"
+                    alt="Segurança em CI/CD e Pipelines: 3 abordagens fáceis para &quot;Segurança Contínua&quot;"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Segurança em CI/CD e Pipelines: 3 abordagens fáceis para &quot;Segurança Contínua&quot;</h3>
+                <p class="gh-card-excerpt is-body">A segurança de CI/CD é um tópico cada vez mais importante à medida que os pipelines de CI/CD se tornam mais complexos e seu uso se expande. Portanto , as superfícies de ataque são dinâmicas e exigem um foco cultural e técnico, não possuindo apenas processos tediosos e muitas</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/gnu-completa-40-anos-mas-quem-e-esse-tal-do-gnu-voce-ja-o-conhece-bem/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/40y.webp 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/40y.webpp 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/40y.webpbp 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/40y.webpebp 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/40y.webpwebp 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/40y.webp.webp 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/40y.webp"
+                    alt="GNU completa 40 anos! 🎉... Mas quem é esse tal do Gnu? 🤔 Você já o conhece bem!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">GNU completa 40 anos! 🎉... Mas quem é esse tal do Gnu? 🤔 Você já o conhece bem!</h3>
+                <p class="gh-card-excerpt is-body">Quarenta anos de GNU e o movimento do software livre
+GNU, o sistema operacional de software livre semelhante ao Unix, completa 40 anos este ano. Isso mesmo, 40 anos de liberdade para rodar, copiar, distribuir, estudar, alterar e melhorar nossos softwares! Para comemorar, a Free Software Foundation (FSF) realizará um</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../es/seguridad-en-ci-cd-y-pipelines-3-enfoques-faciles-para-la-seguridad-continua-y-que-no-digas-que-te-jakiaron/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/10/public.jpeg 160w,
+                           ../../content/images/size/w320/format/webp/2023/10/public.jpegg 320w,
+                          ../../content/images/size/w600/format/webp/2023/10/public.jpegeg 600w,
+                         ../../content/images/size/w960/format/webp/2023/10/public.jpegpeg 960w,
+                        ../../content/images/size/w1200/format/webp/2023/10/public.jpegjpeg 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/10/public.jpeg.jpeg 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/10/public.jpeg"
+                    alt="Seguridad en CI/CD y Pipelines: 3 enfoques fáciles para la &quot;Seguridad Continua&quot; y que no digas que &quot;te jakiaron&quot;"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Seguridad en CI/CD y Pipelines: 3 enfoques fáciles para la &quot;Seguridad Continua&quot; y que no digas que &quot;te jakiaron&quot;</h3>
+                <p class="gh-card-excerpt is-body">"me jakiaron..."
+
+
+- Anónimo
+
+
+
+
+
+La seguridad de CI/CD es un tema cada vez más importante a medida que las pipelines de CI/CD se vuelven más complejas y su uso se extiende. Por lo superficies de ataque son dinámicas y requieren de un foco cultural y técnico, no sólo</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post featured">
+    <a class="gh-card-link" href="../../es/gnu-cumple-40-anos-pero-quien-es-ese-tal-nu-ya-lo-conoces-bien/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/40y.webp 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/40y.webpp 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/40y.webpbp 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/40y.webpebp 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/40y.webpwebp 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/40y.webp.webp 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/40y.webp"
+                    alt="¡GNU cumple 40 años! 🎉... ¿Pero quién es ese tal Ñu? 🤔 Ya lo conoces bien!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">¡GNU cumple 40 años! 🎉... ¿Pero quién es ese tal Ñu? 🤔 Ya lo conoces bien!</h3>
+                <p class="gh-card-excerpt is-body">Cuarenta años de GNU y el movimiento del software libre
+
+GNU, el sistema operativo Unix-like de software libre, cumple 40 años este año. ¡Así es, 40 años de libertad para ejecutar, copiar, distribuir, estudiar, cambiar y mejorar nuestro software! Para celebrarlo, la Free Software Foundation (FSF) organiza un evento especial</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>                                    <article class="gh-card post">
+    <a class="gh-card-link" href="../../br/terraform-esta-morto-viva-o-opentf/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="../../content/images/size/w160/format/webp/2023/09/on-dark.png 160w,
+                           ../../content/images/size/w320/format/webp/2023/09/on-dark.pngg 320w,
+                          ../../content/images/size/w600/format/webp/2023/09/on-dark.pngng 600w,
+                         ../../content/images/size/w960/format/webp/2023/09/on-dark.pngpng 960w,
+                        ../../content/images/size/w1200/format/webp/2023/09/on-dark.png.png 1200w,
+                       ../../content/images/size/w2000/format/webp/2023/09/on-dark.pngk.png 2000w"
+                    sizes="320px"
+                    src="../../content/images/size/w600/2023/09/on-dark.png"
+                    alt="Terraform está morto, viva o OpenTF!"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Terraform está morto, viva o OpenTF!</h3>
+                <p class="gh-card-excerpt is-body">(Ou porque a comunidade Open Source é tão importante)
+
+
+Neste momento histórico, em que a tecnologia está a transformar rapidamente o nosso mundo, é essencial que os indivíduos e as organizações se comprometam a promover práticas éticas e sustentáveis no seu desenvolvimento e utilização .
+
+
+Você pode ver os detalhes do</p>
+            <footer class="gh-card-meta"><!--
+            --> 
+                
+<!--
+<!--
+        --></footer>
+        </div>
+    </a>
+</article>
+
+
+            </div>
+        </main>
+
+            <aside class="gh-sidebar">
+                <div class="gh-sidebar-inner">
+                    <section class="gh-about">
+                            <img class="gh-about-icon" src="../../content/images/2023/10/SREDevOpsOrg-1.svg" alt="SREDevOps.org" loading="lazy">
+                        <h3 class="gh-about-title is-title">SREDevOps.org</h3>
+                            <p class="gh-about-description is-body">Site Reliability Engineering (SRE), DevOps, Cloud Native, GNU/Linux, Platform Engineering </p>
+                    </section>
+                        <section class="gh-recommendations">
+                            <h4 class="gh-sidebar-title">Recommendations</h4>
+                                <ul class="recommendations">
+        <li class="recommendation">
+            <a href="https://engage.isaca.org/santiagochapter/inicio/" data-recommendation="65566fd48d7bda00014eb8a6" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://higherlogicdownload.s3.amazonaws.com/ISACA/2eba75bf-f1e5-4817-ba97-0d500406d54e/UploadedImages/2020%20Favicon-32x32.png" alt="ISACA Santiago Chapter" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">ISACA Santiago Chapter</h5>
+                <span class="recommendation-url">engage.isaca.org/santiagochapter/inicio</span>
+                <p class="recommendation-description"></p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://app.snyk.io/share/9a148854-0f30-40bb-8a56-ae074608fb7e/" data-recommendation="6555b9598d7bda00014eb7fc" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://res.cloudinary.com/snyk/image/upload/v1468845142/favicon/apple-touch-icon.png" alt="Snyk - Secure your projects" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">Snyk - Secure your projects</h5>
+                <span class="recommendation-url">app.snyk.io/share/9a148854-0f30-40bb-8a56-ae074608fb7e</span>
+                <p class="recommendation-description">Snyk</p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://thenewstack.io/" data-recommendation="6555b57f8d7bda00014eb7fb" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://thenewstack.io/favicon.ico" alt="The New Stack" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">The New Stack</h5>
+                <span class="recommendation-url">thenewstack.io</span>
+                <p class="recommendation-description">The latest news and resources on cloud native technologies, distributed systems and data architectures with emphasis on DevOps and open source projects.</p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://www.devopsparadox.com/" data-recommendation="654ea3703c67ff0001cd695a" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://www.devopsparadox.com/apple-touch-icon.png" alt="DevOps Paradox" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">DevOps Paradox</h5>
+                <span class="recommendation-url">devopsparadox.com</span>
+                <p class="recommendation-description">DevOps Paradox</p>
+            </a>
+        </li>
+        <li class="recommendation">
+            <a href="https://netmaker.io/" data-recommendation="654ea29d3c67ff0001cd6959" target="_blank" rel="noopener">
+                <div class="recommendation-favicon">
+                        <img src="https://uploads-ssl.webflow.com/64149f8bba6c1301c5e75001/641826f63c41852aed428edd_favicon.png" alt="Netmaker: Wireguard® VPN &amp; Software Defined Networking" loading="lazy" onerror="this.style.display='none';">
+                </div>
+                <h5 class="recommendation-title">Netmaker: Wireguard® VPN &amp; Software Defined Networking</h5>
+                <span class="recommendation-url">netmaker.io</span>
+                <p class="recommendation-description">Netmaker is a platform that uses Software Defined Networking (SDN) to build a powerful Wireguard VPN. Securely connect and manage a complex network with ease.</p>
+            </a>
+        </li>
+    </ul>
+
+                            <button data-portal="recommendations">See all <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></button>
+                        </section>
+                </div>
+            </aside>
+
+            <div class="gh-more is-title">
+                <a href="../2.html">See all <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></a>
+            </div>
+
+    </div>
+</section>
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="../../content/images/2023/10/SREDevOpsOrg-h-2.svg" alt="SREDevOps.org">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-espanol"><a href="../../index.html">Español 🇨🇱 🇪🇸 🇲🇽 </a></li>
+    <li class="nav-brasil"><a href="https://sredevops.dev.br">Brasil 🇧🇷 🇵🇹</a></li>
+    <li class="nav-english"><a href="../../en/index.html">English 🇬🇧 🇺🇸</a></li>
+    <li class="nav-nosotros"><a href="../../que-es-sredevops/index.html">Nosotros</a></li>
+    <li class="nav-github"><a href="https://github.com/sredevopsdev">Github</a></li>
+    <li class="nav-discord"><a href="https://discord.com/invite/bK9rXFTvpk">Discord</a></li>
+    <li class="nav-linkedin"><a href="https://www.linkedin.com/company/sredevops/">LinkedIn</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/sredevopsorg">Twitter</a></li>
+    <li class="nav-instagram"><a href="https://www.instagram.com/sredevopsorg/">Instagram</a></li>
+    <li class="nav-chat"><a href="../../chat/index.html">Chat</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+        
+
+    </div>
+</footer>    
+</div>
+
+
+<script src="../../assets/built/source.js%3Fv=9bf28501d9"></script>
+
+<style>
+    .gh-navigation-menu .nav-discord a,
+    .gh-navigation-menu .nav-facebook a,
+    .gh-navigation-menu .nav-github a,
+    .gh-navigation-menu .nav-instagram a,
+    .gh-navigation-menu .nav-linkedin a,
+    .gh-navigation-menu .nav-twitter a,
+    .gh-navigation-menu .nav-x a,
+    .gh-navigation-menu .nav-youtube a {
+        font-size: 0 !important;
+    }
+
+    .gh-navigation-menu .nav-discord a::before,
+    .gh-navigation-menu .nav-facebook a::before,
+    .gh-navigation-menu .nav-github a::before,
+    .gh-navigation-menu .nav-instagram a::before,
+    .gh-navigation-menu .nav-linkedin a::before,
+    .gh-navigation-menu .nav-twitter a::before,
+    .gh-navigation-menu .nav-x a::before,
+    .gh-navigation-menu .nav-youtube a::before {
+        font-family: "Font Awesome 6 Brands";
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .gh-navigation-menu .nav-discord a::before {content: "\f392"}
+    .gh-navigation-menu .nav-facebook a::before {content: "\f09a"}
+    .gh-navigation-menu .nav-github a::before {content: "\f09b"}
+    .gh-navigation-menu .nav-instagram a::before {content: "\f16d"}
+    .gh-navigation-menu .nav-linkedin a::before {content: "\f08c"}
+    .gh-navigation-menu .nav-twitter a::before {content: "\f099"}
+    .gh-navigation-menu .nav-x a::before {content: "\e61b"}
+    .gh-navigation-menu .nav-youtube a::before {content: "\f167"}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82bd11c62e66648d","version":"2023.10.0","r":1,"token":"4b7d344e28074a9d989f2efbdbc68ebc","b":1}' crossorigin="anonymous"></script>
+</body>
+</html>
